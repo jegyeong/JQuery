@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>checkbox_prop</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script>
+			/*버튼을 클릭하면, 선택된 값을 가져와보세요. (value값)*/
+			$(function(){
+				$("button").on("click",function(){
+					var result = "";
+					//var txt = $("input[type=radio]:checked").val();
+					//alert(txt);
+					/*힌트*/
+					//$("label[for=gender_female]").text()  // 여자 
+					result += 
+					$("label[for="+$("input[type=radio]:checked").attr("id")+"]").text() 
+										
+					//처음에 체크된 값만 가져온다 
+				/* 	var chTxt = $("input[type=checkbox]:checked").val();
+					alert(chTxt); */ 
+					
+					//체크된 모든 값을 가져온다 
+					$.each($("input[type=checkbox]:checked"), function(i) {
+						if(i>0) result += ",";
+						result += $(this).val();
+					});
+					
+					/*textarea안에 radio버튼 선택된 값과 checkbox선택된 값을 넣어보세요
+					 예시) 당신은 남자이고 낚시,운동을 좋아합니다. (취미가 여러개일 경우 ,구분)
+					          당신은 여자이고 좋아하는 것이 없습니다. 
+					*/
+					$("textarea").val(result);
+					
+					return false;			
+				});	
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="radio" name="gender" id="gender_male" value="male">
+			<label for="gender_male">남자</label><br>
+			
+			<input type="radio" name="gender"  id="gender_female" value="female">
+			<label for="gender_female">여자</label>
+		
+			
+			<hr>
+			<input type="checkbox" name="hobby" value="여행"> 여행<br>
+			<input type="checkbox" name="hobby" value="낚시"> 낚시<br>
+			<input type="checkbox" name="hobby" value="영화보기"> 영화보기<br>
+			<input type="checkbox" name="hobby" value="먹기"> 먹기<br>
+			<input type="checkbox" name="hobby" value="운동"> 운동<br>
+			
+			<textarea rows="10" cols="30"></textarea>
+			
+			<button>확인</button>
+		</form>
+	</body>
+</html>
+
+
+
+
+

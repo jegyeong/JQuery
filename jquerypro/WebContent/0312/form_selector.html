@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form 선택자</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				var str = "";
+				$("#btnview").click(function(){
+					/*
+						val()메소드를 이용하여 입력하거나 선택된 값을 가져오기 
+						radio선택된 값 가져오기 : $(":radio:checked").val();
+						select선택한 값(option) : $("#work :selected").val();
+					*/
+					
+					str += $("#userName").val()+"\n";
+					//str	+= $("#gender:checked").val()+"\n";
+					str	+= $("#gender").val()+"\n";
+					str += $("#intro").val()+"\n";
+					//str += $("#work :selected").val()+"\n";
+					str += $("#work").val()+"\n";
+					
+					
+					alert(str);
+				});				
+			});
+		</script>
+	</head>
+	<body>
+		<form>
+			이름 : <input type="text" id="userName" value="name"><br>
+			성별 : <input type="radio" id="gender" name="gender" value="male">남자 ,
+			     <input type="radio" id="gender" name="gender" value="female">여자<br>
+			     
+			소개 :<textarea rows="4" cols="40" id="intro"></textarea><br>
+			직업 :<select id="work">
+					<option value="programmer">프로그래머</option>
+					<option value="student">학생</option>
+					<option value="worker">공무원</option>
+					<option value="noWorker">백수</option>
+			    </select>
+			 
+			 <input type="button" id="btnview" value="전송">   
+			     
+		
+		</form>
+	</body>
+</html>
+
+
+
+
+
+

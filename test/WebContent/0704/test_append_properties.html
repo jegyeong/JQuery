@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+
+<script>
+ $(function(){
+	  //버튼 클릭시 
+	   /* var i =0;
+	   $('button').click(function(){
+		    $('<p/>', { 
+		    	'text' : '클릭하세요'+(i++),
+		    	'click' : function(){
+		    		//$(this).css('font-size', '25px').css('color', 'red');
+		    		$(this).hide();
+		    	}
+		    }).appendTo('body');
+	  })  */
+	  
+	  
+	    $('button').click(function(){
+		 $("<p>p태그입니다.</p>").appendTo('body');; 
+	  });
+	   
+	  /* $("p").click(function(){
+		 $(this).hide(); 		  
+	  });  */
+	  
+	  $( "body" ).delegate( "p", "click", function() {
+		  $(this).hide(); 
+		}); 
+  })
+</script>
+<style>
+ span {
+  color : red;
+ }
+ span#pro{
+   color : blue;
+ }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+<span>$(“html”, {propertis})</span><br>
+인수로 전달된 html문자열로 새로운 엘리먼트를 직접 생성한다 <br>
+생성된 엘리먼트를 DOM트리의 원하는 부분에 삽입하여 실행중에 문서를 만들 수 있다 <br>
+ <span id="pro"> propertis 는새로만들어진 요소의 속성, 이벤트, 함수 등을 지정</span> <br>
+ <br>
+$('button').click(function(){ <br>
+	&nbsp;&nbsp; $('&lt;div/&gt;', { <br>
+	&nbsp;&nbsp;&nbsp;	'text' : '클릭하세요',<br>
+	&nbsp;&nbsp;&nbsp;	'click' : function(){<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).css('font-size', '25px').css('color', 'red');<br>
+	&nbsp;&nbsp;&nbsp;		}<br>
+	&nbsp;&nbsp;  }).appendTo('body');<br>
+	   })<br>
+
+<br>
+추가버튼을 클릭하면 div태그의 클릭하세요 문자가 생성되고 <br>
+문자를 클릭하면 폰트사이즈와 클자색상이 바뀐다<br>
+<hr color='blue'>
+<p> 헬로우 ~~~ </p>
+<button>추가</button>
+<p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

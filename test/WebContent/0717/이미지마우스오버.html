@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Test</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                 
+                var xOffset = 10;
+                var yOffset = 30;
+
+                $(document).on("mouseover",".thumbnail",function(e){ 
+					
+					$("body").append("<p id='preview'><img src='"+ $(this).attr("src") +"' width='400px' /></p>"); 
+					$("#preview")
+						.css("top",(e.pageY - xOffset) + "px")
+						.css("left",(e.pageX + yOffset) + "px")
+						.fadeIn("fast"); 
+				});
+				
+				$(document).on("mousemove",".thumbnail",function(e){ 
+					$("#preview")
+						.css("top",(e.pageY - xOffset) + "px")
+						.css("left",(e.pageX + yOffset) + "px");
+				});
+				
+				$(document).on("mouseout",".thumbnail",function(){
+					$("#preview").remove();
+				});
+                 
+            });
+        </script>
+            
+		<style>
+			#preview{
+				z-index: 9999;
+				position:absolute;
+				border:0px solid #ccc;
+				background:#333;
+				padding:1px;
+				display:none;
+				color:#fff;
+			}
+		</style>
+    </head>
+     
+    <body>
+        <img src="../images/대나무숲.jpg" class="thumbnail" height='50px' />
+    </body>
+</html>

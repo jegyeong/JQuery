@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('#bempty').click(function(){
+		 $('div').empty();  //div는  지우지 않고 자식들만 지운다 
+	})
+	$('#bremove').click(function(){
+		 $('div').remove();  //div와 안에 자식들를 지운다 
+	})
+	
+	$('p.pp').click(function(){
+		 $(this).css('font-size', '+=2px');
+	})
+	
+	$('#bbremove').click(function(){
+		
+		//p태그 p2를 삭제하고  body에 append 
+		$('body').append($('#p2').remove());
+		
+	})
+	$('#bdetach').click(function(){
+		//p태그 p1를  삭제 하고 body에 append
+		$('body').append($('#p1').detach());
+	})
+	
+	
+})
+</script>
+<style>
+   div {
+      width : 300px;
+      height : 200px;
+      background : yellow;
+   }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+empty() : 비우기 , 자식만 지운다<br>
+remove() : 삭제 , 자신을 포함해서 자식을 지운다 <br>
+<br>
+remove() : 삭제시 이벤트도 삭제  <br>
+detache() : 삭제시 이벤트는 유지  <br>
+
+  <div>
+      This is a text
+      <p> 여기는 p </p>
+  </div>
+  <br>
+  <button id="bempty">empty(비운다/자식을 지운다)</button>
+  <button id="bremove">remove(지운다)</button>
+  <br>
+  <hr/>
+  <p class="pp" id="p1">무궁화 꽃이 피었습니다.p1(event유지-detach)</p>
+  <p class="pp" id="p2">무궁화 꽃이 피었습니다.p2(event삭제-remove)</p>
+
+  <button id="bbremove">remove(삭제-이벤트 삭제)</button>
+  <button id="bdetach">detach(삭제-이벤트 유지)</button>
+  
+  
+
+</body>
+</html>

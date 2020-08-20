@@ -1,0 +1,44 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+  $(function(){
+	  $('button').on('click', function(){
+		 $.ajax({
+			url : '/jquerypro/LprodServlet',
+			//type : 'get',
+			//data :   ,
+			dataType : 'json',
+			success : function(res){
+			result = "";
+			   $.each(res, function(i){
+				 result += "LPROD_ID : " + res[i].id + "<br>" ;
+				 result += "LPROD_GU : " + res[i].gu + "<br>" ;
+				 result += "LPROD_NM : " + res[i].nm + "<br>" ;
+				 result += "<hr color='blue'>";
+			   })
+			   
+			   $('#result').html(result);
+			},
+			error : function(xhr){
+				alert("status : " + xhr.status);
+			}
+		 }) 
+	  })
+	  /////////////////////////////////////
+	  
+  })
+</script>
+
+
+</head>
+<body>
+   <button>Lprod리스트</button>
+   <hr color='red'>
+   <div id="result"></div>
+</body>
+</html>

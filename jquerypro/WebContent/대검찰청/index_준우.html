@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>대검찰청 - 대검찰청</title>
+<!-- use CDN jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- use Local jquery-->
+<!-- <script src="../js/jquery-3.4.1.min.js"></script> -->
+<style>
+	html{height:100%;margin:0; padding:0;}
+	body{width:100%;height:100%;margin:0; padding:0;}
+	div{border:1px solid black;}
+	#header{height:120px;min-width:1100px;position: relative;width:1100px; margin:0 auto;   }
+	#header .logo {float:left;}
+	#header .util{float:right;}
+	
+	.menu{float:left;margin-top:30px;margin-left:70px;}
+	.menu li{display:inline-block;width:100px;}
+	.menu li img{float:right;}
+	#submenu {background-color: skyblue; width:100%; height:500px;z-index: 9999;};	
+	#container{clear:both; width:100%;}
+	#relationBanner{height:50px;}
+	#footer{height:200px;}
+	
+	 #container  {position:relative;}
+	 #p1  {position: absolute; top:150px; left:450px; color: white; border:white; font-size: 50px;} 
+</style>
+<script>
+	$(function(){
+		$("#submenu").css("display","none");
+		$("li").mouseover(function(){
+			$("#submenu").slideDown("slow");
+			//alert(1);
+		});
+		$("li").mouseout(function(){
+			$("#submenu").slideUp(5000);
+	});
+	});
+	$(function(){
+		$("#big").click(function(){
+			var count=0; 
+			
+			if(count<=5){
+			$("body").css("zoom","+=5%");
+				
+			}
+		});
+		$("#small").click(function(){
+			var count=0; 
+			
+			if(count<=5){
+			$("body").css("zoom","-=5%");
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="header">
+		<h1 class="logo"><a href=""><img src="../img/logo.png"></a></h1>
+		<div class="util">
+			<span class="ls nation"><a href="#none" onclick="javascript:pop_window('http://www.mois.go.kr/frt/sub/popup/p_taegugki_banner/screen.do', 875, 725)" title="국가상징안내 새창열림"><img src="../img/nation.png">국가상징안내</a></span>
+			<span class="ls"><a href="http://www.spo.go.kr/site/museum/main.do" target="_blank" title="역사관체험관 새창열림">역사관체험관</a></span>
+			<span class="ls font">
+				글자크기 조정
+				<a href="#" class="zoomIn" id="big">+</a>
+				<a href="#" class="zoomOut" id="small">-</a>
+			</span>
+			<span>
+				<select>
+					<option>KOREAN</option>
+					<option>ENGLISH</option>
+					<option>CHINESE</option>
+					<option>JAPANESE</option>
+				</select>
+			</span>
+			<!-- <span class="ls language">
+				<span>
+					<a href="#" class="now"><span class="blind">[현재사이트]</span>KOREAN</a>
+					<a href="/site/eng/main.do" target="_blank" title="대검찰청 영문사이트 새창열림">ENGLISH</a>
+					<a href="/site/chn/main.do" target="_blank" title="대검찰청 중문사이트 새창열림">CHINESE</a>
+					<a href="/site/jpn/main.do" target="_blank" title="대검찰청 일문사이트 새창열림">JAPANESE</a>
+				</span>
+			</span> -->
+		</div>
+		<div class="menu">
+			<ul> 
+				<li id="a">
+					<a href="http://www.spo.go.kr/site/spo/01/10101010100002018100810.jsp">참여민원</a></li>
+					<li id="b">
+					<a href="http://www.spo.go.kr/site/spo/02/10201010100002018112912.jsp">검찰활동</a></li>
+					<li id="c">
+					<a href="http://www.spo.go.kr/site/spo/crimeAnalysis.do">정보자료</a></li>
+					<li>
+					<a href="http://www.spo.go.kr/site/spo/ex/board/List.do?cbIdx=1401">알람소식</a></li>
+					<li>
+					<a href="http://www.spo.go.kr/site/spo/05/10501010000002018100812.jsp">정보공개</a></li>
+					<li>
+					<a href="http://www.spo.go.kr/site/spo/05/10501010000002018100812.jsp">검찰소개</a></li>
+				<li><img src="../img/btn_sch.png"></li>
+				<li><img src="../img/btn_allmenu.png"></li> 
+			</ul>
+			
+			
+			<div id="submenu">
+			열람
+			</div>
+		</div>
+	</div>
+	<div id="container" class="main">
+			<img src="../img/bigtree.jpg">
+			<div id="p1">국민과 함께하는 검찰</div>
+		<div id="content">
+			<div class="mainTop">
+			<div class="mainPont">
+			</div>
+			</div>
+			<div class="mainCont svc"></div>
+			<div class="mainCont noti"></div>
+			<div class="mainCont etc"></div>
+		</div>
+	</div>
+	<div id="relationBanner"></div>
+	<div id="footer"></div>
+</body>
+</html>

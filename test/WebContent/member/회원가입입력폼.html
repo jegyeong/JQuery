@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <style>
+  	/* fieldset {border: 10px solid #cacace; background: #fff; width:90%;} */
+  	legend1{border-radius: 0px 0px 20px 20px; background: #2fdbe4; padding: 16px; border: none;}
+	.container1{text-align:center; }
+	 .form-horizontal1{overflow:hidden;  width:100%;  display:inline-block; } 
+	.ok{font-size:2em; background:;}
+	 .btn1{color: white; font-weight: bold; background: blue; padding: 5px 10px 8px; border: 0 none; border-radius: 50px;}  
+	label.control-label1 { /* background: #efefef;  */ width: 120px; display: inline-block; text-align: center; box-sizing:border-box;}
+	.form-group1 {text-align:left; padding: 8px; border-bottom: 1px dashed #ababab;}
+	.form-group1 input {   box-sizing:border-box; margin-left : 20px; padding: 10px 15px;   border-radius: 10px;  border: 0 none;   border : 1px solid gray; /* background: #efefef; */}
+	.form-group1 input#addr1,
+	  .form-group1 input#addr2{ width:calc(90% - 127px); box-sizing:border-box; }
+	.form-group1 input.addr{margin : 5px 20px; margin-right: 0px; 	}
+	.form-group1:last-child {border-bottom: 0 none;}
+	 .form-group1 .btn1{background:#fff; font-weight: bold;  border:1px solid #8888ff; color:blue; margin-left: 10px;padding: 5px 10px 8px; border-radius: 50px; box-sizing:border-box;} 
+	.btn1-wrap1{margin-top:30px;}
+	.btn1-wrap1 .btn1{width:45%; padding:15px;font-size:1.1em; box-sizing:border-box;}
+	.btn1-wrap1 .btn1.btn1-default{background:#333;}
+  </style>
+</head>
+<body>
+<div class="container1">
+<h1>회원정보입력폼</h1>
+
+<form class="form-horizontal1" action="aa.jsp" method="post" name="ff">
+	<fieldset>
+		<!-- <legend1>회원정보입력</legend1> -->
+	   <div class="form-group1">
+	      <label class="control-label1" for="id">아이디:</label>
+	        <input type="text" class="form-control" id="id" placeholder="" name="id">
+	      <button type="button" class="btn1 col-sm-1">중복검사</button>
+	    </div>
+	   
+	   
+		 <div class="form-group1">
+	      <label class="control-label1" for="name">이름:</label>
+	        <input type="text" class="form-control" id="name" placeholder="" name="name">
+	    </div>
+	    
+	    <div class="form-group1">
+	      <label class="control-label1" for="birth">생년월일:</label>
+	        <input type="text" class="form-control" id="birth" placeholder="" name="birth">
+	    </div>
+	    
+	  
+	    
+	    <div class="form-group1">
+	      <label class="control-label1" for="pwd">비밀번호:</label>
+	        <input type="password" class="form-control" id="pwd" placeholder="" name="pwd">
+	    </div>
+	    <div class="form-group1">
+	      <label class="control-label1" for="pwdre">비밀번호확인:</label>
+	        <input type="password" class="form-control" id="pwdre" placeholder="" name="pwdre">
+	    </div>
+	    
+	     
+	    <div class="form-group1">
+	      <label class="control-label1" for="gender">성별:</label>
+	        <label class="radio-inline"><input id="gender" type="radio" name="gender" checked>여자</label>
+			<label class="radio-inline"><input type="radio" name="gender">남자</label>
+	    </div>
+	    <div class="form-group1">
+	      <label class="control-label1" for="tel">전화 번호:</label>
+	        <input type="text" class="form-control" id="tel" placeholder="042-1234-5678" name="tel">
+	    </div>
+	    
+	    <div class="form-group1">
+	      <label class="control-label1" for="ptel">휴대폰 번호:</label>
+	        <input type="text" class="form-control" id="ptel" placeholder="010-1234-5678" name="ptel">
+	    </div>
+	    
+	    <div class="form-group1">
+	      <label class="control-label1" for="email">이메일:</label>
+	        <input type="email" class="form-control" id="email" placeholder="abcd123@email.com" name="email">
+	    </div>
+	    
+	    <div class="form-group1">
+	      <label class="control-label1" for="zip">우편번호</label>
+	         <input type="text" class="form-control addr" id="zip" placeholder="" name="zip">
+	         <button type="button" class="btn1 col-sm-1">우편번호검색</button><br>
+	       <label class="control-label1" for="zip">주소:</label> 
+	         <input type="text" class="form-control addr"  id="addr1" placeholder="" name="addr1"><br>
+	        <label class="control-label1" for="zip">상세주소:</label> 
+	         <input type="text" class="form-control addr"  id="addr2" placeholder="" name="addr2">
+	    </div>
+	    
+   </fieldset>
+    <div class="btn1-wrap1">        
+        <input type="button" class="btn1 btn1-primary btn1-lg" onclick="proc1()" value="제출"> 
+		<input type="reset" class="btn1 btn1-default btn1-lg" value="초기화">
+    </div>
+  </form>
+  <div id="result"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	    $('div').css('display', 'none');
+	    $('button').click(function(){
+	    	//div를 show()
+	    	$('div').show(1000).delay(500);
+	    	//왼쪽 좌표를 200px 만큼 이동-animate()
+// 	    	$('div').animate({'left' : '200px'}, 800).delay(500);
+// 	    	//배경색을 빨강변경  - 
+// 	    	$('div').queue(function(){
+// 	    		 $(this).css('background', 'red');
+// 	    		 $(this).dequeue();
+// 	    	})
+
+          $('div').animate({'left' : '200px'}, 800).delay(500)
+	    	     .queue(function(){
+		    		 $(this).css('background', 'red');
+		    		 $(this).dequeue();
+		    		 
+	    	     })
+	   	
+	    	//원래 위치로 다시 이동  - animate()
+	    	$('div').animate({'left' : '-=200px'}, 800);
+	    	
+	    })
+	    
+	  /*  
+	    var div = $("div");
+	    $("#start").click(function(){
+	        div.animate({height: 300}, "slow");
+	        div.animate({width: 300}, "slow");
+	        div.queue(function () {
+	            div.css("background-color", "red");  
+	            div.dequeue();
+	        });
+	        div.animate({height: 100}, "slow");
+	        div.animate({width: 100}, "slow");
+	    });
+	    $("#stop").click(function(){
+	        div.clearQueue();
+	    });
+	    ///////////////////////////////////////
+	    <p>
+<button id="start">Start Animation</button>
+<button id="stop">Stop Animation</button>
+</p>
+
+<div style="background:#98bf21;height:100px;width:100px;position:relative"></div>
+	    */
+	    
+  })
+</script>
+<style>
+  div{
+    width : 50px;
+    height : 50px;
+    background : green;
+    position : relative;
+  }
+</style>
+</head>
+<body>
+<button>실행</button>
+<br>
+<hr>
+<div></div>
+</body>
+</html>

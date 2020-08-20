@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  //이미지 배열
+	  var imgarr = ['Chrysanthemum.jpg',
+	                'Desert.jpg',
+	                'Hydrangeas.jpg',
+	                'Koala.jpg', 
+	                'Lighthouse.jpg',
+	                'Penguins.jpg',
+	                'Tulips.jpg',
+	                'Jellyfish.jpg'];
+	  
+	  //버튼 클릭시
+	  $('button').click(function(){
+		  rand = parseInt(Math.random()*imgarr.length);
+		  //img태그를 만든다 , 속성은 src, width, height 
+		  $('<img/>', {   
+			  'src' : '../imges/' +  imgarr[rand],  //../imges/koala.jpg
+			  'width' : '100px',
+			  'height' : '100px',
+			  'title' : function(){
+				  //src속성 값을 가져온다 - attr('src')
+				  //var srctext=  $(this).attr('src');
+				  var srctext=  this.getAttribute('src');
+				 // alert(srctext);
+				  //lastIndexOf()로 /와 .의 위치값을 얻어낸다 
+				  var start = srctext.lastIndexOf('/');
+				  var end = srctext.lastIndexOf('.');
+				  //얻어낸 위치값으로 substring()메소드를 이용해서 원하는 값을 추출한다 
+				  var title =  srctext.substring(start+1, end);
+				  //추출한 값을 리턴한다 
+				  return title; 
+			  }, 
+			  'click' : function(){
+				  $(this).css('border', '3px solid gold');
+			  }
+			  
+		  }).appendTo('body');
+	  })
+	  
+  })
+</script>
+<style>
+ span {
+  color : red;
+ }
+ span#pro{
+   color : blue;
+ }
+</style>
+
+</head>
+<body>
+<h2>수행내용</h2>
+<span>$(“html”, {propertis})</span><br>
+인수로 전달된 html문자열로 새로운 엘리먼트를 직접 생성한다 <br>
+생성된 엘리먼트를 DOM트리의 원하는 부분에 삽입하여 실행중에 문서를 만들 수 있다 <br>
+ <span id="pro"> propertis 는새로만들어진 요소의 속성, 이벤트, 함수 등을 지정</span> <br>
+ <br>
+이미지 추가 버튼을 클릭하면 이미지를 생성해서 body안에 이미지를 나타나게 한다 <br>
+이미지는 배열로 생성해놓고 random을 발생시켜 이미지를 나타나게 한다 <br> 
+<br>
+ imgarr = ['Chrysanthemum.jpg','Desert.jpg','Hydrangeas.jpg']<br>
+ $('button').click(function(){<br>
+ &nbsp;&nbsp; rand = parseInt(Math.random()*imgarr.length);<br>
+&nbsp;&nbsp;//img태그를 만든다 , 속성은 src, width, height <br>
+&nbsp;&nbsp;&nbsp;&nbsp;$('&lt;img/&gt;', {   <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'src' : '../imges/' +  imgarr[rand],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'width' : '150px',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'height' : '150px'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}).appendTo('body');<br>
+})<br>
+ 
+<hr color='blue'>
+<p>헬로우 ~~</p>
+<button>이미지 추가</button>
+</body>
+</html>

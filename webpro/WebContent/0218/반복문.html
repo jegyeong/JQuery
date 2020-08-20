@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>반복문</title>
+		<script>
+		function myFunc(){
+		/* for(var i=0; i<10; i++){
+			document.write(i+"<br>");
+		}
+		 */
+		var i=0;
+		while(i<10){
+			
+			/* if(i==3){
+				//continue;
+			}else{
+				document.write(i+"<br>");
+			}
+
+			 i++; */
+			 
+			document.write(i+"<br>");
+			i++;
+			
+			if(i==3) {
+				break;
+			} 
+			 
+		}
+		
+		/*
+		 반복문 문제1)
+		 1에서 부터 100까지 숫자를 더하는 for문 while문을 작성하세요.
+		  최종적으로 합계를 출력해주세요
+		  
+		 문제2)
+		 1부터 200까지 숫자 중 짝수의 합을 구하는 프로그램을 작성하세요.
+		 (continue이용)
+		 
+		 문제3)
+		 1에서 100까지 숫자중 2의 배수이면서 3의 배수인 수만 출력 
+		*/
+		}
+		
+		function gugudan(){
+		var dan = parseInt(prompt("단을 입력해주세요"));
+		
+		document.write("<table>");
+		for(var i=1; i<10; i++){
+			
+			//if(i == 1 || i == 4 || i == 7){
+			if(i % 3 ==1){
+				document.write("<tr>");
+			}
+			if(i == dan){
+				document.write("<td style='background-color:yellow;'>");
+			}else{
+				document.write("<td>");
+			}
+			for(var j=1; j<10; j++){
+				
+				document.write(i +"*"+j+"="+ (i*j)+"<br>");
+				
+			}
+			document.write("</td>");
+			//if(i ==3 || i ==6 || i==9){
+			if(i%3 == 0){
+				document.write("</tr>");
+			}
+		}
+		document.write("</table>");
+		}
+			
+		//gugudan();
+		
+		function inputNumber(){
+			/*for문을 이용해서 숫자 5개를 출력하세요. 
+			 출력형태는 
+			 10,20,30,40,50
+			*/
+			var num ="";
+			for(var i =0; i<5; i++){
+				num += prompt("숫자를 입력해주세요");
+				if(i==4){
+					continue;
+				}
+				num += ",";
+			}
+			document.write(num);
+		
+		
+		}
+		inputNumber();
+		
+		
+		do{
+			//무조건 한번은 실행
+			//그 후 조건식이 참인 경우에만 실행 		
+		}while(조건식);
+		
+		
+		/*
+			prompt로 두 수를 입력받아 두 수의 합이 100이상일 경우에만 출력하세요
+			0 , 0이 입력되면 종료 하세요.
+			
+			출력형태
+			x =10 ,  y =200 
+			x =90 ,  y =20 
+		*/
+		
+		function inputNum(){
+			var str = "";
+			do{
+				var x = parseInt(prompt("첫번째 값 입력해주세요"));
+				var y = parseInt(prompt("두번째 값 입력해주세요"));
+				
+				if(x + y >=100){
+					str += "x = "+ x +"," +" y = "+y +"<br>";
+				}				
+			}while(!(x==0 && y ==0));
+			
+			document.write(str);
+			
+			/* while(true){
+			
+				if(x ==0 && y ==0)
+					break;
+				
+			} */
+		
+			
+			
+		
+		}
+		
+		
+		
+		
+		</script>
+		<style>
+			table, td {border:1px solid black;}
+		</style>
+	</head>
+	<body>
+	
+	</body>
+</html>
+
+
+
+

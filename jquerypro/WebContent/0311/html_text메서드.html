@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>html, text메서드</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#pText").click(function(){
+					// 전체 p태그를 대상으로 해서 p태그안의 문자만 가져온다 
+					var vtext = $("p").text(); //getter기능 
+					$("#textResult").text(vtext); //setter기능 (값을 넣어줌)
+				});
+				
+				$("#pHtml").click(function(){
+					//첫번째 p태그를 대상으로 p태그안의 태그와 문자를 가져온다 
+					/* var vhtml = $("p").html();					
+					$("#htmlResult").html(vhtml); */
+					
+					var vhtml = "";
+					$("p").each(function(){
+						vhtml += $(this).html();
+					});
+					$("#htmlResult").html(vhtml);
+					
+				});
+				
+				
+				
+			});
+		
+		</script>
+	</head>
+	<body>
+		<h2>html()메서드와 text()메서드</h2>
+		<p>지정된 엘리먼트(선택자)를 대상으로 값을 가져온다 - getter의 의미<br>
+		</p>
+		<h2>html(값)메서드와 text(값)메서드</h2>
+		<p> 지정된 엘리먼트(선택자)를 대상으로 값을 출력, 변경한다 -setter의 의미</p>
+		
+		<p>html : 태그를 포함한 문장을 가져온다<br>
+		   text : 태그를 포함하지 않는 문자만 가져온다 
+		</p>
+		선택자가 body인 경우<br>
+		$("body").html();
+		$("body").text();
+		<br><br><br><br>
+		<input type="button" id="pText" value="p태그의 문자만(text)"><br>
+		<div id="textResult"></div>
+		
+		<input type="button" id="pHtml" value="p태그의 태그포함문자(html)"><br>
+		<div id="htmlResult"></div>
+		
+		
+	</body>
+</html>
+
+
+
+
+
+
+

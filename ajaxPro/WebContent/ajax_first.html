@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax_first</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("button#btn1").click(function(){
+					/* $.ajax('./data/result.html',{
+						success:function(data){
+							console.log(data);
+							$("body").append(data);
+						}
+					}); */
+					
+					$.ajax({
+						url : './data/result.jsp',
+						type : 'get',
+						data : 'name=김준우&age=26',
+						success : function(data){
+							alert(data.trim());	
+						},
+						error: function(e){
+							alert("오류발생");
+						}						
+					});
+					
+					
+					
+					
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<button>버튼을 클릭해주세요</button>
+		<button id="btn1">버튼클릭해주세요</button>
+	</body>
+</html>
+
+
+

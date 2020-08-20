@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  //img의 첫번째를 선택(img:first) 
+	  //, 맨뒤에 추가 (append, appendTo)
+	   //     div.append('첫번째이미지를 '), ('첫번째이미지를').appendTo('div')
+	  //1초마다 한번씩
+	 a = "";
+	  $('#start').click(function() {
+		  clearInterval(a); 
+		 a=  setInterval(function() { 
+				 $('#dimg').append($('img:first')); 
+				// $('img:first').appendTo('#dimg');
+		 }, 1000);
+	 })
+	 
+	 $('#end').click(function(){
+		  clearInterval(a); 
+	 })
+	 
+	 $('#reverse').click(function(){
+		 clearInterval(a); 
+		 a=  setInterval(function() { 
+				// $('#dimg').prepend($('img:last')); 
+				 $('img:last').prependTo('#dimg');
+		 }, 1000);
+	 }) 
+  })
+</script>
+
+<style>
+  *{
+     font-size  : 1.1em;
+  }
+  img{
+     width : 80px;
+     height : 80px;
+     display : block;
+     float : left;
+     margin: 2px;
+   }
+   
+  #box{
+    clear : both;
+    
+  }
+  span {
+     color : blue ;
+  }
+  span.a {
+     color : red ;
+  }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+내부에 추가하는 메소드 <br>
+----뒤쪽으로 추가 ------------------------ <br>
+선택자.append('내용')      ==== 선택자 안쪽 <br>
+('내용').appendTo('선택자')  == 선택자 안쪽  <br>
+ <br>
+선택자.after('내용')            ==선택자 밖 <br>
+('내용').insertAfter('선택자')  ==선택자 밖 <br>
+ <br>
+-----앞쪽으로------------------ <br>
+선택자.prepend('내용')       ==== 선택자 안쪽 <br>
+('내용').prependTo('선택자')   == 선택자 안쪽  <br>
+ <br>
+
+선택자.before('내용')          ==선택자 밖 <br>
+('내용').insertBefore('선택자')  ==선택자 밖 <br>
+ <br>
+ <hr color='blue'>
+
+  <div id="dimg">
+     <img src="../images/image.1.jpg" >
+     <img src="../images/image.2.jpg" >
+     <img src="../images/image.3.jpg" >
+     <img src="../images/image.4.jpg" >
+     <img src="../images/image.5.jpg" >
+     <img src="../images/image.6.jpg" >
+     <img src="../images/image.7.jpg" >
+     <img src="../images/Hydrangeas.jpg" >
+     <img src="../images/Tulips.jpg" >
+     <img src="../images/Penguins.jpg" >
+   </div>
+   
+   <br>
+   <div id='box'>
+  	 <input type="button" id="start" value="시작">
+  	 <input type="button" id="end" value="종료">
+  	 <input type="button" id="reverse" value="거꾸로">
+   </div>
+   
+   <br>
+   <br>
+   <pre>
+     $('#start').click(function() {
+		 <span class='a'> a=  setInterval</span>(function() { 
+				// $('div#dimg').append($('img:first')); 
+				<span> $('img:first').appendTo('div#dimg')</span>;
+		 }, 1000);
+	 })
+	 
+	 $('#end').click(function(){
+		 <span class='a'> clearInterval(a)</span>; 
+	 })
+	 
+	 $('#reverse').click(function(){
+		 a=  setInterval(function() { 
+				// $('div#dimg').prepend($('img:last')); 
+				 <span>$('img:last').prependTo('div#dimg')</span>;
+		 }, 1000);
+	 }) 
+	 
+   </pre>
+</body>
+</html>
+
+
+
+
+

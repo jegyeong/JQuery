@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script src="js/jquery-3.2.1.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+  
+   $(function(){   
+	    //var hlist =  $('h1');
+	    //hlist.css('background' , 'yellow');
+	    //hlist.css('color' , 'red');
+	    
+	    ///////////////////////////////////////////////////////////////////
+	    /* $('*').css('font-size' , '1.2em').css('text-align', 'center');
+	    $('h1').css('background' , 'yellow')
+	           .css('color' , 'red'); */
+	    /////////////////////////////////////////////////////////////
+        //css메소드에 여러개의 속성을 표시 
+       /*  $('*').css({ 'font-size' : '1.2em',  'text-align' : 'center' }); */
+	           
+        $('h1').css({'background' : 'yellow', 'color' : 'red'  });
+       
+       $('a#key').click(function(event){
+    	      	   
+    	   var age =   parseInt(prompt("나이를 입력하세요 "));
+    	   if(age <20){
+    	          alert("나이제한 입니다 ..");
+    	          return false;
+    	          //event.preventDefault();
+     	   }
+    	   
+       })
+       
+   })
+   
+   
+   
+   
+   
+   
+</script>
+
+ <style>
+  * {
+     text-align : center;
+    
+  }
+  div{
+   
+    border : 1px solid blue;
+    width : 250px;
+    height : 200px;
+    float : left;
+    margin : 3px;
+    overflow : auto;
+  }
+  div ul li a {
+     text-decoration:  none;
+    
+  }
+   div ul li a:hover{
+     text-decoration:  underline;
+   
+   }
+   
+</style>
+</head>
+<body>
+
+  <h1>Hello  SEM ~~~</h1> <br>
+   JQuery ~~  를 배웁니다 <br>
+   jQuey라이브러리를 추가 합니다<br>
+
+   <p>
+   $(function(){  })으로 시작해서 jQuery의 메소드들을 호출 한다 <br>
+   $(function(){  }) 은 javascript의 window.onload= function(){ }<br>
+    과 같고  $(document).ready(function(){  })과 같은 의미이다 <br>
+   $기호를 사용하기 위해서는 jquery라이브러리 파일을 다운받거나 CDN방식으로 <br>
+   포함 시켜야 한다 <br>
+  <p>
+  <div>
+    <h2>0703</h2>
+    <hr color='red'>
+    <ul><li> <a href="0703/test_selector1.html">첫번째 selector</a> </li></ul> 
+    <ul><li> <a href="0703/test_click_hide.html">클릭하이드</a> </li></ul>
+    <ul><li> <a href="0703/test_context.html">선택자,컨텍스트</a> </li></ul>  
+  </div>
+  
+   <div>
+    <h2>0704</h2>
+    <hr color='red'>
+    <ul><li> <a href="0704/test_click_hideshow.html">보이기안보이기</a> </li></ul> 
+    <ul><li> <a href="0704/test_domelement.html">dom객체와 jquery객체</a> </li></ul>
+    <ul><li> <a href="0704/test_html_append.html">새로운html추가 </a> </li></ul>
+    <ul><li> <a href="0704/test_append_properties.html">속성이있는새로운html추가 </a> </li></ul>
+    <ul><li> <a href="0704/test_append_img.html">새로운img태그로 이미지추가 </a> </li></ul>
+  </div>
+    
+  <div>
+     <h2>0705</h2>
+     <hr color='red'>
+     <ul><li> <a href="0705/test_domget.html">get을 이용-dom객체</a> </li></ul> 
+     <ul><li> <a href="0705/test_html_text.html">html메소드와 text메소드</a> </li></ul>
+     <ul><li> <a href="0705/test_noconflict.html">$기호대신 다른 문자로 </a> </li></ul>
+   </div>
+  
+  <div>
+    <h2>0706 선택자</h2>
+    <hr color='red'>
+    <ul><li> <a href="0705/test_selector1.html">자식과후손 선택</a> </li></ul> 
+    <ul><li> <a href="0706/test_selector_sibling.html">형제 선택하기</a> </li></ul>
+    <ul><li> <a href="0706/test_element_selector.html">element_selector</a> </li></ul> 
+    <ul><li> <a href="0706/test_descendant_selector.html">자식/후손selector</a> </li></ul> 
+    <ul><li> <a href="0706/test_attr_selector1.html">속성관련selector</a> </li></ul> 
+    <ul><li> <a href="0706/test_attr_selector2.html">속성관련selector</a> </li></ul> 
+  </div>
+  
+  <div>
+    <h2>0706 기본필터</h2>
+    <hr color='red'>
+    <ul><li> <a href="0706/test_base_filter.html">기본필터(first/last/lt/eq)</a> </li></ul> 
+    <ul><li> <a href="0706/test_base_evenodd_filter.html">기본필터(짝수/홀수)</a> </li></ul> 
+  </div>
+  
+  <div>
+    <h2>0707 필터</h2>
+    <hr color='red'>
+    <ul><li> <a href="0707/test_content_filter.html">내용필터</a> </li></ul> 
+    <ul><li> <a href="0707/test_content_html_test.html">html()/text()</a> </li></ul> 
+    <ul><li> <a href="0707/test_child_filter.html">자식필터(first/first-child)</a> </li></ul>
+    <ul><li> <a href="0707/test_nth_child_filter.html">자식필터(nth-child)</a> </li></ul>
+    <ul><li> <a href="0707/test_formstatus_filter.html">폼상태필터(enable/disabled)</a> </li></ul>
+     <ul><li> <a href="0707/test_formstatus_checked.html">폼상태필터(checked)</a> </li></ul>
+  </div>
+  
+  <div>
+    <h2>0710 필터</h2>
+    <hr color='red'>
+    <ul><li> <a href="0710/test_formstatus_selected.html">폼상태필터(selected)</a> </li></ul> 
+    <ul><li> <a href="0710/test_visible_hidden.html">기타필터(visible/hidden)</a> </li></ul> 
+    <ul><li> <a href="0710/test_visible_hidden2.html">기타필터(visible/hidden)</a> </li></ul> 
+    <ul><li> <a href="0710/test_val_mathod.html">val()메소드와 이름변경</a> </li></ul> 
+  </div>
+  
+  <div>
+    <h2>0711 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0711/test_append_img.html">setInterval-이미지append</a> </li></ul> 
+    <ul><li> <a href="0711/test_before.html">text추가(before/after/append/prepend)</a> </li></ul> 
+    <ul><li> <a href="0711/test_p_img_append.html">p태그의 title속성을 이용 이미지append</a> </li></ul> 
+    <ul><li> <a href="0711/test_wrap_unwrap.html">감싸기(wrap/wrapAll/unwrap)</a> </li></ul> 
+    <ul><li> <a href="0711/test_clone.html">복사(clone/clone(true))</a> </li></ul> 
+    <ul><li> <a href="0711/test_remove_empty.html">삭제(remove/empty/detach)</a> </li></ul> 
+  </div>
+  <div>
+    <h2>0712 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0712/test_filter_method.html">Filter메소드</a> </li></ul> 
+    <ul><li> <a href="0712/test_filter_not.html">Filter not메소드</a> </li></ul> 
+    <ul><li> <a href="0712/test_filter_not2.html">Filter not메소드</a> </li></ul> 
+    <ul><li> <a href="0712/test_filter_end.html">Filter end메소드</a> </li></ul> 
+    <ul><li> <a href="0712/test_traversing.html">traversing메소드</a> </li></ul> 
+    <ul><li> <a href="0712/test_traversing_end.html">traversing_end메소드</a> </li></ul> 
+   </div>
+   <div>
+    <h2>0714 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0714/test_prop.html">prop(속성이름없는 속성)</a> </li></ul> 
+    <ul><li> <a href="0714/test_contents_children.html">자식선택(contents/children)</a> </li></ul> 
+    <ul><li> <a href="0714/test_contents_children2.html">자식선택(contents/children)</a> </li></ul> 
+    <ul><li> <a href="0714/test_add_remeve_class.html">class메소드(add/remove/toggle/has)</a> </li></ul> 
+    <ul><li> <a href="0714/test_attr_img.html">attr(name=value)의 속성</a> </li></ul> 
+   </div>
+   
+   <div>
+    <h2>0717 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0714/test_attr_img.html">class을 이용한 테두리설정</a> </li></ul> 
+    <ul><li> <a href="0717/test_event_info.html">이벤트 정보</a> </li></ul> 
+    <ul><li> <a href="0717/test_event_xy_info.html">이벤트 XY좌표정보</a> </li></ul> 
+    <ul><li> <a href="0717/test_event_mouseover.html">MouseOver(count/rgb)</a> </li></ul>
+    <ul><li> <a href="0717/test_img_dblclick.html">이미지 DoubleClick</a> </li></ul> 
+    <ul><li> <a id="key" href="0717/test_keydown.html">KeyDown이벤트</a> </li></ul> 
+    <ul><li> <a  href="0717/test_stoppropa.html">stopPropa(작은영역/큰영역)</a> </li></ul> 
+    <ul><li> <a  href="0717/test_stoppropa2.html">stopPropa(div/span/button)</a> </li></ul> 
+   </div>
+   <div>
+    <h2>0719 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0719/test_bind_unbind.html">bind/unbind</a> </li></ul> 
+    <ul><li> <a href="0719/test_bind_button.html">bind/button</a> </li></ul> 
+    <ul><li> <a href="0719/test_delegate.html">delegate/button</a> </li></ul> 
+    <ul><li> <a href="0719/test_delegate_file.html">deleage/file</a> </li></ul> 
+    <ul><li> <a href="0719/test_on_off.html">on/off</a> </li></ul>
+    <ul><li> <a href="0719/test_on.html">on(bind/deleage)</a> </li></ul> 
+  </div>
+  <div>
+    <h2>0720 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0720/test_img_sale.html">할인율</a> </li></ul> 
+    <ul><li> <a href="0720/test_focus_blur.html">포커스/블로어</a> </li></ul> 
+    <ul><li> <a href="0720/test_delay.html">delegate/button</a> </li></ul> 
+   </div>
+  
+  <div>
+    <h2>0721 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0721/test_effect_togggle.html">toggle(이순신)</a> </li></ul> 
+    <ul><li> <a href="0721/test_booklist.html">교재목록</a> </li></ul> 
+    <ul><li> <a href="0721/test_effect.html">effect(기본효과)</a> </li></ul> 
+    <ul><li> <a href="0721/test_animate.html">에니메이트</a> </li></ul> 
+    <ul><li> <a href="0721/test_delay.html">지연시키기</a> </li></ul> 
+   </div>
+   
+   <div>
+    <h2>0724 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0724/test_queue.html">에니메이트(큐/글자색)</a> </li></ul> 
+    <ul><li> <a href="0724/test_queue_font.html">에니메이트(큐/글자색/font)</a> </li></ul> 
+    <ul><li> <a href="0724_ajax/first.html">ajax를 이용-데이타교환 </a> </li></ul> 
+    <ul><li> <a href="0724_ajax/dataType.html">데이타형태(text/jsonArr/jsonObj) </a> </li></ul> 
+   </div>
+  <div>
+    <h2>0725 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0725_ajax/lprod.html">lprod</a> </li></ul> 
+    <ul><li> <a href="0725_ajax/memberList.html">mamber</a> </li></ul> 
+  
+  </div>
+  
+  <div>
+    <h2>0726 </h2>
+    <hr color='red'>
+    <ul><li> <a href="0726_ajax/test_lprod_prod.html">제품목록(lprod_prod)</a> </li></ul> 
+  </div>
+ </body>
+</html>
+
+
+
+
+

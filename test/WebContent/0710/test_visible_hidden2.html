@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+  $(function(){
+	  result = "";
+	  
+	  //body안에 보이는 것과 안보이는 것을 구분 
+	  // $('body :visible')
+	  // $('body :hidden')  
+	 //////////////////////////////////////////////////
+	  result = "hidden 결과 \n\n";
+	  $('#testForm :hidden').each(function(i, v){
+		 //input인지 아닌지 태그이름을 비교 , 비교시에는 대문자로 비교 
+		 //input 은 val()  아닌것은 text()
+		 
+		 if(this.tagName == 'INPUT'){
+			 result += v.tagName + "의 hidden객체[" +   $(this).attr('name')  + ":" + $(this).val() + "]\n";
+		 }else if(this.tagName != "BR"){
+			 result += v.tagName + "의 hidden객체[" + $(this).text() + "\n";
+		      
+		 }//else{
+			// result += v.tagName + "의 hidden객체[" + $(this).text() + "\n";
+		// }
+	  })
+	  
+	  alert(result);
+	  //////////////////////////////////////////////////////////////////
+	  result = "visible 결과 \n\n";
+	  $(':visible', '#testForm').each(function(i, v){
+		 //input인지 아닌지 태그이름을 비교 , 비교시에는 대문자로 비교 
+		 //input 은 val()  아닌것은 text()
+		 if(v.tagName == 'INPUT'){
+			 result += v.tagName + "의 visible객체[" +   $(this).attr('name')  + ":" + $(this).val() + "]\n";
+			 
+		 }else{
+			 result += v.tagName + "의 visible객체[" + $(this).text() + "\n";
+		 }
+	  })
+	  
+	  
+	 // alert(result);
+	  
+  })
+</script>  
+</head>
+<body>
+<form id="testForm"> 
+	<input type="hidden" name="userAge" value="33">    
+	<input type="hidden" name="userCity" value="대전">  
+	I D : <input type="text" name="userID" value="hong">  
+	<span style="display:none">ID가 중복됩니다. </span> <br>  
+	이름 : <input type="text" name="userName" value="홍길동">  
+	<span style="visibility:hidden">이름을 입력하세요</span><br> 
+	성별 : <input type="radio" name="sung" value="남" checked>남자  
+	<input type="radio" name="sung" value="여">여자 
+</form>
+
+<hr color='blue'>
+<h2>수행내용</h2>
+body안에 보이는 것과 안보이는 것을 구분 <br>
+ $('body :visible')<br>
+ $('body :hidden')  <br>
+input인지 아닌지 태그이름을 비교 , 비교시에는 대문자로 비교 <br>
+input 은 val() <br>
+input 이  아닌것은 text()<br>
+name  속성값을 가져오기 attr('name')<br>
+</body>
+</html>
+
+
+
+

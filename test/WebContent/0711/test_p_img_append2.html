@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	Chrysanthemum=['수국1.jpg','수국2.jpg','수국3.jpg','수국4.jpg','수국5.jpg','수국6.jpg'];
+	Hydrangeas = ['국화1.jpg','국화2.jpg','국화3.jpg','국화4.jpg','국화5.jpg','국화6.jpg','국화7.jpg'];
+	imgArr ="";
+	//배열이용---------------------------------------
+	$('p').click(function(){
+		 txtvar =  $(this).attr('title'); 
+		 
+		 if(txtvar == "Chrysanthemum"){
+			 imgArr =  Chrysanthemum;
+		 }else if(txtvar =="Hydrangeas"){
+			 imgArr = Hydrangeas;
+		 }
+		 rand = parseInt(Math.random()*imgArr.length);
+		
+		//속성값으로 .jpg 를 만든다 
+		 imgsrc = $('<img/>', {   
+				  		'src' : '../images/' + imgArr[rand],  //../imges/koala.jpg
+						'width' : '100px',
+				 		'height' : '100px'
+				 		
+		          });
+		
+		$(this).append(imgsrc);
+		 //$(this).after(imgsrc);
+	})
+	/*---------------------------------------------
+	//배열 사용 안하고 
+	$('p').click(function(){
+		 txtvar =  $(this).text();
+		 rand = parseInt(Math.random()*5)+1;
+		 
+		//속성값으로 .jpg 를 만든다 
+		 imgsrc = $('<img/>', {   
+				  		'src' : '../images/' + txtvar+rand + ".jpg",  //../imges/koala.jpg
+						'width' : '100px',
+				 		'height' : '100px'
+				 		
+		          });
+		
+		//$(this).append(imgsrc);
+		 $(this).after(imgsrc);
+	})
+	--------------------------------------------------------*/
+	
+})
+</script>
+</head>
+<body>
+<!--   //<p title="Tulips">튜울립</p> -->
+  <p title="Chrysanthemum">국화</p>
+<!--   <p title="Koala">코알라</p> -->
+  <p title="Hydrangeas">수국</p>  
+  
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery기본</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$.noConflict(); //다른프레임웍과 충돌을 방지하기 위함 
+			//jquery의 경우 $를 jQuery로 변경해줘야함 
+			
+			
+			//자바스크립트의 window.onload와 동일 
+			jQuery(document).ready(function(){
+				/* $("h1").css("color","red");
+				$("#box").css("background","#efefef");
+				
+				$("p").css("color","orange");
+				$(".p").css("color","blue"); */
+				
+				jQuery("body p").css("color","red"); //후손 모두 변경 
+				jQuery("body > p").css("color","blue"); //자식만 변경
+				
+			});		
+			
+			//document.getElementByTagName("h1").style.color = "red";
+			//document.getElementById("box").style.backgroundColor = "";
+		</script>
+	</head>
+	<body>
+		<h1>This is heading.</h1>
+		<div id="box">
+			div box입니다. 
+			<div id="box2">
+				<p>div box2안에 p태그입니다.</p>
+			</div>
+		</div>
+		<p class="p">
+			p태그입니다.
+		</p>
+		
+	</body>
+</html>
+
+
+

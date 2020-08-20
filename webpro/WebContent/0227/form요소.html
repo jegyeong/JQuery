@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form요소</title>
+		<script>
+			function btn(){
+				//form요소를 이용해서 텍스트박스안에 내용을 alert로 출력
+				//alert(document.ff.name.value);
+				//alert(document.ff.gender.value);
+				var ele = document.ff;
+				
+				for(var i=0; i<ele.hobby.length; i++){
+					if(ele.hobby[i].checked){
+						alert(ele.hobby[i].value);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form name="ff">
+			<input type="text" name="name" id="name"><br>
+			<input type="radio" name="gender" value="남자male">남자<br>
+			<input type="radio" name="gender" value="여자female">여자<br>
+			
+			<hr>
+			
+			<input type="checkbox" name="hobby" value="여행">여행
+			<input type="checkbox" name="hobby" value="독서">독서
+			<input type="checkbox" name="hobby" value="영화감상">영화감상
+			
+			
+			
+			<input type="button" onclick="btn();" value="클릭">
+			
+			<hr>
+			<textarea rows="5" name="area" id="result"></textarea>
+			
+		</form>
+	</body>
+</html>
+
+
+
+
+

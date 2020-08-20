@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+/* ----------------------------
+0 : open()메서드 수행전
+1 : 로딩중
+2 : 로딩완료
+3 : 서버처리중
+4 : 서버처리끝
+서버의 처리결과status
+200 : 성공
+403 : 접근거부
+404 : 파일/페이지 없음
+----------------------------*/
+function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  
+	  //요청 get-----------------------------------------------
+	  //xhttp.open("GET", "first.jsp?name=korea&age=11", true);
+	  //xhttp.send(); //get일때는 url에 쿼리스트링으로 send()에는 붙이지 않는다 
+	  
+	  //요청 post-----------------------------------------------
+	  data = "name=korea&age=15"
+	  xhttp.open("POST", "first.jsp", true);
+	  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	  xhttp.send(data);
+	  ////////////////////////////////////////////////////////////////
+	  
+	  //응답
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     //document.getElementById("demo").innerHTML = this.responseText;
+	     $('#demo').html(this.responseText);
+	    }
+	  };
+	 
+	}
+</script>
+
+<body>
+
+<div >
+  <h2>Let AJAX change this text</h2>
+  <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+<br>
+<div id="demo"></div>
+
+</body>
+</html>
+
+
+

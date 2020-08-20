@@ -1,0 +1,6 @@
+javax.servlet
+
+이클립스 -> 왼쪽 프로젝트 명 마우스 오른쪽 클릭 -> Build Path -> Configure Build Path..
+-> 새창에서 왼쪽 Java Build Path 선택 확인 -> 중앙 Libraries 탭 -> ADD External JARs.. 에서
+
+톰캣(tocat) - lib 폴더에 jsp-api.jar / servlet-api.jar를 선택

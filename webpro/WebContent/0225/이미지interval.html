@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>이미지interval</title>
+		<style>
+			img{
+				width:200px;
+				height:200px;
+			}
+		</style>
+		<script>
+			var arr = ["../img/shop.jpg", "../img/mountain.jpg","../img/coffee.jpg"];
+			function setInterImg(){
+				a = setInterval(imgChange, 300);
+			}
+			var i =0;
+			function imgChange(){		
+				/* 0,1,2 배열index가 순서대로 실행될 수 있게 변경  */
+				if(i==3) i=0;
+				document.getElementById("myimg").src = arr[i];
+				i++;
+			}
+			function clearInterImg(){
+				
+				clearInterval(a);
+			}
+			function randomImg(){
+				b = setInterval(ranChange, 3000);
+				
+			}
+			
+			var arrImg = ["../img/shop.jpg", "../img/mountain.jpg","../img/coffee.jpg","../img/Sony1.jpg"];
+			function ranChange(){
+				/*이미지 4개의 배열을 생성 후 (전역변수)
+				  해당 이미지를 랜덤으로 보여지게 만들어주세요. 
+				  (result div안에 myimg id 이미지 태그를 변경해주세요. )
+				*/
+				 rand = Math.floor(Math.random()*arrImg.length);//0~3까지 랜덤수
+				 document.getElementById("myimg").src = arrImg[rand];
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div>
+			<button onclick="setInterImg();">setInterImg실행</button>
+			<button onclick="randomImg();">랜덤img실행</button>
+			<button onclick="clearInterImg();">clearInterImg실행</button>
+			<hr>
+			<div id="result">
+				<img id="myimg" src="../img/coffee.jpg">
+			</div>
+		
+		</div>
+	</body>
+</html>
+
+
+
+

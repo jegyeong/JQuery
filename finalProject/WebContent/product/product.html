@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>product(제품선택)</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="../js/json2.js"></script>
+		<style>
+			h1{text-align:center;}
+			.container, .form-group, #result{border:1px solid #cc80ff; margin:20px;padding:10px;}
+			select{width:80%;height: 60px; margin-left: 30px; font-size:2em;}
+			#result{height:300px;font-size:1.5em;}
+			table, td{border:2px solid purple;}
+			table{width: 90%;height: 100%; margin: 0 auto;}
+			.category_name{width:40%;}
+		</style>
+		<script>
+			/*
+			1)jdbc_select.jsp 페이지 호출시
+			json타입으로 텍스트 가져오기 
+			
+			2)product.html 에서 ajax호출로
+			데이터(json) 가져오기
+			
+			3)json 형태로 만든 텍스트를 
+			  json객체로 변경
+			
+			4) option에 넣어주기  
+			
+			**WEB-INF\lib 폴더에 
+			ojdbc6.jar 파일 import 
+
+			*/
+		
+		
+			$(function(){
+				$.ajax({
+					url:"jdbc_select.jsp",
+					datatype:"json",
+					type:"post",
+					data:"flag=1"
+				})
+				.done(function(data){
+					data = JSON.parse(data.trim());
+					
+					$.each(data, function(idx){
+						//console.log(data[idx].LPROD_GU);
+						$("#lprod").append("<option value='"+data[idx].LPROD_GU+"'>"+data[idx].LPROD_NM+"</option>");
+					});
+				})
+				.fail(function(){
+					alert("data not loading....");
+				});	
+				
+				
+				$("#lprod").on("change", function(){
+					//alert($(this).val());
+					$("#prod").empty();
+					$.ajax({
+						url:"jdbc_select.jsp",
+						datatype:"json",
+						type:"get",
+						data:"flag=2&"+"prod_LGU="+$(this).val()
+							 
+					})
+					.done(function(data){
+						console.log(data);
+						data = JSON.parse(data.trim());
+						
+						$.each(data, function(idx){
+							//console.log(data[idx].LPROD_GU);
+							$("#prod").append("<option value='"+data[idx].PROD_ID+"'>"+data[idx].PROD_NAME+"</option>");
+						});
+					})
+					.fail(function(){
+						alert("data not loading....");
+					});
+				});
+				
+				/*	SELECT LPROD_GU, LPROD_NM,PROD_ID, PROD_NAME FROM  
+					Lprod a join prod b 
+					on a.LPROD_GU = b.prod_LGU ;
+				*/
+				
+				$("#prod").on("change", function(){
+					$.ajax({
+						url:"jdbc_select.jsp",
+						datatype:"json",
+						type:"get",
+						data:"flag=3&"+"PROD_ID="+$(this).val()
+							 
+					})
+					.done(function(data){
+						console.log(data);
+						data = JSON.parse(data.trim());
+						$("#result").empty();
+						var tableStr = "";
+						tableStr+="<table>";
+						$.each(data, function(idx){
+							//console.log(data[idx].LPROD_GU);
+							
+							tableStr+="<tr><td class=\"category_name\">PROD_ID</td><td>"+data[idx].PROD_ID+"</td></tr>";
+							
+							tableStr+="<tr><td class=\"category_name\">PROD_NAME</td><td>"+data[idx].PROD_NAME+"</td></tr>";
+							tableStr+="<tr><td class=\"category_name\">PROD_LGU</td><td>"+data[idx].PROD_LGU+"</td></tr>";
+							tableStr+="<tr><td class=\"category_name\">PROD_BUYER</td><td>"+data[idx].PROD_BUYER+"</td></tr>";
+							tableStr+="<tr><td class=\"category_name\">PROD_COST</td><td>"+data[idx].PROD_COST+"</td></tr>";
+							
+						});
+							tableStr+="</table>";
+							
+							$("#result").append(tableStr);
+					})
+					.fail(function(){
+						alert("data not loading....");
+					});
+					
+					
+				});
+				
+			});
+		
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>제품리스트</h1>
+			<div class="form-group">
+				<h2>제품 분류 리스트</h2>
+				<select id="lprod"></select>
+				
+				<h2>상품리스트</h2>
+				<select id="prod"></select>
+			</div>
+	
+			<div id="result"></div>
+		</div>
+	</body>
+</html>
+
+
+
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  //div요소중 홀수번째 
+	 // $('div:odd').css('background', 'yellow');
+	  
+	  //div요소의  홀수번째중 0번째 
+	   // ->1. $('div:odd').eq(0).css(),    2. $('div').filter(":odd").eq(0).css().
+	  
+	   //div요소의  홀수번째중 1번째 
+	  //  ->1. $('div:odd').eq(1)           2. $('div').filter(":odd").eq(1).css()         
+	  
+	  //div요소의  홀수번째중 2번째 
+	  //-> 1. $('div:odd').eq(2)            2. $('div').filter(":odd").eq(2).css()
+	
+	  // $('div:odd').eq(0).css('background', 'yellow');
+	  // $('div:odd').eq(1).css('background', 'blue');
+	  // $('div:odd').eq(2).css('background', 'pink');
+	   
+	  $('div:odd').eq(0).css('background', 'yellow')
+	              .end().eq(1).css('background', 'blue')
+	              .end().eq(2).css('background', 'pink');
+  })
+</script>
+<style>
+  div{
+     width : 100px;
+     height : 80px;
+     border : 1px solid blue;
+     float :left;
+     margin : 5px;
+     padding : 5px;
+  }
+  .orange{
+    background: orange;
+  }
+  pre{
+    font-size : 1.2em;
+  }
+  span{
+    color :blue;
+    font-size : 1.3em;
+  }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+<pre>
+end() : 선택을 한단계 앞으로 돌리는 역할을 하여 , 기존 선택에 
+           새로운 필터링을 할 수 있도록 한다 <br>
+end()메소드 사용안할때
+	$('div:odd').eq(0).css('background', 'yellow');
+	$('div:odd').eq(1).css('background', 'blue');
+	$('div:odd').eq(2).css('background', 'pink');<br>
+	
+end()메소드를 사용  
+ 	<span>$('div:odd').eq(0)</span>.css('background', 'yellow')
+	         <span> .end().eq(1)</span>.css('background', 'blue')
+	         <span> .end().eq(2)</span>.css('background', 'pink');
+</pre>
+<br>
+<hr color='blue'>
+	<div>a</div>
+	<div>b</div>
+	<div>c</div>
+	<div>d</div>
+	<div>e</div>
+	<div class="orange">f</div>
+	<div>g</div>
+
+
+</body>
+</html>

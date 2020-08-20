@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+    $('button').click(function(){
+    	
+    	  alert("대상:" + event.target.tagName +  
+    			"좌표:" + event.pageX + "," + event.pageY  + 
+    			"(" + event.screenX   +"," + event.screenY   +  ")"  +
+    	        "Ctrl:"  + event.ctrlKey );
+    })
+    
+    $('div').mousedown(function(event){
+    	   alert("대상:" + event.target.tagName +  "\n" +  
+    			"좌표:" + event.pageX + "," + event.pageY  + "\n" +  
+    			"(" + event.screenX   +"," + event.screenY   +  ")"  + "\n" +  
+    	        "Ctrl:"  + event.ctrlKey + "\n" + 
+    	        "button: " +  event.button
+    	   );
+    	   
+    	   if(event.button == 0){
+    		   //왼쪽버튼- div에 테두리 
+    		   $('div').css('border', '1px solid red');
+    	   }else if(event.button == 1) {
+    		   //가운데 버튼 - div의 배경색변경
+    		  $('div').css('background','pink');  
+    	   }else if(event.button == 2) {
+    		   //오른쪽버튼 - div에 Hello World~~를 출력 
+    		   $('div').text("Hello World~~").css('font-size', '15px');
+    	   }
+     	
+    })
+    
+    
+    
+  })
+</script>
+<style>
+   div{
+    width : 300px;
+    height : 200px; 
+    background-color : yellow;
+   }
+</style>
+</head>
+<body>
+  <div> </div>
+  <br>
+  <button> 버튼 </button>
+  
+</body>
+</html>

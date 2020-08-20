@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Event</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function() {
+			// 모든 <button>요소에 mouseenter와 mouseleave 이벤트를 설정함.
+			/* $("button").on("click mouseenter mouseleave", function() {
+				$("#text").append("마우스가 버튼 위로 진입하거나 빠져나갔어요!<br>");
+			}); */
+	
+			$('body').delegate('button', 'click', function(){
+			//$("button").on("click", function() {
+				$(this).css("background","green");
+
+				var btn = $("<button/>",{
+					"text" :"동적생성 버튼",
+					"click":function(){
+						$("button").css("border","5px solid blue");
+					}
+				});
+				
+				$(this).after(btn);
+			
+			});
+			
+			 // $('button').undelegate('click');
+			  
+			/*  $('body').delegate('button', 'click', function(){
+				$("button").css("border","5px solid blue");
+			});  */
+			
+			/* $('div').delegate('.add', 'click', function(){		 
+				 $('#result').append('<button class="add">새로운버튼</button>');
+			 }) */
+		});
+	</script>
+</head>
+
+<body>
+
+	<h1>.on() 메소드</h1>
+	<button>마우스를 버튼 위로 가져가 보세요!</button>
+	<p id="text"></p>
+	
+</body>
+
+</html>

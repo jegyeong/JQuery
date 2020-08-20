@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+
+<script>
+  $(function(){
+	  
+	//  $('p').css('color', 'green'); // -> jQuery
+	  var aa = $('p').get();
+	  
+	  $.each(aa, function(i){
+		 // aa[i].style.color='blue';
+		 $(aa[i]).css('color', 'red');
+	  })
+	  
+	 /* for(i=0; i<aa.length; i++){
+		  $(aa[i]).css('color', 'blue'); 
+	  }*/
+	  
+// 	   $('div').get(1).style.background = 'yellow';
+// 	   $('p')[1].style.fontSize = '2.0em';
+// 	   $('p')[2].style.color = 'blue';
+// 	   $('p')[3].style.background = 'pink';
+	   
+	   
+// 	   $($('div').get(1)).css('color', 'red');
+// 	   $($('p')[2]).css('color', 'cyan');
+// 	   $($('p')[3]).css('color', 'yellow');
+// 	   $($('p')[1]).css('color', 'hotpink');
+	   
+	   $("p:odd").click(function(){
+		   $(this).hide();
+		   
+	   })
+	   $("p").html("222");
+  })
+</script>
+</head>
+<body>
+  <p>첫번째</p>
+  <p>두번째</p>
+ <p>세번째</p>
+ <p>네번째</p>
+</body>
+</html>

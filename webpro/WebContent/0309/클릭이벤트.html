@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>클릭이벤트</title>
+		<script>
+			function chcolor(color){
+				document.body.style.backgroundColor = color;
+			}
+			function onLoadDoc(){
+				document.body.style.backgroundColor = "yellow";
+			}
+			//window.onload = function(){
+			//	document.body.style.backgroundColor = "yellow";
+			//}
+		
+		</script>
+	</head>
+	<body onload="onLoadDoc();">
+		<form>
+			<input type="radio" name="btn1" onclick="chcolor('blue');">파랑색
+			<input type="radio" name="btn1" onclick="chcolor('green');">녹색
+		</form>
+	</body>
+</html>
+
+
+
+
+

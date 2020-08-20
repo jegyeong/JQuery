@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+$(function(){
+	  $('form :enabled').css('border', '2px solid blue');
+	  $('form :disabled').css('border', '2px solid hotpink');
+	  
+	  $('button[name="disButton3]').on('click', function(){
+		  $(this).prop('disabled', true);
+	  }) 
+})
+</script>
+<style>
+  span{
+    color : red;
+  }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+폼 상태필터 :<br>
+사용가능 한 상태  :enable <br>
+<span> $('form :enabled')</span>.css('border', '2px solid blue'); <br>
+사용불가능한 상태 :disabled <br>
+<span> $('form :disabled')</span>.css('border', '2px solid hotpink');<br>
+<br>
+<hr color='blue'>
+<br>
+  <form action="../0706/formtest.jsp" method="post"> 
+	<input type="button" name="disButton" value="Input Button" disabled><br>
+	<input type="checkbox" name="enCheckbox" >체크<br>
+	<input type="file" name="disFile"  ><br>
+	<input type="hidden" name="enHidden"  value=""> <br>
+	<input type="image" src="../images/image.1.jpg" alt="Submit" ><br>
+	<input type="password"  value="1111" name="enPassword" disabled > <br>
+	<input type="radio" name="disRadio"  value="남" disabled> 남<br>
+	<input type="reset" name="enReset" value="취소"><br>
+	<input type="submit" name="disSubmit" value="제출" disabled> <br>
+	<input type="text" name="enText" value="input text"  > <br>
+	<select name="disSelect" >
+	   <option>Option1</option>
+	   <option>Option2</option>
+	   <option>Option3</option>
+	   <option>Option4</option>
+	   <option>Option5</option>
+	   <option>Option6</option>
+	 </select><br>
+	<textarea name="enTextarea" rows=10 cols=20 >text</textarea><br>
+	<button name="disButton2" onclick="javascript:alert('aaaaa');">Button</button><br>
+
+<button name="disButton3" >Button</button><br>
+</form>
+
+  
+</body>
+</html>
+
+
+
+

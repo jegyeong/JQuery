@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>overflow</title>
+		<!-- overflow 
+		        자식 요소가 부모요소의 범위를 벗어났을 경우
+			어떻게 처리하는지 지정
+		 -->
+		 <style>
+		 	div#target{
+		 		border:1px solid black; 
+		 		width:300px;
+		 		height:100px;
+		 		overflow:auto;
+		 		/*
+		 		hidden :부모영역을 벗어나는 부분을 감춘다 
+		 		scroll : 부모영역을 벗어나는 부분을 스크롤 할 수 있도록 한다 
+		 		auto : 자동으로 스크롤 바가 생긴다 (영역을 벗어나는 부분만 )
+		 		*/
+		 	}
+		 	p{
+		 		background-color:green;
+		 		width:200px;
+		 		height:50px;
+		 	}
+		 </style>
+	</head>
+	<body>
+		<div id="target">
+			<p>block #1</p>
+			<p>block #2</p>
+			<p>block #3</p>
+			<p>block #4</p>
+			<p>block #5</p>
+		</div>
+	</body>
+</html>
+
+
+
+

@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  // $('div').css();
+	   
+	   $('#ptext').click(function(){
+		   //전체 p태그를 대상으로 해서 p안의 문자만  
+		   var vtext =    $('p').text();  //p태그에서 값을 가져오기(get)
+		   $('#textresult').text(vtext);  //id가 textresult인곳에 vtext값을 출력한다(set)
+	   })
+	   
+	   $('#phtml').click(function(){
+		   //첫번째p태그를 대상으로 p태그안의  태그와 문자를 가져온다 
+		    var vhtml =   $('p').html() + "\n"; 
+		    $('#htmlresult').text(vhtml);
+		    
+		   ///////////////////////////////////////////
+	      //전체p태그를 대상 으로  문자와 태그를 가져온다 -반복루프를 이용 
+		   $('p').each(function(i){
+			  vhtml +=   (i+1) +  "번째 요소 : "  +  $(this).html() + "\n" ;
+		   })
+		   //출력
+		   $('#htmlresult').text(vhtml);  
+		   alert(vhtml);
+	   })
+  })
+</script>
+<style>
+  div{
+     width : 300px;
+     height : 150px;
+     background : #dffff3;
+  }
+</style>
+</head>
+<body>
+ <h2>수행내용</h2>
+** html()메소드와 text()메소드 <br>
+ 지정된 엘리먼트(선택자)를 대상으로 값을 가져온다 - getter의 의미   <br>
+** html(값)메소드와 text(값)메소드 <br>
+ 지정된 엘리먼트(선택자)를 대상으로 값을 출력,변경한다 - setter의 의미 <br>
+ <br>
+
+
+ <br>
+ htmt :태그를 포함한 문장을 가져온다  <br>
+ text :태그를 포함하지 않는 문자만 가져온다  <br>
+<br>
+ *선택자가body인경우 <br>
+ $("body").html()  // body 태그 안의 모든 태그를 포함한 문장 <br>
+ $("body").text()  // body 태그안의 모든 문자만 <br>
+<br>
+ *선택자가 body가 아닌 경우<br>
+ $("p").text()   //p가 여러개인경우 모든 p태그의 문자만  <br>
+ $("p").html()   //p가  여러개인경우  첫번째거만 태그를 포함한 문장 <br>
+ 
+ * html()메소드 사용시 첫번째거만 대상으로 가져온다 <br>
+  전체를 대상으로 가져오기 위해서는 반복루프를 사용한다<br> 
+  $.each($('p'), function() { } )<br>
+  $('p').each(function(){ })<br>
+ 
+<br>
+ <hr color='blue'>
+  <p>1<a>홍길동</a></p>
+  <p>2<a>개나리</a></p>
+  <p>3<a>진달래</a></p> 
+  <p>123<a>첫번째</a></p> 
+   <p>두번째</p>  
+   <p>세번째</p><p>네번째</p> 
+  
+  
+  <input type="button" id="ptext" value="p태그의 문자만(text)"><br>
+  <div id="textresult"></div>
+  <br>
+  <input type="button" id="phtml" value="p태그의 태그포함문자(html)"><br>
+  <div id="htmlresult"></div>
+ 
+</body>
+</html>
+
+
+
+

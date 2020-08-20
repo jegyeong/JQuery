@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+  $(function(){
+	 //form에 action과 method설정 type=button
+	 //$('#old').click( function(){  $('#ff').submit(); }
+	  
+	 //form에 action과 method설정  type=submit
+	 $('#old').submit(function(){ 	 $('#ff').submit();  })
+	   
+	 /*  
+	 //form에 action과 method 없다 type=submit
+	   $('#old').on('click',function(){  
+		  //   f= $('#ff')
+		  //   f.action ="first.jsp";
+		  //   f.method="post";
+		  //   f.submit();
+		    
+		   $('#ff').attr({'action' : 'first.jsp', 'method':'post'})
+		          .submit();
+		    $('#ff').submit();
+	  })   */
+//XMLHttpRequest----------------------------------------------------	  
+	  $('#ajax').on('click', function(){
+		  alert("ajax");
+	      event.preventDefault();
+// 		  data =  "name=" + $('#name').val() + "&age=" + $('#age').val();
+// 		  var xhttp = new XMLHttpRequest();
+// 		  //요청
+// 		  xhttp.open("POST", "first.jsp", true);
+// 		  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+// 		  xhttp.send(data);
+		  
+// 		  //응답
+// 		  xhttp.onreadystatechange = function() {
+// 		    if (this.readyState == 4 && this.status == 200) {
+// 		     //document.getElementById("demo").innerHTML = this.responseText;
+// 		     $('#result').html(this.responseText);
+// 		    }
+// 		  };
+ //     
+//////////////////////////////////////////////////////////////////////////
+//jQuery AJAX-------------------------------------------------------  
+		 $.ajax({
+			  url : 'first.jsp',
+			  type : 'post',
+			  data : 'name=' + $('#aname').val() + "&age=" + $('#aage').val() ,
+			  //data : 서버 페이지 first.jsp로 보내는 데이타  //name=홍길동&age=12
+			  success : function(res){  //응답받는 부분 
+				 // $('#result').append(res);
+			     $('#result').html(res);
+			  
+			  },
+			  error : function(){
+				alert("오류 발생.."); 
+			  },
+			  dataType : 'text'       //응답 데이타의타입 
+		  })
+	  })
+///////////////////////////////////////////////////////////////
+  })
+	  
+
+</script>
+</head>
+<body>
+form 에 action과 method가 없고  <br>
+ type=button  또는 type=submit 일때 <br>
+이벤트 : onclick<br>
+<br>
+form 에 action과 method가 있고  <br>
+type=sbumit 일때 이벤트 : onsubmit???????<br>
+type=button 일때 이벤트 onclick<br>
+
+<br>
+
+<h2> 기존의 동기방식 </h2>
+<!--   <form  id="ff" name="ff" >   -->
+ <form id="ff" name="ff" action="first.jsp" method="post"> 
+   이름 : <input type="text" id="name" name="name"><br>
+   나이 : <input type="text" id="age" name="age"><br>
+   <br>
+- <!--  <INPUT type="button" id="old"  value='기존의 방식'  > -->
+ <INPUT type="submit" id="old"  value='기존의 방식'  >
+  <!--  <button  type="button">기존방식</button>  --> 
+  
+  <!--  <button id="old"> 자동전송 기존방식</button> -->
+ </form>
+ 
+ <br><br><hr>
+ 
+ <h2>Ajax 비동기 방식</h2>
+<!--  <form  id="aff" name="aff" > -->
+ <form id="aff" name="aff" action="first.jsp" method="post"> 
+   이름 : <input type="text" id="aname" name="name"><br>
+   나이 : <input type="text" id="aage" name="age"><br>
+   <br>
+   <!-- <input type="button" id="ajax" value='Ajax방식'  > -->
+   
+  <input type="submit" id="ajax" value='Ajax방식'  > 
+   
+ <!--  <button id="ajax" type="button">ajax방식 </button>   -->
+   <!--  <button id="ajax">자동전송 ajax방식 </button>  -->
+ </form>
+  
+ 
+ <br>
+ <hr color ='red'>
+ <div id="result"></div>
+ 
+</body>
+</html>
+
+
+
+

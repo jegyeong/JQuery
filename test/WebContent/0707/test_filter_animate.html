@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>animated demo</title>
+  <style>
+	  div {
+	    background: yellow;
+	    border: 1px solid #AAA;
+	    width: 80px;
+	    height: 80px;
+	    margin: 0 5px;
+	    float: left;
+	  }
+	  div.colored {
+	    background: green;
+	  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script>
+  
+    $(function(){
+    	
+    
+		// 애니메이션 진행 상태에있는 모든 요소를 ​​선택
+		$( "#run" ).click(function() {
+		  $( "div:animated" ).toggleClass( "colored" );
+		 
+		});
+		 
+		function animateIt() {
+		  $( "#mover" ).slideToggle( "slow", animateIt );
+		}
+		 
+		animateIt();
+    })
+	</script>
+</head>
+<body>
+ 
+<button id="run">Run</button>
+ 
+<div></div>
+<div id="mover"></div>
+<div></div>
+ 
+
+ 
+</body>
+</html>

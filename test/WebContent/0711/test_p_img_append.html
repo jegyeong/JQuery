@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	imgsrc ="aaaa";
+	//p를 클릭 
+	$('p').click(function(){
+		//this 객체를 이용해서  p태그의 title속성을 가져온다 -  attr('title') 
+		imgvar = $(this).attr('title');
+		//imgvar = $(this).html();
+// 		//속성값으로 .jpg 를 만든다 
+	    imgsrc = $('<img/>', {   
+			  		   'src' : '../images/' + imgvar + ".jpg",  //../imges/koala.jpg
+					   'width' : '100px',
+			 		   'height' : '100px'
+	              });
+		//p태그의 안쪽이나(append, appendTo) 바깥쪽(after, insertAfter)으로 추가 한다 
+		//$(this).append(imgsrc);
+		imgsrc.appendTo(this);
+	})
+	
+})
+</script>
+</head>
+<body>
+  <p title="Tulips">Tulips</p>
+  <p title="Chrysanthemum">국화</p>
+  <p title="Koala">코알라</p>
+  <p title="Hydrangeas">수국</p>  
+  
+</body>
+</html>

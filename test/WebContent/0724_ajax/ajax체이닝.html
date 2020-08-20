@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+/*$(document).ready(function(){
+  $("button").click(function(){
+    $.ajax({url: "demo_test.txt", success: function(result){
+      $("#div1").html(result);
+    }});
+  });
+});*/
+/*
+$.ajax()鍮꾨룞湲곗떇 Ajax瑜� �씠�슜�븯�뿬 HTTP �슂泥��쓣 �쟾�넚�븿.
+$.get()�쟾�떖諛쏆� 二쇱냼濡� GET 諛⑹떇�쓽 HTTP �슂泥��쓣 �쟾�넚�븿.
+$.post()�쟾�떖諛쏆� 二쇱냼濡� POST 諛⑹떇�쓽 HTTP �슂泥��쓣 �쟾�넚�븿.
+$.getScript()�쎒 �럹�씠吏��뿉 �뒪�겕由쏀듃瑜� 異붽��븿.
+$.getJSON()�쟾�떖諛쏆� 二쇱냼濡� GET 諛⑹떇�쓽 HTTP �슂泥��쓣 �쟾�넚�븯�뿬, �쓳�떟�쑝濡� JSON �뙆�씪�쓣 �쟾�넚諛쏆쓬.
+.load()�꽌踰꾩뿉�꽌 �뜲�씠�꽣瑜� �씫�� �썑, �씫�뼱 �뱾�씤 HTML 肄붾뱶瑜� �꽑�깮�븳 �슂�냼�뿉 諛곗튂�븿.
+*/
+
+$(function() {
+/*
+$.ajax({ url: "/rest/1/pages/245", // �겢�씪�씠�뼵�듃媛� HTTP �슂泥��쓣 蹂대궪 �꽌踰꾩쓽 URL 二쇱냼 
+data: { name: "�솉湲몃룞" }, // HTTP �슂泥�怨� �븿猿� �꽌踰꾨줈 蹂대궪 �뜲�씠�꽣 
+method: "GET", // HTTP �슂泥� 硫붿냼�뱶(GET, POST �벑) 
+dataType: "json" // �꽌踰꾩뿉�꽌 蹂대궡以� �뜲�씠�꽣�쓽 ���엯 }) // HTTP �슂泥��씠 �꽦怨듯븯硫� �슂泥��븳 �뜲�씠�꽣媛� done() 硫붿냼�뱶濡� �쟾�떖�맖. 
+
+.done(function(json) { $("<h1>").text(json.title).appendTo("body"); 
+$("<div class=\"content\">").html(json.html).appendTo("body"); }) // HTTP �슂泥��씠 �떎�뙣�븯硫� �삤瑜섏� �긽�깭�뿉 愿��븳 �젙蹂닿� 
+fail() 硫붿냼�뱶濡� �쟾�떖�맖. .fail(function(xhr, status, errorThrown) { $("#text").html("�삤瑜섍� 諛쒖깮�뻽�떎.<br>") 
+.append("�삤瑜섎챸: " + errorThrown + "<br>") 
+.append("�긽�깭: " + status); }) // 
+.always(function(xhr, status) { $("#text").html("�슂泥��씠 �셿猷뚮릺�뿀�뒿�땲�떎!"); });
+
+異쒖쿂: https://araikuma.tistory.com/640 [�봽濡쒓렇�옩 媛쒕컻 吏��떇 怨듭쑀]
+
+*/
+    $("#requestBtn").on("click", function() {
+/*
+done HTTP �슂泥��씠 �꽦怨듯븯硫� �슂泥��븳 �뜲�씠�꽣媛�done() 硫붿냼�뱶濡� �쟾�떖�맂�떎.
+failHTTP �슂泥��씠 �떎�뙣�븯硫� �삤瑜섏� �긽�깭�뿉 愿��븳 �젙蹂닿� fail() 硫붿냼�뱶濡� �쟾�떖�맂�떎.
+alwaysHTTP �슂泥��씠 �꽦怨듯븯嫄곕굹 �떎�뙣�븯�뒗 寃껋뿉 �긽愿��뾾�씠 �뼵�젣�굹 always() 硫붿냼�뱶媛� �떎�뻾�맂�떎.
+
+]
+
+*/
+       var jqxhr = $.ajax({
+		url :"demo_est.txt",
+		type:"json"
+		})
+		.done(function(result) {
+			alert(result);
+            alert("�슂泥� �꽦怨�");
+        })
+        .fail(function() {
+            alert("�슂泥� �떎�뙣");
+        })
+        .always(function() {
+            alert("�슂泥� �셿猷�");
+        });
+		
+		jqxhr.always(function() { alert("�몢踰덉㎏ �꽦怨�"); });
+
+
+    });
+	/*
+	 * 
+	 json2.js
+	 JSON.stringify()와 JSON.parse()이다. 
+	 
+	 JSON.stringify()는 JSON.parse()와는 완전히 반대로 JSON 객체를 주면 JSON 텍스트로 만들어서 준다. 
+	 
+	 */
+});
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button id="requestBtn">Get External Content</button>
+
+</body>
+</html>

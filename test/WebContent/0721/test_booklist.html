@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <script src="../js/jquery-3.2.1.min.js"></script> 
+<script>
+  $(function(){
+	  
+	 //$('img#noimg').css({'width':'200px', 'height':'180px'});
+		
+	 $('a').on('click', function() {
+			//event.preventDefault();
+			
+			// href의 속성값을 가져온다 - 바꿀이미지
+			var href = $(this).attr('href');
+			5
+			/*
+			$('img#noimg').hide('slow');
+			$('img#noimg').attr('src', href);
+			$('img#noimg').show('slow');
+			*/
+			
+			// 현재 이미지가 사라지게 한다.
+			$('img#noimg').hide(800, function(){
+				// 사라진 후에 이미지의 src속성값을 설정한다.
+				$('img#noimg').attr('src', href);
+				// 설정된 src값으로 새로운 이미지가 나타난다.
+				$('img#noimg').show(1000);
+	 		});
+			return false;
+			
+			
+		})
+
+	
+	  
+  })
+</script>
+<style>
+  img{
+    width : 200px;
+    height : 230px;
+  }
+</style>
+</head>
+<body>
+ <h2>교재목록 </h2>
+ <br>
+ <ul>
+   <li> <a href="../images/jQuery.jpg">jQuery교재</a></li>
+   <li> <a href="../images/JSP2_1.jpg">JSP교재</a></li>
+   <li> <a href="../images/UML.jpg">UML교재</a></li>
+ </ul>
+
+<br>
+<hr color='red'>
+<img  id="noimg" src="../images/noImage.png">
+</body>
+</html>
+
+
+
+
+
+
+
+
+

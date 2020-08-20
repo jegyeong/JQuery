@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>배경색변경</title>
+		<script>
+			window.onload = function(){
+				a = setInterval(setColor, 1000);
+			}
+			function setColor(){
+				var color = "";
+				/*0~255*/
+				var red = Math.floor(Math.random()*256),
+				    green = Math.floor(Math.random()*256),
+					blue = Math.floor(Math.random()*256);
+			    
+				color = 
+				"#"+red.toString(16) + green.toString(16)+ blue.toString(16);
+				
+				document.body.style.backgroundColor = color;
+			}
+			function stop(){
+				clearInterval(a);				
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 중지 버튼 클릭시 배경색이 멈출수 있도록 하는 함수 만들어주세요 -->
+		<button onclick="stop();">중지</button>
+	</body>
+</html>
+
+
+
+

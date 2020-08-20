@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  
+	  
+	  
+	 $('input[type=button]').on('click', function(){
+	//	 $('button').on('click', function(){
+		// alert( $("label[for='"+$("input[type=radio]:checked").attr('id')+"']").text());
+//alert($("input[type=radio]:checked").next().text())
+		 var result= "";
+		//  result = "당신은 "+ $("input[type=radio]:checked").val() +"이고";
+		  
+		  result = "당신은 "+ $("label[for='"+$("input[type=radio]:checked").attr('id')+"']").text() +"이고";
+		 
+		  alert($("input[type=radio]:checked").length);
+		  
+		 $.each($(':checkbox:checked'), function(i){  //체크된 수만큼 
+			 if(i > 0)	 result += ","; 
+			 result +=  $(this).val();
+		 })
+		 
+		 result += "을 좋아합니다.";
+		 $("textarea").val(result);
+		 
+		/* 
+		  cnt =0;
+		$.each($(':checkbox'), function(i){  //checkbox 갯수만큼 5번 수행
+		
+			 alert('i=' + i);
+			  if( $(this).prop('checked')){
+				 if(cnt > 0)	 result += ","; 			 
+				 cnt ++;
+				 result +=  $(this).val();
+				
+			 } 
+		 }) */
+	//	 alert(result);
+	  return false;
+	  })
+	  
+  })
+</script>
+
+</head>
+<body>
+  <form>
+  	
+  	<input type="radio" name="gender" value="male" id="gender_male"><label for="gender_male">남자</label><br>
+  	<input type="radio" name="gender" value="female"  id="gender_female"><label for="gender_female">여자</label><br>
+  	
+  	
+	취 미 :
+	<input type="checkbox" name="hobby" value="여행" checked >여행
+	<input type="checkbox" name="hobby" value="장기">장기
+	<input type="checkbox" name="hobby" value="바둑">바둑
+	<input type="checkbox" name="hobby" value="독서" >독서
+	<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+	<textarea rows="10" cols="30"></textarea>
+	
+	<input type="button" value="전송">
+	
+ </form>
+</body>
+</html>

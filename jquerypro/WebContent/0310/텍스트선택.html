@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>텍스트선택</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			/* window.onload = function(){
+				var str =document.getElementById("pTag").innerHTML;
+				document.getElementById("pTag").innerHTML = "";
+				alert(str);				
+			} */
+			
+			$(function(){				
+				//.html()은 태그안의 모든 태그를 포함 한 문장을 넣어준다
+				//$("#pTag").html("<div>변경된 p태그입니다.</div>");
+				
+				//.text()는 문자만 넣어준다 
+				$("#pTag").text("<div>변경된 p태그입니다.</div>");			
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<p id="pTag">p태그입니다.</p>
+	</body>
+</html>

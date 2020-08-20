@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	//span태그의 배경색 변경- yellow
+		$('span').css('background', 'yellow');
+		
+		//div의 모든 후손중  span 태그의 테두리  - red
+		$('div span').css('border', '2px solid red');
+		
+		//div의 바로 다음 자식 span태그의 테두리  - blue
+		$('div>span').css('border', '2px solid blue');
+  })
+</script>
+<style>
+  a.s{
+     color : blue;
+     text-decoration: none;
+  }
+  p.sp{
+     color : green;
+  }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+<a class="s">span </a> 태그의 배경색 변경- yellow<br>
+<p class="sp">$('span').css('background', 'yellow');</p><br>
+<a class="s"> div의 모든 후손중  span </a>태그의 테두리  - red<br>
+<p class="sp">$('div span').css('border', '2px solid red');</p><br>
+<a class="s">div의 바로 다음 자식 span </a>태그의 테두리  - blue<br>
+<p class="sp">$('div>span').css('border', '2px solid blue');</p><br>
+<hr color='blue'>
+ <p>이 문단에는 <span>스팬</span> 엘리먼트가 있다</p>
+ 
+ <div>
+    이 디비젼에도  <span>스팬</span> 엘리먼트가 있다 
+    <p>디비젼의  내부 문단의 <span>스팬</span> 엘리먼트이다 </p>
+ 
+    <div>  
+        <p> 내부 디비젼의   다시 문단 속 아주
+           	  <strong>깊은곳에 </strong>
+                    <em> 숨어있는 </em>
+                    <span>스팬</span>
+	             엘리먼트도 있다 
+        </p>
+    </div>
+ </div> 
+ 
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script>
+ $(function(){
+	 $('#btnid').click(function(){
+		 alert( $('#id').val());
+	 })
+ })
+ </script>
+ <style>
+  .container{text-align:center;   }
+  .form-horizontal{  width:100%;   box-sizing:border-box; } 
+	  
+   fieldset {border: 10px solid #cacace; background: #fff; width:90%;} 
+  
+	.form-group {
+	        text-align:left; 
+	        padding: 8px; 
+	        border-bottom: 1px dashed #ababab;
+	 }
+	 
+    .form-group label.control-label { 
+	          /* background: #efefef;  */ 
+	          width: 120px;
+	          display: inline-block; 
+	          text-align: center; 
+	          box-sizing:border-box;
+	 }
+	
+	.form-group input {  
+	         box-sizing:border-box;  
+	        margin-left : 20px;
+	        padding: 10px 15px;  
+	        border-radius: 10px; 
+	        border: 0 none;  
+	        border : 1px solid gray;
+	 }
+	.form-group input#addr1, .form-group input#addr2{
+	           width:calc(90% - 127px);
+	           box-sizing:border-box;
+	 }
+	.form-group input.addr{
+	          margin : 5px 20px; 
+	          margin-right: 0px; 
+	}
+	.form-group:last-child {border-bottom: 0 none;} 
+	.form-group .btn{
+		   background:#fff; 
+		   font-weight: bold;
+		   border:1px solid #8888ff; 
+		   color:blue; 
+		   margin-left: 10px;
+		   padding: 5px 10px 8px; 
+		   border-radius: 50px; 
+		 /*   box-sizing:border-box; */
+	 } 
+	
+	.btn-wrap{margin-top:30px; text-align: left;}
+	.btn-wrap .btn{ 
+	        width:20%; 
+	        padding:10px;
+	        font-size:1.0em; 
+	      /*   box-sizing:border-box; */
+	        color: white;
+	        font-weight: bold; 
+	        background: Dodgerblue; 
+	        border:  none;  
+	        border-radius: 50px;
+	  }
+	.btn-wrap .btn.btn-default{background: DimGray;}
+  </style>
+</head>
+<body>
+<div class="container">
+<h1>회원가입</h1>
+
+<form class="form-horizontal" action="aa.jsp" method="post" name="ff">
+	 <fieldset> 
+		
+	   <div class="form-group">
+	      <label class="control-label" for="id">아이디:</label>
+	        <input type="text" class="form-control" id="id" placeholder="" name="id">
+	      <button type="button" id="btnid" class="btn col-sm-1">중복검사</button>
+	    </div>
+	   
+	   
+		 <div class="form-group">
+	      <label class="control-label" for="name">이름:</label>
+	        <input type="text" class="form-control" id="name" placeholder="" name="name">
+	    </div>
+	    
+	    <div class="form-group">
+	      <label class="control-label" for="birth">생년월일:</label>
+	        <input type="date" class="form-control" id="birth" placeholder="" name="birth">
+	    </div>
+		  
+	    
+	    <div class="form-group">
+	      <label class="control-label" for="pwd">비밀번호:</label>
+	        <input type="password" class="form-control" id="pwd" placeholder="" name="pwd">
+	    </div>
+	   
+	    <div class="form-group">
+	      <label class="control-label" for="ptel">휴대폰 번호:</label>
+	        <input type="text" class="form-control" id="ptel" placeholder="010-1234-5678" name="ptel">
+	    </div>
+	    
+	    <div class="form-group">
+	      <label class="control-label" for="email">이메일:</label>
+	        <input type="email" class="form-control" id="email" placeholder="abcd123@email.com" name="email">
+	    </div>
+	    
+	    <div class="form-group">
+	      <label class="control-label" for="zip">우편번호</label>
+	         <input type="text" class="form-control addr" id="zip" placeholder="" name="zip">
+	         <button type="button" class="btn col-sm-1">번호검색</button><br>
+	       <label class="control-label" for="zip">주소:</label> 
+	         <input type="text" class="form-control addr"  id="addr1" placeholder="" name="addr1"><br>
+	        <label class="control-label" for="zip">상세주소:</label> 
+	         <input type="text" class="form-control addr"  id="addr2" placeholder="" name="addr2">
+	    </div>
+	    
+	    
+  </fieldset> 
+    <div class="btn-wrap">        
+        <input type="button" class="btn btn-primary btn-lg" onclick="proc1()" value="제출"> 
+		<input type="reset" class="btn btn-default btn-lg" value="초기화">
+    </div>
+  </form>
+  <div id="result"></div>
+</div>
+</body>
+</html>

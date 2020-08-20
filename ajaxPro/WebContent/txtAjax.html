@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$("button").on("click",function(){
+					$.ajax({
+						url :"./data/result.txt",
+						dataType :"text",
+						success:function(data){
+							//alert(data);
+							var names = data.split("&");
+							console.log(names);
+							$.each(names, function(idx){
+								$("body").append("<br>");
+								$("body").append(names[idx]);
+							});
+						}
+					});
+				});
+			});
+		</script>
+		<!--  
+			  /*공백처리*/
+			  alert(data.trim());	
+			
+			    버튼을 클릭했을 때, 
+			  ajax를 이용하여 result.txt파일에 있는 데이터를 가져온 후 
+		      data를 &구분자로 잘라서 
+		            이름을 한명씩 body태그에 붙여주세요 (줄바꿈 있게)
+		
+		-->
+		
+		
+		
+	</head>
+	<body>
+		<button>클릭</button>
+	</body>
+</html>

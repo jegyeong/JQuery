@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){  
+	  
+	  $('button').css('display', 'none');
+	  $('img').dblclick(function(){
+		  $(this).hide();
+		  
+		  if( $('img:visible').length == 0){
+			  $('button').show();
+		  }
+	  })
+	  
+	  $('button').click(function(){
+		   $('img').show();
+		   $(this).hide();
+		   
+	  })
+	  //원래이미지를 temp에 저장  - src속성의 값을 가져와서 
+	  $('img').attr('temp' , function(){
+		          return  $(this).attr('src');
+	  })
+	  //mouseouver, mouseout-> hover()
+	  $('img').hover(function(){ 
+		   //mouseover
+		    $(this).attr('src',   $(this).attr('src2'));
+	  }, function() { 
+		   //mouseout
+		   $(this).attr('src',  $(this).attr('temp'));
+	  });
+
+	  
+  })
+</script>
+
+<style>
+  img {
+     width : 100px;
+     height : 100px;
+  }
+</style>
+
+</head>
+<body>
+   <img src="../images/셔틀콕.jpg"   src2="../images/수지.jpg">
+   <img src="../images/수국1.jpg"  src2="../images/Tulips.jpg">
+   <img src="../images/풍차.jpg"  src2="../images/Koala.jpg">
+   <img src="../images/단풍.jpg"  src2="../images/Penguins.jpg">
+  
+  <button>보이기</button>
+</body>
+</html>

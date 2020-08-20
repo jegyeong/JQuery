@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>boxsize</title>
+		<style>
+			div{
+				width:500px;
+				border:20px solid #ddd;
+				margin:20px;
+				padding:20px;
+			}
+			#box1{
+				box-sizing:content-box;
+			}
+			#box2{
+				box-sizing:border-box;
+			}
+			
+			input[type=text]{
+				border:2px dotted red;
+			}
+			input[type=button]{
+				border:2px solid blue;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<p>content-box</p>
+		</div>
+		<div id="box2">
+			<p>border-box</p>
+			<input type="text">
+			<input type="button" value="버튼">
+		</div>
+	</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,43 @@
+Request
+A Request instance represents the request piece of a fetch call.
+By passing fetch a Request you can make advanced and customized requests:
+
+
+1. method - GET, POST, PUT, DELETE, HEAD
+2. url - URL of the request
+3. headers - associated Headers object
+4. referrer - referrer of the request
+5. mode - cors, no-cors, same-origin
+6. credentials - should cookies go with the request? omit, same-origin
+7. redirect - follow, error, manual
+8. integrity - subresource integrity value 하위 자원 무결성 값
+9. cache - cache mode (default, reload, no-cache)
+
+var request = new Request('https://davidwalsh.name/users.json', {
+	method: 'POST', 
+	mode: 'cors', 
+	redirect: 'follow',
+	headers: new Headers({
+		'Content-Type': 'text/plain'
+	})
+});
+fetch(request).then(function() { /* handle response */ });
+
+fetch('https://davidwalsh.name/users.json', {
+	method: 'POST', 
+	mode: 'cors', 
+	redirect: 'follow',
+	headers: new Headers({
+		'Content-Type': 'text/plain'
+	})
+}).then(function() { /* handle response */ });
+
+Response
+
+1. type - basic, cors
+2. url
+3. useFinalURL - Boolean for if url is the final URL
+4. status - status code (ex: 200, 404, etc.)
+5. ok - Boolean for successful response (status in the range 200-299)
+6. statusText - status code (ex: OK)
+7. headers - Headers object associated with the response.

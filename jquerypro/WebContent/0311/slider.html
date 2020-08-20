@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>slider </title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<style>
+			#flip, #panel{
+				border: 1px solid green;
+				padding:5px;
+				text-align:center;
+				background-color:yellow;
+			}
+		</style>
+		<script>
+			$(function(){
+				//$("#panel").css("display","none");
+				
+				$("#flip").click(function(){
+					//$("#panel").css("display","block");
+					/*if($("#panel").css("display") =="block")
+						$("#panel").slideUp("slow");
+					else
+						$("#panel").slideDown("slow");
+					*/
+					$("#panel").slideToggle();
+					
+					
+					
+					
+				});
+				
+				
+			});
+		
+		</script>
+		
+	</head>
+	<body>
+		<div id="flip">메뉴를 클릭하세요</div>
+		<div id="panel">내용입니다.</div>
+	</body>
+</html>
+
+
+
+
+

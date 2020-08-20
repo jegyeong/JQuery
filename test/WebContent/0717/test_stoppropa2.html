@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+     $('button').click(function(){
+    	  $(this).css('border' , '2px solid red');
+    	  //event.stopPropagation();
+    	  return false;
+     })
+     
+     $('span').click(function(){
+    	 $(this).css('border' , '2px solid green');
+    	 event.stopPropagation();
+    	 //return false;
+     })
+     
+     $('div').click(function(){
+    	 $(this).css('border' , '2px solid blue');
+     })
+     
+     $('a').click(function(){
+    	  var today = new Date();
+    	  var byear = (prompt("태어난 년도를 4자리로 입력하세요"));
+    	  
+    	  //today에서 4자리의 현재년도를 얻어온다
+    	  //현재년도 - 태어난 년도를 뺀다 
+    	  age =  today.getFullYear() - byear;
+    	 
+  	      if(age <15){
+  	          alert("나이제한 입니다 ..");
+  	          return false;
+  	          //event.preventDefault();
+   	      }
+     })
+ })
+</script>
+<style>
+  div{
+		width : 300px;
+		height : 200px;
+		background : pink;
+		padding : 50px;
+	}
+   span{
+       
+		background : yellow;
+		padding : 35px;
+	}
+</style>
+</head>
+<body>
+	<div>
+		<span>
+			<button>클릭하세요</button>
+		</span>
+	</div>
+	<br>
+	<hr color="red">
+	<br>
+	<a href="http://www.daum.net">Daum사이트 가기</a>
+
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  count = 0;
+	  
+	  $('div.out').mouseover(function(){
+		  count ++;
+		  $('p:last').text(count);
+		  
+		  // 매번 배경색를 변경 
+		  //난수 발생 
+		  r = parseInt(Math.random() * 256);
+		  g = parseInt(Math.random() * 256);
+		  b = parseInt(Math.random() * 256);
+		  
+		  $(this).css('background','rgb(' + r + ',' + g +',' + b +')' ); 
+		  //red,   #ff3490,  rgb(200,34,179),  rgb(30%, 56%,90%)
+		  
+		  
+	  })
+  })
+</script>
+
+    <style>
+        div.out {
+            width: 200px;
+            height: 80px;
+            background-color: yellow;
+        }
+    </style>
+
+
+</head>
+<body>
+     <div class="out">
+        <p>마우스를 여기로 움직이세요.</p>
+
+        <p>0</p>
+    </div>
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+

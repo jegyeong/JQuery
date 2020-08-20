@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  $(document).mousemove(function(event){
+		
+		  var info ="page좌표:" +  event.pageX + "," + event.pageY + "\n" +
+		            "screen좌표:" + event.screenX + "," + event.screenY;
+		  
+		  $('#log').text(info);
+		  //x,y좌표가 100, 100 이 되는 순간에 img띄우기
+		  if( event.pageX  >= 100 &&  event.pageY>=100){
+			  
+			  imgtag = $('<img/>', {
+				  'src' : '../images/단풍.jpg'  ,
+				  'width' : '100px',
+				  'height' : '100px'
+			  })
+			  
+			  $(imgtag).appendTo('body');
+		  };
+	  })
+  })
+</script>
+
+ <style>
+     body { background-color: #eef;
+          }
+     div  {  padding: 20px;    
+             width : 300px;
+             height : 50px;
+             border : 1px solid yellow;
+             text-align : center;
+             margin : auto;
+           }
+ </style>
+
+
+</head>
+<body>
+       <div id="log"></div>
+</body>
+</html>

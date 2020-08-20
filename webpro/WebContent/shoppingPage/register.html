@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+
+<style>
+	body{margin:0; background:#efefef; padding:30px;}
+	label{
+		display:inline-block;
+		width:150px;
+		margin-bottom: 10px;
+	}
+</style>
+</head>
+<body>
+<h2>회원정보입력</h2>
+<form>
+	<fieldset>
+		<legend>회원정보입력</legend>
+		<label>아이디</label>
+		<input type="text" name="id">&nbsp;<button type="button">중복검사</button><br>
+		<label>패스워드</label>
+		<input type="password" name="pass"><br>
+		<label>패스워드 확인</label>
+		<input type="password" name="pass"><br>
+		<label>이름</label>
+		<input type="text" name="name"><br>
+		<label>휴대폰 번호</label>
+		<input type="tel" name="tel"><br>
+		<label>이메일</label>
+		<input type="email" name="email"><br>
+		<label>생일</label>
+		<input type="text" name="bt"><br>
+		<label>홈페이지</label>
+		<input type="text" name="homepage"><br>
+		<br>
+		<input type="radio" name="gender" value="f" id="f" checked><label for="f">여성</label><br>
+		<input type="radio" name="gender" value="m" id="m"><label for="m">남성</label><br>
+	</fieldset>
+	<br>
+	<input type="submit" value="제출">
+	<input type="reset" value="초기화">
+</form>
+</body>
+</html>

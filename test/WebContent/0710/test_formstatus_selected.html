@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  //select선택 방법 
+	  //1  $('select[id=spring]')
+	  //2  $('select[name=spring]')
+	  //3  $('#spring')   4. $(select#spring)
+	  
+	/*  //////////////////////////////////////////////   
+ 	   $('#spring').change(function(){
+	          result = "";
+		      $('option:selected').each(function(){
+		    	  result +=  $(this).val() + "\n";
+		    	  $(this).css('border' , '2px solid red');
+		      })
+		      alert(result);
+	   })  
+	    */
+	/////////////////////////////////////////////////////   
+	 $('#spring').change(test);  //test라는 함수룰 호출 
+		   
+	 function test() {
+		     result ="";
+	         $('#spring option:selected').each(function(){
+		    	  result +=  $(this).val() + "\n";
+		    	  $(this).css('border' , '2px solid red');
+		      })
+		      alert(result);
+	  }
+  })
+</script>
+
+</head>
+<body>
+<h2>수행내용</h2>
+폼상태필터 : :selected  <br>
+select/option 에서 체크된 항목 을 선택<br>
+size : 화면에 보여지는 갯수<br>
+selected : 선택된 항목 <br>
+multiple : 한번에 여러개를 선택가능 하도록 함 <br>
+chahge 이벤트 <br>
+
+<hr color='blue'>
+
+	<form>
+		봄소식 : <select name="spring" id="spring"   multiple  size='6' >
+			<option>개나리</option>
+			<option selected>진달래</option>
+			<option>민들레</option>
+			<option selected>벚꽃</option>
+			<option>목련</option>
+			<option>철쭉</option>
+		</select>
+	</form>
+
+</body>
+</html>

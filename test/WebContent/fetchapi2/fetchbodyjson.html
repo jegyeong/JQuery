@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+$(function() { 
+$('#aa').click(function(){
+		
+	fetch('fetchbodyjson.jsp', {
+		
+		method: 'post',
+		body: JSON.stringify({
+			name : $('#name').val(),
+			email: $('#email').val()
+			///jsp로 안넘어감 ????????????????????
+		}),
+		
+		headers: {
+			  //"Content-Type": "application/x-www-form-urlencoded"
+			"Content-Type": "application/json"
+		},
+	}).then((res) => {    //.then(function(res) { })
+		if (res.status === 200 || res.status === 201) {
+			res.json().then(json => console.log(json));
+			
+		} else {
+			console.error(res.statusText);
+		}
+	}).catch(err => console.error(err));
+})
+})
+</script>
+</head>
+<body>
+  <input type="text" id="name"><br>
+  <input type="text" id="email"><br>
+  <input id="aa" type="button" value="전송">
+  
+</body>
+</html>

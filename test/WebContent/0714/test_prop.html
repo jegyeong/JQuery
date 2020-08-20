@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  $('#checkAll, .allTest').prop('checked',  true);
+	
+	 /*
+	  //상태값 가져오기 
+	  $('#runBtn').click(function(){
+		  chk =  $('#checkTest').prop('checked');
+		  sel = $('#selTest option:eq(0)').prop('selected');
+		  read  = $('#txtTest').prop('readonly');
+		  btn = $('#btnTest').prop('disabled');
+	     alert("check:" + chk  + " select:" + sel + " text :" + read + " button:" + btn);
+	  })
+	 */
+	 
+	 $('#runBtn').click(function(){  
+		  //실행 버튼 클릭할때마다 현재의 상태값 바꾸기 true-> false, false->true
+		  //$('#checkTest').prop('checked',   true);
+		  
+		  //$('#checkTest').prop('checked',   !현재의상태값)
+		  //$('#checkTest').prop('checked',   !$('#checkTest').prop('checked'))
+		  $('#checkTest').prop('checked',   !$('#checkTest').prop('checked'))
+		  $('#selTest option:eq(2)').prop('selected',  !$('#selTest option:eq(2)').prop('selected'));
+		  $('#txtTest').prop('readonly', !$('#txtTest').prop('readonly'));
+		  $('#btnTest').prop('disabled', !$('#btnTest').prop('disabled'));
+		  alert("check:" + chk  + " select:" + sel + " text :" + read + " button:" + btn);
+	 });
+	
+	  //전체선택
+	  $('#checkAll').change(function(){
+		
+		 $('.allTest').prop('checked',  $(this).prop('checked'));
+	  })
+	 //-----------------------------------------------// 
+	  //allTest 에서 선택한 항목에 따라 기능을 수행 
+	  $('.allTest').change(function(){
+		 // alert($(this).val());
+		 if($(this).prop('checked')){
+			 a =$(this).val() ;
+			 prop()
+		 }
+	  })
+	  
+	  function prop(){
+		  alert( a + "해당 작업을 수행합니다");
+	  }
+	  //-----------------------------------------------// 
+  })
+</script>
+</head>
+<body>
+	<form>
+		체크박스(라디오버튼) :
+		<input type="checkbox" id="checkTest"  checked><br>
+		
+		체크박스(전체선택/해제) :
+		<input type="checkbox" id="checkAll"  >전체선택
+		<input type="checkbox" value="1" class="allTest"  >1
+		<input type="checkbox" value="2" class="allTest"  >2
+		<input type="checkbox" value="3" class="allTest"  >3
+		<input type="checkbox" value="4" class="allTest"  >4
+		<input type="checkbox" value="5" class="allTest"  >5<br>
+		
+		<br> 리스트박스(select객체) : 
+		<select id="selTest">
+			<option value="1">하나</option>
+			<option value="2">둘</option>
+			<option value="3" selected>셋</option>
+			<option value="4">넷</option>
+		</select><br>
+		<br> text객체 (readonly) : 
+		<input type="text" value="가나다" id="txtTest" readonly><br>
+		
+		<br> button객체(disabled) :
+        <input type="button" value="연습용" id="btnTest"
+             onclick="javascript:alert('Hello')"><br>
+		<br> 
+		<input type="button" value="실행" id="runBtn">
+	</form>
+</body>
+</html>

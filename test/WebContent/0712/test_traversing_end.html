@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  //$("div").eq(1).css('border', '2px solid green')
+	  // 앞뒤 형제 모두 파란색 테두리  - siblings()
+	  // 다시 되올아와서 (eq(1) )  바로 다음 형제 (next() )의 text변경—세번쩨third 
+	  // 다시 되돌아와서  뒤 모든 형제(nextAll() )들 배경색 변경-노란색 
+	  // 다시 되돌아와서  앞 형제(prev() )  배경색 변경  -  그린 
+////////////////////////////////////////////////////////////////////////
+	 /*
+	  $("div").eq(1).css('border', '2px solid green')
+	                 .siblings().css('border','2px solid blue');
+	  $("div").eq(1).next().text("Third");
+	  $("div").eq(1).nextAll().css('background', 'yellow');
+	  $("div").eq(1).prev().css('background', 'green');
+	 */
+	///////////////////////////////////////////////////////////////////  
+	 
+	$("div").eq(1).css('border', '5px solid green')
+	                .siblings().css('border','5px solid blue')
+	  				.end().next().text("Third")
+	 				.end().nextAll().css('background', 'yellow')
+	  				.end().prev().css('background', 'green');
+	  
+	//////////////////////////////////////////////////////////////  
+	  
+	  
+
+  })
+</script>
+<style>
+  div{
+     width : 100px;
+     height : 100px;
+     border : 1px solid blue;
+     float :left;
+     margin : 5px;
+     padding : 5px;
+  }
+ 
+  pre{
+    font-size : 1.2em;
+  }
+  span{
+    color :blue;
+    font-size : 1.3em;
+  }
+</style>
+</head>
+<body>
+    <div>a</div>
+	<div>b</div>
+	<div>c</div>
+	<div>d</div>
+	<div>e</div>
+	<div>f</div>
+	<div>g</div>
+</body>
+</html>

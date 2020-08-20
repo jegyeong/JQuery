@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('p').click(function(){
+		 $(this).css('font-size', '+=2px');
+	})
+	
+	$('#btn1').click(function(){
+		 //p를 복사해서 body에 append , appendTo로  추가 
+		 //$('p').clone().appendTo('body')
+		 $('body').append($('p').clone());
+	})
+	
+	$('#btn2').click(function(){
+		 $('body').append($('p').clone(true));
+	})
+})
+</script>
+<style>
+ span {
+   color : red;
+   font-size : 1.2em;
+ }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+복사 <br>
+clone() : 요소만 복사하기 <br>
+clone(true) : 요소와 이벤트 복사하기 <br>
+<br>
+<pre>
+  //p의 이벤트 
+    $('p').click(function(){
+		 $(this).css('font-size', '+=2px');
+	})
+
+  //clone버튼 클릭  - 요소만 복사 
+	$('#btn1').click(function(){
+		 //p를 복사해서 body에 append , appendTo로  추가 
+		 //$('p').clone().appendTo('body')
+		<span> $('body').append($('p').clone());</span>
+	})
+  //clone(true)버튼 클릭  - 요소와 이빈트복사 
+	$('#btn2').click(function(){
+		<span> $('body').append($('p').clone(true));</span>
+	})
+
+</pre>
+
+
+
+    <p>This is a paragraph.</p>
+	<p>This is another paragraph.</p>
+	
+	<button id="btn1">clone</button>
+	<button id="btn2">clone(true)</button>
+</body>
+</html>

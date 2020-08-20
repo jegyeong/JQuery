@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+     $("input").focus(function () {
+          //$(this).css("background-color", "yellow");
+          $(this).addClass('intro');
+    });
+
+    $("input").blur(function () {
+           // $(this).css("background-color", "white");
+           $(this).removeClass('intro');
+    });
+ 
+  })
+</script>
+<style>
+  .intro{
+     background : yellow;
+  }
+</style>
+</head>
+<body>
+  아이디:<input type="text" name="id"><p>
+ 이   름: <input type="text" name="fullname"><p>
+ 이메일: <input type="text" name="email">
+  
+</body>
+</html>

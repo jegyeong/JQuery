@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM모델(document object model)</title>
+	</head>
+	<body>
+		<ul>
+			<li>list item 1</li>
+			<li>list item 2</li>
+			<li>list item 3</li>
+			<li>list item 4</li>
+			<li>list item 5</li>
+		</ul>
+		<ul>
+			<li>beach</li>
+			<li>대나무숲</li>
+			<li>딸기스무디</li>
+		</ul>
+		<button onclick="proc1();">실행</button>
+		<ul>
+			<li onclick="proc2(this)">아메리카노</li>
+			<li onclick="proc2(this)">코알라</li>
+			<li onclick="proc2(this)">호랑이</li>
+		</ul>
+		<button onclick="proc2();">실행</button>
+		
+		
+		
+		
+		<script>
+			function proc1(){
+				/*
+				새로운 요소 생성(이미지 요소)
+				1. 각 list의 문자를 가져온다  - firstChild.data;
+				2. 이미지 객체를 생성한다 - createElement("img")
+				3. 이미지 객체에 대한 속성을 정의한다  
+					이미지객체.width , 이미지객체.height, 이미지객체.src
+				4. 각 list의 자식으로 이미지를 추가한다 - appendChild()
+				*/
+				var list = document.getElementsByTagName("ul")[1];
+				var domlist = list.getElementsByTagName("li");
+				
+				for(var i=0; i<domlist.length; i++){
+					strimg = domlist[i].firstChild.data;
+					//console.log(strimg);
+					
+					imgEle = document.createElement("img");
+					imgEle.src = "../img/"+strimg+".jpg";
+					imgEle.width  = 100;
+					imgEle.height = 100;
+					
+					domlist[i].appendChild(imgEle);					
+				}
+				
+			}
+			
+			function proc2(ele){
+				strimg = ele.firstChild.data;	
+				/*클릭한 요소만 이미지를 노출해주세요.
+				ex)아메리카노를 문자를 클릭하면 li태그안에 img태그를 
+				생성하여 이미지를 노출시킨다 
+				*/
+				
+				imgEle = document.createElement("img");
+				imgEle.src = "../img/"+strimg+".jpg";
+				imgEle.width  = 100;
+				imgEle.height = 100;
+				
+				ele.appendChild(imgEle);
+				
+			}
+			
+			/*var list = document.getElementsByTagName("ul")[0];
+			var allItems = list.getElementsByTagName("li");
+			
+			for(var i=0; i<allItems.length; i++){
+				
+				//li태그안에 있는 data를 변경하세요.
+				// list item 1 -> 숫자 1 -> 11, 22, 33, 44, 55
+								
+				allItems[i].firstChild.data = 
+					allItems[i].firstChild.data 
+					+ allItems[i].firstChild.data.slice(-1);
+				//alert(allItems[i].firstChild.data);	
+			}
+			
+			console.log(allItems);
+			*/
+			
+			
+			
+		</script>
+	</body>
+</html>
+
+
+
+
+

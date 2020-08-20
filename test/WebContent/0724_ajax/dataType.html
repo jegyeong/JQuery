@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+
+<script>
+  $(function(){
+	   $('#txt').click(function(){
+		  $.ajax({
+			  url : 'textData.jsp',
+			  type : 'get',
+			  //data : 서버로 전송할 데이타 없다 , 생략 
+			  dataType  : 'text',    //서버로부터 응답받는 데이타의 타입 
+			  success : function(res){
+				  // res :  홍길동&개나리&진달럐&무궁화&삼천리&금수강산&김은대&이쁜이
+				  var datas =   res.split("&");
+				  var code = "<ul>";
+		          $.each(datas, function(i){
+					    code += "<li>" + datas[i] + "</li>" ; 
+				  })
+				  code += "</ul>";
+				  $('#result').html(code);
+			  },
+			  error : function(xhr, status, error){
+				       alert("status :" + xhr.status +"\r\ncode : " + 
+				    	    xhr.statusText  + "\r\nmessage : " +
+				    	    status.responseText);
+
+	          }
+		  })
+	   })
+	   /////////////////////////////////////////////
+	   $('#jsonArr').click(function(){
+		   $.ajax({
+			   url : 'jsonArr.jsp' ,
+			   type : 'get',
+			   //data : //입력 되는 데이타 없다 , 전송할 데이타없다 , 생략 
+			   dataType : 'json',   //서버로부터 결과를 응답받는 데이타의 타입 
+			   success : function(resData){  //응답받는 부분 
+				  var code="<ol>" ;
+				  $.each(resData, function(i) {
+					  code += "<li>" + resData[i] + "</li>" ;
+				  }) 
+				  code += "</ol>";
+				  $('#result').html(code);
+			   }, 
+			   error : function(xhr){
+				    alert("오류 발생.." + xhr.status);  //404, 500, 
+			   }
+		   
+		   })
+	   })
+	   //////////////////////////////////////////////
+	   $('#jsonObj').click(function(){
+		   $.ajax({
+			   url : 'jsonObj.jsp',
+			   type : 'get',
+			   dataType : 'json',
+			   success : function(resData){
+				   var code ="이름 : "  + resData.name + "<br>";
+				   code += "전화 : " + resData.tel + "<br>";
+				   code += "주소 : " + resData.addr + "<br>";
+				   
+				   $('#result').html(code);
+			   },
+			   error : function(xhr){
+				   alert("오류.." + xhr.status );
+			   }
+			   
+		   })
+	   })
+	   /////////////////////////////////////////////
+	   
+	   $('#jsonMix').click(function(){
+		   $.ajax({  
+				   url : 'jsonMix.jsp',
+				   type : 'get',
+				   dataType : 'json',
+				   success : function(res){
+					  var code="";
+					  $.each(res, function(i){
+						  code += (i+1) + "번째 회원 <br>";
+						  code += "이름 : " + res[i].name + "<br>";
+						  code += "주소 : " + res[i].addr + "<br>";
+						  code += "전화 : " + res[i].tel + "<br><br>";
+		 			  })
+	 			      $('#result').html(code);
+				   },
+				   error : function(xhr){
+					   alert("오류발생 : " + xhr.status );
+				   }
+		   })
+	   })
+	   /////////////////////////////////
+	   
+  })
+</script>
+</head>
+<body>
+ <button id="txt">TextData</button> 
+ <button id="jsonArr">jsonArr</button> 
+ <button id="jsonObj">jsonObj</button> 
+ <button id="jsonMix">jsonMix</button> 
+ <hr>
+ <div id="result"></div>
+</body>
+</html>
+
+
+
+
+

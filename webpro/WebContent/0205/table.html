@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>table예제</title>
+	</head>
+	<body>
+	<!-- 열병합 : colspan 
+		  행병합 : rowspan
+		  
+		 colspan="2" 라는 의미는 
+		 자기자신을 포함해서 2개의 열(칸)을 병합하겠다는 의미 
+	 -->
+		<table border="1">
+			<tr>
+				<td>이혁진</td>
+				<td colspan="2">100</td>
+			</tr>
+			<tr>
+				<td rowspan="2">김준우</td>
+				<td>90</td>
+				<td>여기는세칸째</td>
+			</tr>
+			<tr>
+				<td colspan="2">80</td>
+			</tr>
+		</table>
+		
+		<hr>
+		
+		<table border="1" width="900px">
+		 	<caption>최근에 본 영화들</caption>
+			<tr>
+				<th width="100px">영화제목</th>
+				<th>연도</th>
+				<th>감독</th>
+				<th>평가</th>
+			</tr>
+			<tr>
+				<td>라이프 오브 파이</td>
+				<td>2013</td>
+				<td>이안</td>
+				<td>8.68</td>
+			</tr>
+			<tr>
+				<td>라이프 오브 파이</td>
+				<td>2013</td>
+				<td>이안</td>
+				<td>8.68</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+
+
+
+

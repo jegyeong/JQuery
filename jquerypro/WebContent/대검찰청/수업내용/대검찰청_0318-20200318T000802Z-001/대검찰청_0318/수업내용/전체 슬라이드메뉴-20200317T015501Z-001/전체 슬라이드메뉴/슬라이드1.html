@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>http://www.blueb.co.kr</title>
+
+<style>
+html {background:transparent;}
+body{padding:0;margin:0;  background:#39424b; font-family: verdana;}
+ul,li {list-style:none}
+
+/*메뉴스타일*/
+
+ul.horizontal-dropdown {
+	margin-top:50px;
+    position: relative;
+    float: left;
+	margin:0;
+}
+
+ul.horizontal-dropdown a {
+    display: block;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+    background: url(/data/201101/IJ12961381329502/border.gif) no-repeat right top;
+}
+
+ul.horizontal-dropdown li.last a {
+    background: none;
+}
+
+ul.horizontal-dropdown li {
+    float: left;
+    padding: 0;
+    background: url(/data/201101/IJ12961381329502/top-bg.gif) repeat-x;
+}
+
+ul.horizontal-dropdown li.hover {
+    background-position: bottom;
+}
+
+/*sub nav*/
+ul.horizontal-dropdown ul {
+    position: absolute;
+	margin:0;
+    left: 0;
+    background: #3fb306;
+    overflow: hidden;
+}
+
+ul.horizontal-dropdown ul li {
+    background: transparent;
+    padding: 0 0 0 0;
+    float: left;
+}
+
+ul.horizontal-dropdown ul li a {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #3fb306;
+    padding: 0;
+    display: block;
+    float: left;
+    padding: 10px 20px;
+}
+
+ul.horizontal-dropdown ul li a:hover {
+    color: #0609b3;
+}
+</style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/jquery.hoverIntent.js"></script>
+    <script src="./js/jquery.horizontalnav.js"></script> 
+    <script type="text/javascript" charset="utf-8">
+    $(function(){
+        $('.horizontal-dropdown').animatedHorizontalNav();
+    });
+       
+    </script> 
+
+</head>
+
+<body>
+
+        <ul class="horizontal-dropdown">
+            <li><a href="#">About</a>
+               <ul>
+                   <li><a href="sub1">Something</a></li>
+                   <li><a href="sub2">Something else</a></li>
+                   <li><a href="sub2">What you wanna know</a></li>
+        
+                </ul>
+            </li>
+            <li><a href="#">Projects</a>
+                <ul>
+                    <li><a href="sub2-1">jQuery Plugins</a></li>
+                    <li><a href="sub2-2">Websites</a></li>
+                    <li><a href="sub2-3">Music</a></li>
+                    <li><a href="sub2-3">Art</a></li>
+                </ul>    
+            </li>
+            <li><a href="#">Bikes</a>
+                <ul>
+                    <li><a href="sub2-1">FSR Enduro</a></li>
+                    <li><a href="sub2-2">20in BMX</a></li>
+                    <li><a href="sub2-2">Beach Cruiser</a></li>                               
+                </ul>            
+            </li>
+            
+            <li><a href="#">Guitars</a>
+                <ul>
+                    <li><a href="sub2-1">Charvel</a></li>
+                    <li><a href="sub2-2">Paul Reed Smith</a></li>
+                    <li><a href="sub2-3">Banjo</a></li>
+                    <li><a href="sub2-3">Mandolin</a></li>
+                </ul>
+            </li>
+            <li class="last"><a href="#">Contact</a></li>
+        </ul>
+
+
+</body>
+</html>

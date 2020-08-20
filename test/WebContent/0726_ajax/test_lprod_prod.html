@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+<script>
+  $(function(){
+	 //실행하자마자 lprod의 품목을 출력 
+	 $.ajax({
+		 url :'/jquerypro/LprodServlet',
+		 dataType : 'json',
+		 success : function(res){
+		   var code = "";
+		   $.each(res, function(i){
+			   code += "<option value='" +  res[i].gu + "'>" + res[i].nm + "</option>";
+		   })
+		   $('#lprod').html(code);
+		  // $('#lprod').trigger('change');  //이벤트 이름, change이벤트를 정의 한다
+		 },
+		 error : function(xhr){
+			 alert("상태 :" + xhr.status); 
+		 }
+		 
+	 }) 
+	 /////lprod에서 trigger에 의해서 실행되는 이벤트/////
+	 //lprod테이블의 gu와  prod테이블의 lgu를  비교해서 출력
+	 //lprod의 gu값을 서버로 보내서 prod테이블에 조건값으로 select한다 
+     $('#lprod').change(function(){
+		 $.ajax({
+			 url : '/jquerypro/ProdServlet',
+			 type : 'post',
+			// data : 'gu=' + $(this).val(),   //lprod_gu값이다 
+			 data : { gu :  $(this).val()},
+			 dataType : 'json',
+			 success : function(res){
+				 
+				 /* ---------------------------------------
+				 code ="";
+				 $.each(res, function(i, v){
+						code += "<option value='" +  v.id + "'>" + v.name + "</option>";
+				 })  
+				 $('#prod').html(code);
+				 $('#prod').trigger('change'); 
+				 --------------------------------------------*/
+				 
+				 /////////////////////////////////////
+				 var code ="";
+				 if(res.sw == "OK") {
+					 $.each(res.data, function(i, v){
+							code += "<option value='" +  v.id + "'>" + v.name + "</option>";
+					 }) 
+						
+				 }else {
+										
+					 code = "<option value='0'>데이타 없슴</option>" ;
+					 noimg =  $('<img/>', {   
+						  'src' : '../images/noImage.png',  //../imges/koala.jpg
+						  'width' : '200px',
+					  	  'height' : '200px'
+					 });
+					 $('#result').empty().append(noimg);
+				  }
+					$('#prod').html(code);
+					//$('#prod').trigger('change');
+					//////////////////////////////////////
+		 	 },
+			 error : function(xhr){
+				 alert("상태 : " + xhr.status) ;                                                                         
+			 }
+		 })
+	 })
+	 ///prod의 trigger에 의 해 실행되는 메소드 - 상세보기 /////////////
+	 //prod의 id값을 서버로 보내서 조건 검색 
+	 $('#prod').change(function(){
+		 prodId =   $(this).val(); // prod의 id값
+		
+		 /*  if(prodId == 0) {
+			$('#result').html("");
+			
+			return;
+		 }  */
+		 if( prodId != 0){
+		 $.ajax({
+			 url : '/jquerypro/ProdDetailServlet',
+			 type : 'post',
+			 data : 'id=' + $(this).val(),   //prod_id값이다 
+			  dataType : 'json', 
+			  success : function(res){
+				 
+				/* 
+				dataType 이 text인경우  */
+				//res = JSON.parse(res);
+				//////로 파싱후 사용 //////////////////
+				 var code ="<p>상세보기</p>"
+				 code += "<table class='table table-striped'><tr><td>항목</td><td>내용</td></tr>";
+				 code += "<tr><td>PROD_ID</td><td>" + res.id +"</td></tr>";
+				 code += "<tr><td>PROD_NAME</td><td>" + res.name +"</td></tr>";
+				 code += "<tr><td>PROD_LGU</td><td>" + res.lgu +"</td></tr>";
+				 code += "<tr><td>PROD_DETAIL</td><td>" + res.detail +"</td></tr>"; 
+				 code += "<tr><td>PROD_COSTL</td><td>" + res.cost +"</td></tr>"; 
+				 code += "<tr><td>PROD_COLOR</td><td>" + res.color +"</td></tr>"; 
+				 code += "<tr><td>PROD_BUYER</td><td>" + res.buyer +"</td></tr>"; 
+				 code += "<tr><td>PROD_PRICE</td><td>" + res.price +"</td></tr>"; 
+				 code += "<tr><td>PROD_SALE</td><td>" + res.sale +"</td></tr>"; 
+				 code += "</table>";
+				 $('#result').html(code); 
+			 },
+			 error : function(xhr){
+				 alert("상태 : " + xhr.status);
+			 }
+		 })
+		 }
+	 })
+	 ////////////////////
+  })
+</script>
+
+<style>
+  td{
+     width : 200px;
+     text-align :center;
+ }
+  #result{
+    height : 400px;
+  }
+  #result p{
+     font-weight : bold;
+  }
+  div {
+     border : 2px solid #cc80ff;
+     padding : 20px;
+  }
+  label {
+     margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>제품 리스트 </h2>
+  <p></p>
+  <br><br>
+  <form>
+    <div class="form-group">
+      <label for="lprod">제품 분류 리스트 </label>
+      <select class="form-control" id="lprod">
+      
+      </select>
+      <br>
+      <label for="prod">상품 리스트</label>
+      <select class="form-control" id="prod">
+      
+      </select>
+    </div>
+    <br>
+    <div id= result></div>
+    
+  </form>
+</div>
+
+<!--   <table border=1> -->
+<!--     <tr> -->
+<!--       <td> -->
+<!--          <select id="lprod"> -->
+
+<!--          </select> -->
+<!--       </td> -->
+<!--       <td> -->
+<!--          <select id="prod"> -->
+
+<!--          </select> -->
+<!--       </td> -->
+<!--     </tr> -->
+<!--   </table> -->
+
+  
+    
+</body>
+</html>

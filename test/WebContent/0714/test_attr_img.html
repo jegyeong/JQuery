@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	   $('img').css({'width':'150px', 'height':'100px'})
+	   
+	   //attr를 이용한 속성 설정 
+	 //  $('img').attr('title', '그림' );
+	 ///////////////////////////////////////////////
+	   
+	   $('img').each(function(i){
+		  var startIdx =  $(this).attr("src").lastIndexOf("/");
+		  var endIdx =  $(this).attr("src").lastIndexOf(".")
+		   $(this).attr('title', $(this).attr("src").substring(startIdx+1, endIdx)) ; 
+	   })
+	   
+	   ////////////////////////////////////////////////
+	  /* $('img').attr('title', function(i){
+		             //img의 src값을 가져온다 - attr
+		             imgattr =$(this).attr('src');
+		             		             
+		             //a= 마지막 / 의 위치값
+		              a = imgattr.lastIndexOf("/");
+		             //b= 마지막 .의 위치값
+		              b = imgattr.lastIndexOf(".");
+		             
+		             //a~b사이의 문자를 추출(substrig)해서 리턴 
+		             titlestr =  imgattr.substring(a+1, b);
+		             return titlestr ;
+	    }) */
+	    
+	    $('#add').click(function(){
+	    	$('img').addClass('cborder');
+	    })
+	    $('#remove').click(function(){
+	    	$('img').removeClass('cborder');
+	    })
+	    $('#toggle').click(function(){
+	    	$('img').toggleClass('cborder');
+	    })
+	  
+	    $('#has').click(function(){
+	    	alert($('img').hasClass('cborder'));
+	    })	    
+   })
+</script>
+ <style>
+   img{
+     width : 150px;
+     height : 100px;
+   }
+   
+   .cborder{
+      border : 2px solid  blue;
+   }
+</style> 
+</head>
+<body>
+<div>
+  <img src="../images/국화2.jpg">
+  <img src="../images/대나무숲.jpg">
+  <img src="../images/셔틀콕.jpg">
+  <img src="../images/풍차.jpg">
+  <img src="../images/Tulips.jpg">
+</div>
+<br>
+버튼을 클릭하면 이미지에 테두리가 나타나고 사라지게 하도록 한다 <br>
+클래스를 이용한다 <br>
+
+<button id="add">add클래스</button>
+<button id="remove">remove클래스</button>
+<button id="toggle">toggle클래스</button>
+<button id="has">has클래스</button>
+
+</body>
+</html>

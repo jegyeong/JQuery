@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>네이버(naver)레이아웃</title>
+		<style>
+		div{border:1px solid red;}
+		#header,#nav, #content, #footer{margin:0 auto;}
+		#banner{width:100%; height:48px}
+		#header{width:1080px; height:170px;}
+		#logo{
+			display:inline-block;
+			background-image:url('https://s.pstatic.net/static/www/img/uit/2019/sp_search.svg');
+			overflow: hidden;
+		    width: 198px;
+		    height: 48px;
+		    background-position: -4px -4px;
+		    vertical-align:middle;
+		}
+		.green_window{
+			display: inline-block;
+		    width: 470px;
+		    height: 45px;
+		    border: 2px solid #03cf5d;
+		    background-color: #fff;					
+		}
+		.input_text{
+		    margin: 12px 0 0 9px;
+		    width: 405px;
+		    height: 23px;
+		    outline: 0;
+		    border: 0;
+		    color: #000;
+		    font-weight: 700;
+		    font-size: 18px;
+		    line-height: 23px;
+		}
+		
+		.sch_smit {
+		    position: absolute;
+		    top: -15px;
+    		right: -50px;
+		    overflow: visible;
+		    width: 49px;
+		    height: 49px;
+		    border: 0;
+		    background: #03cf5d;
+		    cursor: pointer;
+		   
+		}	
+	   .ico_search_submit {
+		    position: absolute;
+		    top: 14px;
+		    left: 14px;
+		    width: 21px;
+		    height: 21px;
+		    background : url(../img/sp_search.png) -4px -60px;	
+	    }
+		    
+	    .search {
+		    position: relative;		   
+		    margin-top: -20px;
+		    width: 521px;
+		}
+		form{
+		    display: inline-block;
+		}
+		
+		#search{width:300px;height:30px; border:2px solid green;}
+		#nav{width:1080px; height:46px;}
+		#content{width:1080px; height:1458px;}
+		#content_left{width:740px; height:1458px;float:left;}
+		#content_right{width:334px; height:1458px;float:right;}
+		#footer{width:100%; height:320px;clear:both;}
+
+		</style>
+	</head>
+	<body>
+		<div id="banner"></div>
+		
+		<div id="header" >
+			<h1 id="logo"><a href=""></a></h1>
+			<span class="search">
+				<!-- <form action="https://search.naver.com/search.naver"> -->
+				<form action="result.jsp">
+
+					<select name="selType">
+						<option value="이미지">이미지</option>
+						<option value="컨텐츠">컨텐츠</option>
+					</select>
+					
+					<span class="green_window">
+		            <input id="query" name="query" type="text" title="검색어 입력" maxlength="255" class="input_text" autocomplete="off" >
+		        	</span>       	
+	       			<input type="text" name="_name">
+			        <button id="search_btn" type="submit" title="검색" tabindex="3" class="sch_smit" >
+			       	<span class="blind"></span><span class="ico_search_submit"></span>
+			        </button>
+		        </form>
+			</span>
+		</div>
+		<div id="nav"></div>
+		<div id="content">
+			<div id="content_left"></div>
+			<div id="content_right"></div>
+		</div>
+		<div id="footer"></div>
+		
+	</body>
+</html>

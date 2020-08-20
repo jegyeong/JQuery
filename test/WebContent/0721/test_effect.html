@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="../css/mycss.css">
+<style>
+  .box{
+     padding : 20px;
+  }
+</style>
+<script>
+  $(function(){
+	  $('img').css('display', 'none');
+	  
+	  $('#show').on('click', function(){
+		  $('img').show(1000, 'linear', function(){
+			     alert("곰이 나타났다");
+		  });
+	  })
+	  $('#hide').on('click', function(){
+		  $('img').hide();
+	  })
+	  
+	  $('#sup').on('click', function(){
+		  $('img').slideUp();
+	  })
+	  $('#sdown').on('click', function(){
+		  $('img').slideDown();
+	  })
+	  $('#stoggle').on('click', function(){
+		  $('img').toggle();
+	  })
+	  $('#fin').on('click', function(){
+		  $('img').fadeIn(1000); //투영도1.0
+	  })
+	  $('#fout').on('click', function(){
+		  $('img').fadeOut(200);  //투명도0.0
+	  })
+	  $('#fto').on('click', function(){
+		  $('img').fadeTo(1000, 0.5);
+	  })
+	  $('#ftoggle').on('click', function(){
+		  $('img').fadeToggle(500);
+	  })
+  })
+</script>
+</head>
+<body>
+<div class="box">
+   <button id="show">Show it</button>
+   <button id="hide">Hide it</button>
+   <button id="sup">SlideUp</button>
+   <button id="sdown">SlideDown</button>
+   <button id="stoggle">SlideToggle</button>
+   <button id="fin">fadeIn</button>
+   <button id="fout">FadeOut</button>
+   <button id="fto">FadeTo</button>
+   <button id="ftoggle">FadeToggle</button>
+   <br>
+   <br>
+    <img id="dog" src="../images/Koala.jpg"  alt="" width="120" height="100" />
+ </div>  
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>on_이벤트</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			
+			$("body").delegate("button", "click", function(){
+			//$("#btn").click(function(){
+				$(this).css("background","green");
+				var btn = $("<button/>",{
+							"text" :"동적버튼 생성",
+							"click":function(){
+								$("button").css("border","5px dashed orange");
+							}
+						});
+				
+				$(this).after(btn);
+			});
+			/*
+				1) html에 button을 만들어서 
+				2) 클릭을 했을경우, 
+				   첫번째 버튼 클릭시 : 
+					   - click이벤트에서  버튼의 컬러를 변경(background)
+				       - 동적으로  <button></button>을 하나 더 생성 후 click이벤트를 적용  
+				   	   - 동적으로 만들어진 버튼은 첫번째 버튼 뒤로 붙임 
+				3) 동적으로 만들어진 버튼을 클릭했을 경우 
+				    - 모든 버튼의 테두리선을 변경(부모 및 자기자신 포함)
+				    - 자신의 버튼 background가 부모와 동일하게 
+ 			
+			
+			*/
+			
+			
+		});	
+	</script>
+	</head>
+	<body>
+		<button id="btn">버튼클릭</button>
+	</body>
+</html>
+
+
+
+
+

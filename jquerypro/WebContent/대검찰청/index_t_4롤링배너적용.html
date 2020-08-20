@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>대검찰청 - 대검찰청</title>
+<!-- use CDN jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- use Local jquery-->
+<!-- <script src="../js/jquery-3.4.1.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<link rel="stylesheet" href="./css/jquery.bxslider.css">
+<style>
+	html{height:100%;margin:0; padding:0;}
+	body{width:100%;height:100%;margin:0; padding:0;}
+	a{text-decoration:none; color:#454545;}
+	/* div{border:1px solid black;} */
+	#header{height:120px;min-width:1100px; position:relative; width:1100px; margin:0 auto;}
+	#header .logo {float:left;}
+	#header .util{float:right;}
+	.menu{float:left;margin-top:60px;margin-left:120px;position:absolute;}
+	.menu li{display:inline-block;width:100px;}
+	/* #gnb .gnb_wrap>ul>li{
+		width:100px;
+	} */
+	
+	.menu li a{display: block;height: 50px;	/*border:1px solid red;*/padding:6px 10px 0 10px;width:90px;}
+    #gnb{position:relative;}
+	
+	.submenu{
+	display:none;
+	position: fixed;
+    width: 100%;
+    background-color: #fff;
+    left: 0;
+	height:200px;
+	border-top:1px solid #f0f0f0;
+	z-index:999;
+	
+	}
+	#gnb_menu{width:700px;}
+	
+	#container{clear:both; width:100%;}
+	.mainTop{ 
+	  height:560px;
+	  position:relative;
+	  background-image: url('./img/MSI_201907240802051580.jpg');
+	  background-repeat: no-repeat;
+	  background-attachment: scroll;
+	  background-size: auto;
+	  margin-left: -290px;
+	  }
+    .mainTop .txt{position:absolute; left:460px; top:100px;font-size: 54px;color:#fff;}
+    .mainTop #rollingBanner{float: left;
+		position: relative;
+		width: 360px;
+		height: 180px;
+		/*overflow: hidden;*/
+		top: 330px;
+		left: 380px;
+	
+	    font-weight: normal;
+	    color:white;
+	}
+	#relationBanner{height:50px;}
+	.slider{
+		height:50px;
+		position:fixed;
+		left:0;
+		top:200px;
+	}
+	#footer{height:200px;}
+</style>
+<script type="text/javascript">
+	$(function(){ 
+		$('.bxslider').bxSlider({
+			mode: 'horizontal',
+			slideWidth: 350,   
+			auto: true,		
+			pager: false
+		}); 
+	}); 
+</script>
+<script>
+
+	$(function(){
+		$("#gnb_menu>li").mouseenter(function(){
+			 if($(".submenu").is(":visible")){
+				$(".submenu").hide();
+			} 
+			$(this).children(".submenu").show();
+			console.log("down");
+		});
+		
+		 $("#gnb_menu").mouseleave(function(){
+			if($(".submenu").is(":visible")){
+				$(".submenu").slideUp();
+			}
+			console.log("up");
+			
+		});
+	
+		$(window).scroll(function(evt) {
+			console.log($('.submenu').css("position"));
+			$(".submenu").hide("fast");
+			var y = $(this).scrollTop();
+		});
+				
+	});
+	
+	
+	
+</script>
+
+</head>
+<body>
+	<div id="header">
+		<h1 class="logo"><a href=""><img src="./img/bg_logo.png"></a></h1>
+		<div class="util">
+			<span class="ls nation"><a href="#none" onclick="javascript:pop_window('http://www.mois.go.kr/frt/sub/popup/p_taegugki_banner/screen.do', 875, 725)" title="국가상징안내 새창열림">국가상징안내</a></span>
+			<span class="ls"><a href="/site/museum/main.do" target="_blank" title="역사관체험관 새창열림">역사관체험관</a></span>
+			<span class="ls font">
+				글자크기 조정
+				<a href="#" class="zoomIn">글자크기 더크게</a>
+				<a href="#" class="zoomOut">글자크기 더작게</a>
+			</span>
+			<!-- <span class="ls language">
+				<span>
+					<a href="#" class="now"><span class="blind">[현재사이트]</span>KOREAN</a>
+					<a href="/site/eng/main.do" target="_blank" title="대검찰청 영문사이트 새창열림">ENGLISH</a>
+					<a href="/site/chn/main.do" target="_blank" title="대검찰청 중문사이트 새창열림">CHINESE</a>
+					<a href="/site/jpn/main.do" target="_blank" title="대검찰청 일문사이트 새창열림">JAPANESE</a>
+				</span>
+			</span> -->
+		</div>
+		<div id="gnb">
+			<div class="menu gnb_wrap">
+				<ul id="gnb_menu"> 
+					<li id="menu01">
+						<a href="">참여민원</a>
+						<div class="submenu" style="height:200px;">여기는 서브메뉴</div>
+					</li>
+					<li><a href="">검찰활동</a>
+						<div class="submenu" style="height:300px;">여기는 서브메뉴2</div>
+					</li>
+					<li><a href="">정보자료</a>
+						<div class="submenu" style="height:200px;">여기는 서브메뉴3</div>
+					</li>
+					<li><a href="">알림소식</a>
+						<div class="submenu" style="height:200px;">여기는 서브메뉴4</div>
+					</li>
+					<li><a href="">정보공개</a>
+						<div class="submenu" style="height:400px;">여기는 서브메뉴5</div>
+					</li>
+					<li><a href="">검찰소개</a>
+						<div class="submenu" style="height:200px;">여기는 서브메뉴6</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<div id="container" class="main">
+		<div id="content">
+			<div class="mainTop">
+				<p class="txt">국민과 함께하는 검찰</p>
+				<div id="rollingBanner">
+					<ul class="bxslider"> 
+						<li><img src="./img/banner/banner1.png" title="검찰청대표번호"></li> 
+						<li><img src="./img/banner/banner2.png" title="범죄수익신고"></li> 
+						<li><img src="./img/banner/banner3.jpg" title="검찰방송"></li> 
+					</ul>
+				</div>
+			</div>
+			<!-- <div id="rollingBanner" class="slider" style="max-width:300px;">
+				<div><img src="./img/banner/banner1.png"></div>
+				<div><img src="./img/banner/banner2.png"></div>
+			</div> -->
+			<div class="mainCont svc"></div>
+			<div class="mainCont noti"></div>
+			<div class="mainCont etc"></div>
+		</div>
+	</div>
+	<div id="relationBanner"></div>
+	<div id="footer"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

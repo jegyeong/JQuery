@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  $('h2').click(function(){
+		  $(this).hide();
+	  })
+  })
+</script>
+</head>
+<body>
+<h1>수행내용</h1>
+&lt;h2&gt;태그를 이용해서 문장을 만든다&lt;/h2&gt;<br>
+클릭하는 문장이 사라집니다<br>
+클리하는 대상은 함수안에서 this로 받는다 <br><br>
+$('h2').click(function(){ <br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(this).hide(); <br>
+ })<br>
+<p>
+<hr color='blue'>
+<h2>클릭하면 사라집니다1.</h2>
+<h2>클릭하면 사라집니다2.</h2>
+<h2>클릭하면 사라집니다3.</h2>
+<h2>클릭하면 사라집니다4.</h2>
+<h2>클릭하면 사라집니다5.</h2>
+<h2>클릭하면 사라집니다6.</h2>
+</body>
+</html>
+
+
+
+
+
+

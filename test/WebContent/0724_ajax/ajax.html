@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+/*$(document).ready(function(){
+  $("button").click(function(){
+    $.ajax({url: "demo_test.txt", success: function(result){
+      $("#div1").html(result);
+    }});
+  });
+});
+*/
+/*
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").load("https://bit.ly/2RhXA0r", function(responseTxt, statusTxt, xhr){
+      if(statusTxt == "success")
+        alert("External content loaded successfully!");
+      if(statusTxt == "error")
+        alert("Error: " + xhr.status + ": " + xhr.statusText);
+    });
+  });
+});
+*/
+/*
+$(document).ready(function(){
+$.get("demo_test.txt", 
+	{ species: "고양이", name: "나비", age: 3, }, // 서버가 필요한 정보를 같이 보냄. 
+	function(data, status) { 
+	$("#div1").html(data + "<br>" + status); // 전송받은 데이터와 전송 성공 여부를 보여줌. } ); });
+	});
+});
+*/
+$.ajax({
+  url: 'demo_test.txt',
+  type: 'get', //get or post
+  data: {
+    // 보낼 데이터
+  },
+  dataType: 'text',// 'json, xml, script, text 또는 html',
+  done: function(response) {
+    // 성공 시 동작
+	alert(1);
+  },
+  fail: function(error) {
+    // 실패 시 동작
+	alert(2);
+  },
+  always: function(response) {
+    // 성공하든 실패하든 항상 할 동작
+	alert(3);
+  }
+});
+
+</script>
+</head>
+<body>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
+
+</body>
+</html>

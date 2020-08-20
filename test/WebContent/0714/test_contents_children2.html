@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+      
+      //. 태그가 있거나 없거나 , b 태그로 감싸기(wrap),글자색을 파랑색  
+	  $('#cont').click(function(){
+		  //alert($($('div.d1').contents()[0]).text());
+		  //alert($('div.d1').contents()[1].tagName);
+		 // alert($($('div.d1').contents()[2]).text());
+		 // $('div').contents().filter('em').wrap('<b/>') 
+		 
+		  //$('div.d1').contents().wrap('<b/>');
+		 // $('div.d1').contents().css('color', 'blue');
+		 
+		 $('div.d1').contents().wrap('<b/>').end().css('color', 'blue');
+
+	  }) 
+	  //태그가 없는것만 
+	  $('#notag').on('click', function(){
+		  //contents : 태그가 있거나 없거나 실행  중 테그가없는ㄴ것먼을 선택  
+		   $('div.d11').contents().each(function(i){
+			   //alert(  this.tagName); //공백도 undefined
+			   if(typeof this.tagName == 'undefined'){
+				   if($(this).text().trim().length > 0) { //글자수가 0보다 크면 
+				     alert(  $(this).text());
+				     $(this).parent().css('color', 'red'); //css를 적용할려면 태그가 필요함 
+				   }
+			   }
+		   })
+	  })
+	  
+	  //태그가 있는것만 b로 감싸기 
+	  $('#child').click(function(){
+		 // alert($($('div.d2').children()[0]).text());
+		 // alert($('div.d2').children()[0].tagName);
+		 // alert($($('div.d2').children()[1]).text()); //실행안됨.
+		  $('div.d2').children().wrap('<b/>');
+		  $('div.d2').children().css('color', 'blue');
+// 		  $('div.d2').children().each(function(){
+// 			  alert(this.tagName)
+// 		  })
+		 
+	  })
+	  //.d3의 자식들중 em태글 검색해서 글자크기변경- 태그가 있는 것만 을 대상으로 -children
+	  $('#childEM').on('click', function(){
+// 		  $('div.d3').children().each(function(){
+// 				if(this.tagName == "EM"){
+// 					$(this).css('font-size' , '1.5em');
+// 				} 
+// 		  }) 
+		//  $('div.d3').children('em').css('font-size', '1.5em');
+		//children 은 자식만을 대상으로 한다 , 후손은 제외함.
+		  $('div.d3').children().filter('em').css('font-size', '1.5em');
+          
+	  })
+	  
+	  $('#find').click(function(){
+		  //find는 자식 또는 후손을 선택 
+		  $('div.d3').find('em').css('color', 'red');
+	  })
+	  
+	 
+   })
+</script>
+</head>
+<body>
+   <strong>태그가 있거나 없거나 모든 자식은  실행(b태그, colorblue) </strong><br><br>
+   <div class="d1"><em>헿로우World!!  아름다운 여름 날 ~~ em태그가 포함 </em></div>
+   <div class="d1"> 헬로우 World!!  em태그가 없는 쓸쓸한 205호 ~~ </div>
+   <br>
+   
+   <button id="cont"> contents(모든자식 대상)</button>
+   
+   <br><br>
+   <div class="d11"><em>헿로우World!!  아름다운 여름 날 ~~ em태그가 포함 </em></div>
+   <div class="d11"> 헬로우 World!!  em태그가 없는 쓸쓸한 205호 ~~ </div>
+   <br>
+   <button id="notag"> contents(태그가 없는것만대상)</button>
+  
+   <p>
+   
+   <strong>태그가 있는 자식만  실행(b태그, colorblue) </strong>
+   <div class="d2"> <span>헿로우World!!  아름다운 여름 날 ~~ span태그가 포함 </span></div>
+   <div class="d2"> 헬로우 World!!  태그가 없는 쓸쓸한 205호 ~~ </div>
+   <br>
+   <button id="child"> children(태그가 있는 자식만을 대상)</button>
+   <br><br>
+   <strong>em태그가 있는 자식만  실행(b태그, colorblue) </strong><br><br>
+   <div class="d3"> <em>헬로우 EM World!!  아름다운 여름 날 ~~ em태그가 포함 </em></div>
+   <div class="d3"> <span>헬로우 World!!  span태그가 있는 쓸쓸한 205호 ~~</span> </div>
+   <div class="d3"> <em>헬로우 EM World!!  em태그가 있는 행복한 205호 ~~</em> </div>
+   <div class="d3"> <span> <em>헬로우 EM </em> World!!  em태그가 있는 행복한 205호 ~~</span> </div>
+   <br>
+   <button id="childEM"> children(태그가 있는자식중 EM태그를 대상)</button>
+   <button id="find"> find(태그가 있는자식또는 후손중 EM태그를 대상)</button>
+   
+   
+</body>
+</html>

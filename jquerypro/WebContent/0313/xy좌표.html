@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>xy좌표</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+					
+				$(document).mousemove(function(event){
+					var info = "page좌표:"+ event.pageX +","+ event.pageY +"\n"
+							+ "screen좌표:"+event.screenX+","+event.screenY;
+					
+					$("#log").text(info);
+					
+					/*
+					페이지 좌표가 x가 100이상,  y가 100 이상 되는 순간에 
+					img태그를 만들어서 이미지를 띄워주세요	(이미지 사이즈 100X100)			
+					*/
+					
+					if(event.pageX >= 100 && event.pageY >= 100){
+						
+						imgTag = $("<img/>",{
+									"width":"100px",
+									"height":"100px",
+									"src":"../img/장미.jpg"
+								});
+						
+						$(imgTag).appendTo("body");
+						
+					}
+					
+				});
+				
+			});
+		</script>
+		<style>
+			div{
+				width:300px;
+				height:50px;
+				padding:20px;
+				border:1px solid green;
+				text-align:center;
+				margin : auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="log"></div>
+	</body>
+</html>
+
+
+
+
+
+

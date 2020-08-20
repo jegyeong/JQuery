@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script>
+	$(function(){
+		$("input[type!=text]").css("border","2px solid red");
+		/* $("input[type=address]").css("background","green");
+		$("input[type=birth]").css("border","2px dashed blue"); */
+	});
+		
+	function proc1(){
+		//alert("유효성체크");
+		/* 이름 값이 공백일 경우 "이름을 입력해주세요." 라고 alert 문구를 띄우기*/
+		//document.getElementById("name").value
+		
+		console.log(document.ff.name.value);
+		var name = document.ff.name.value.trim();
+		
+		//name == ""
+		if(name.length == 0){
+			alert("이름을 입력해주세요");
+			return false;
+		}else{
+			//var regname = /^[ㄱ-ㅎ가-힣]+/;
+			var regname = /^[ㄱ-ㅎ가-힣]+|^[a-zA-Z]+/;
+			if(!regname.test(name)){
+				alert("한글  또는 영문을 입력해주세요");
+				return false;
+			}
+			
+			var koname = /^[ㄱ-ㅎ가-힣]+/;
+			if(koname.test(name)){
+				if(name.length > 6){
+					alert('6자 이하를 입력해주세요');
+					return false;
+				}
+			}
+			
+			
+			/*한글일때, 6자 이하 통과 : alert('6자 이하를 입력해주세요')*/
+			/*영문일때, 5자이상 ~ 20자 이하 통과 : alert('5자~20자 이하를 입력해주세요') */
+			
+			
+		}
+		
+		
+		/* //주소 체크 (공백여부)
+		//생일 (공백여부, 년도/월/일(2020/03/09)  형식으로 정규식 확인 )
+		/^\d{4}/\d{2}/\d{2}$/
+		//아이디 (공백여부, 영문자만 가능, 6~8사이만 가능하게)
+		/^[a-zA-Z]{6,8}$/
+		//이메일(공백여부, 이메일 정규식 확인 ppt 19페이지참조 )
+		/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+		//휴대폰(공백여부, 휴대폰 정규식 확인 ppt 22 페이지참조)
+		/^\d{3}-\d{3,4}-\d{4}$/		
+		return true;	 */	
+	}
+</script>
+</head>
+<body>
+	<h3>회원가입(join)</h3>
+	<form name="ff" action="form.jsp" onSubmit="return proc1();">
+	이름: <input type='text' id='name' name="name"><br>
+	주소: <input type='address' id='addr' ><br>
+	생일: <input type='birth' id='birthday' ><br>
+	아이디(6-8 문자): 
+	<input type='text' id='username' ><br>
+	이메일: <input type='email' id='email' ><br>
+	휴대폰: <input type='number' id='phone' ><br>
+	<input type='submit' value='확인' ><br>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+function loadDoc() {
+	// res는 Response 객체입니다. 
+	//Response 객체에서 값을 볼 수 있게 해주는 메소드 5가지가 있습니다.
+	//text, arrayBuffer, blob, text, formData입니다. 모두 Promise를 return합니다.
+	//만약 json 데이터가 응답으로 오면 res.json().then(json => console.log(json));
+	
+	fetch('first.jsp').then((res) => {
+		  if (res.status === 200 || res.status === 201) { // 성공을 알리는 HTTP 상태 코드면
+			 // res.text().then(text => console.log(json));
+			  res.text().then(text => $('#demo').html(text)); // 텍스트 출력
+		  } else { // 실패를 알리는 HTTP 상태 코드면
+		    console.error(res.statusText);
+		  }
+	}).catch(err => console.error(err));
+}
+
+function loadJson(){
+	
+	/*  fetch('jsondata.jsp').then((res) => {
+		  if (res.status === 200 || res.status === 201) { // 성공을 알리는 HTTP 상태 코드면
+			//res.json().then(json => console.log(json));
+		     res.json().then(json => $('#demojson').html(json.name)); // 
+		  } else { // 실패를 알리는 HTTP 상태 코드면
+		    console.error(res.statusText);
+		  }
+	}).catch(err => console.error(err)); 
+	 */
+	fetch('jsondata.jsp')
+	   .then((response) => { return  response.json(); })
+	   .then((data) => {
+		
+		
+		    code = "이름 " + data.name + "<br>";
+		    code += "주소 " + data.addr + "<br>";
+		    
+			$('#demojson').html(code);
+	   }).catch(err => console.error(err));;
+}	
+	 /////////////////////////////////////////////////
+function loadJsonPost(){	
+	 const dbody = { name: 'zerocho' };
+	 
+	fetch('jsonObj.jsp', {
+	  method: 'POST',
+	 // body : "name=zerocho",
+	  body :  JSON.stringify(dbody),
+	  headers: {
+		  "Content-Type": "application/x-www-form-urlencoded"
+	  },
+	  
+	}).then((res) => {
+	  if (res.status === 200 || res.status === 201) {
+	   // res.json().then(json => console.log(json));
+		  res.json().then(json => $('#demojsonpost').html(json.name2));
+	  } else {
+	    console.error(res.statusText);
+	  }
+	}).catch(err => console.error(err));  
+}
+
+</script>
+</head>
+<body>
+<div >
+  <h2>Let AJAX change this text</h2>
+  
+  <p>first.jsp수행  </p>
+  <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+<br>
+<div id="demo"></div>
+<br>
+<hr color='red'>
+<br>
+서버에서 데이타를 만들어 가져옴 <br>
+
+ <p> loadJson() 함수호출  , jsondata.jsp수행 </p>
+ 
+ <button type="button" onclick="loadJson()">Json Content</button>
+ <div id="demojson"></div>
+ <br>
+ <hr color='red'>
+ 서버로 데이타를 POST로 보내고 결과를 가져옴<br>
+ 
+ <p>loadJsonPost() 함수호출, jsonObj.jsp실행 </p>
+ 
+ <button type="button" onclick="loadJsonPost()">JsonPost Content</button>
+ <div id="demojsonpost"></div>
+</body>
+</html>

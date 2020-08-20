@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>on_이벤트</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$("div").click(function(){
+				console.log("클릭했습니다.");
+			});
+			
+			/*
+			.on() 
+			- 선택한 요소에 어떤 타입의 이벤트라도 연결가능 
+			- 하나의 이벤트 핸들러에 여러개의 이벤트를 동시에 연결 가능 
+			- 선택한 요소에 여러 개의 이벤트 핸들러와 여러개의 이벤트를 연결 가능 
+			
+			*/
+			
+			$("div").on("click mouseover dblclick", function(){
+				console.log("click을 했습니다.")
+			});
+			
+			$("#div").on("click",function(){
+			});
+			
+			$("#div").on("dblclick",function(){
+			});
+			
+			$("button").on({
+				click : function(){
+					alert("click 이벤트 입니다");
+				},
+				dblclick : function(){
+					alert("double click  이벤트 입니다.");
+				}/* , 
+				mouseover : function(){
+					alert("mouseover입니다");
+				} */
+				
+			});
+			
+			
+			
+			//h1태그에 click이벤트 바인딩 
+			//해당 하는 h1태그만 색상 변경 되고 동적으로 생성된 태그는 적용안됨 
+		 	$("h1").on("click", function(){
+				$(this).css("background","orange");
+				$("<h1>새로운 제목태그입니다.</h1>").insertBefore("h1");
+			}); 
+			
+			
+			//$(부모).delegate("선택자","이벤트", 함수)
+			$("body").delegate("h1", "click", function(){
+				$("h1").css("background","green");
+				//$("<h1>새로운 제목태그입니다.</h1>").insertBefore("h1");
+			});
+			
+			$("#btn").click(function(){
+				$(this).css("background","green");
+				var btn = $("<button/>",{
+							"text" :"동적버튼 생성",
+							"click":function(){
+								$("button").css("border","5px dashed orange");
+							}
+						});
+				
+				$(this).ater(btn);
+			});
+			/*
+				1) html에 button을 만들어서 
+				2) 클릭을 했을경우, 
+				   첫번째 버튼 클릭시 : 
+					   - click이벤트에서  버튼의 컬러를 변경(background)
+				       - 동적으로  <button></button>을 하나 더 생성 후 click이벤트를 적용  
+				   	   - 동적으로 만들어진 버튼은 첫번째 버튼 뒤로 붙임 
+				3) 동적으로 만들어진 버튼을 클릭했을 경우 
+				    - 모든 버튼의 테두리선을 변경(부모 및 자기자신 포함)
+				    - 자신의 버튼 background가 부모와 동일하게 
+ 			
+			
+			*/
+			
+			
+		});	
+	</script>
+	</head>
+	<body>
+		<!-- h1태그 작성 후 on이벤트 바인딩 -->
+	
+		<h1>제목 태그입니다.</h1>
+	
+		<div>
+			여기에 이벤트를 주세요
+		</div>
+		<button>버튼을 클릭해주세요</button>
+		<button id="btn">버튼클릭</button>
+	</body>
+</html>
+
+
+
+
+

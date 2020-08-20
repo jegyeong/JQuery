@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.siblings * { 
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(function(){
+	
+	$('#next').click(function(){  
+		$("#d1 h2").next().css({"color": "red", "border": "2px solid red"});
+	})
+	$('#nextAll').click(function(){  
+		$("#d1 h2").nextAll().css({"color": "blue", "border": "2px solid blue"});
+	})
+	$('#nextUntil').click(function(){  
+		$("#d1 h2").nextUntil('h6').css({"color": "green", "border": "2px solid green"});
+	})
+	////////////////////////////////////////////////////////////////
+	$('#prev').click(function(){  
+		$("#d2 h6").prev().css({"color": "red", "border": "2px solid red"});
+	})
+	$('#prevAll').click(function(){  
+		$("#d2 h6").prevAll().css({"color": "blue", "border": "2px solid blue"});
+	})
+	$('#prevUntil').click(function(){  
+		$("#d2 h6").prevUntil('h2').css({"color": "green", "border": "2px solid green"});
+	})
+	//////////////////////////////////////////////////////////
+	$('#parent').click(function(){
+		$("#d3 span").parent().css({"color": "red", "border": "2px solid red"});
+	})
+	$('#parents').click(function(){
+		 $("#d3 span").parents().css({"color": "blue", "border": "2px solid blue"});
+	})
+	$('#parents_ul').click(function(){
+		 $("#d3 span").parents('#d3 ul').css({"color": "green", "border": "2px solid green"});
+	})
+	$('#parentsuntil').click(function(){
+		 $("#d3 span").parentsUntil('#d3').css({"color": "magenta", "border": "2px solid magenta"});
+	})
+	
+	//////////////////////////////////////////////////////////
+	$('#siblings').click(function(){
+		 $("#d4 h2").siblings().css({"color": "red", "border": "2px solid red"});
+	})
+	$('#siblings_p').click(function(){
+	  $("#d4 h2").siblings("p").css({"color": "blue", "border": "2px solid blue"});
+	});  
+	
+	$('#children').click(function(){ 
+	   $("#d5").children().css({"color": "red", "border": "2px solid red"});
+	   
+	});
+	
+	$('#childrenp').click(function(){ 
+		   $("#d5").children("p:first").css({"color": "blue", "border": "2px solid blue"});
+	});
+	$('#contents').click(function(){ 
+		   $("#d5").contents().css({"color": "hotpink", "border": "2px solid hotpink"});
+		   
+	});
+	$('#contentsp').click(function(){ 
+		   $("#d5").contents("p:first").css({"color": "red", "border": "2px solid red"});
+	});
+	$('#find').click(function(){ 
+		   $("#d5").find('span').css({"color": "green", "border": "2px solid green"});
+	});
+});
+</script>
+</head>
+<body>
+
+<div  id="d1" style="width:500px;" class="siblings">div (parent)
+   <p>p</p>
+   <span>span</span>
+   <h2>h2</h2>
+   <h3>h3</h3>
+   <h4>h4</h4>
+   <h5>h5</h5>
+   <h6>h6</h6>
+   <p>p</p>
+</div> 
+
+<input type="button" value="next(h2)" id="next">
+<input type="button" value="nextAll(h2)" id="nextAll" >
+<input type="button" value="nextUntil(h2/h6)"  id="nextUntil"><br>
+<hr color='blue'>
+
+<div id="d2" style="width:500px;" class="siblings">
+  <p>p</p>
+   <span>span</span>
+   <h2>h2</h2>
+   <h3>h3</h3>
+   <h4>h4</h4>
+   <h5>h5</h5>
+   <h6>h6</h6>
+   <p>p</p>
+</div>
+<input type="button" value="prev(h6)" id="prev">
+<input type="button" value="prevAll(h6)" id="prevAll">
+<input type="button" value="prevUntil(h6/h2)" id="prevUntil">
+<hr color='blue'>
+<div  id="d3" style="width:500px;" class="siblings">div (great-grandparent)
+   <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+<input type="button" value="parent(span)" id="parent">
+<input type="button" value="parents(span)" id="parents">
+<input type="button" value="parents(span/ul)" id="parents_ul">
+<input type="button" value="parentsuntil(span~#d3)" id="parentsuntil">
+<hr color='blue'>
+<div  id="d4"style="width:500px;" class="siblings">
+   <p>p</p>
+   <span>span</span>
+   <h2>h2</h2>
+   <h3>h3</h3>
+   <h4>h4</h4>
+   <h5>h5</h5>
+   <p>p</p>
+</div>
+<input type="button" value="siblings(h2)" id="siblings">
+<input type="button" value="siblings_p(h2,p)" id="siblings_p">
+<hr color='blue'>
+ <div  id="d5" class="descendants siblings" style="width:500px;">div (current element) 
+  <p>p (child)
+    <span>span (grandchild)</span> 
+    Hello    
+  </p>
+  <p>p (child)
+    <span>span (grandchild)</span>
+  </p> 
+   child no tag 
+</div> 
+
+ <!-- <div  id="d5"  class="descendants siblings" style="width:500px;">div (grandparent)
+    <ul>ul (direct parent)  
+      <li>li (child)
+        <span>span (grandchild)</span>
+      </li>
+      <li>li (child)
+        <span>span (grandchild)</span>
+      </li>
+    </ul>   
+  </div>
+ -->
+ <input type="button" value="children" id="children">
+ <input type="button" value="childrenp" id="childrenp">
+ <input type="button" value="contents" id="contents"> 
+ <input type="button" value="contentsp" id="contentsp"> 
+ <input type="button" value="find" id="find"><!-- 후손까지 찾기 -->
+</body>
+</html>
+

@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>이미지 확대문제</title>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script>
+    
+        
+            $(document).ready(function() {
+            	$("span").css("display","block").css("width","100px").css("height","100px").css("background","lightblue");
+        		
+            	$("span").mouseover(function(){
+            	
+            		$("<img/>",{
+            			"src":"../images/"+$(this).text()+".jpg",
+            			"id":$(this).text()
+            		}).appendTo("body");
+            		
+            	});
+            	$("span").mousemove(function(e){
+            		//$("#"+$(this).text()).hide();
+            		
+            		$("#"+$(this).text())
+            		.css("position","absolute")
+					.css("top",(e.pageY + 10) + "px")
+					.css("left",(e.pageX + 10) + "px")
+					.fadeIn("fast"); 
+            		
+            	});
+            	$("span").mouseout(function(){
+            		$("img").hide();     		
+            	});
+            	
+                var xOffset = 10;
+                var yOffset = 30;
+
+                $(document).on("mouseover",".thumbnail",function(e){ 
+					
+					$("body").append("<p id='preview'><img src='"+ $(this).attr("src") +"' width='400px' /></p>"); 
+					$("#preview")
+						.css("top",(e.pageY - xOffset) + "px")
+						.css("left",(e.pageX + yOffset) + "px")
+						.fadeIn("fast"); 
+				});
+				
+				$(document).on("mousemove",".thumbnail",function(e){ 
+					$("#preview")
+						.css("top",(e.pageY - xOffset) + "px")
+						.css("left",(e.pageX + yOffset) + "px");
+				});
+				
+				$(document).on("mouseout",".thumbnail",function(){
+					$("#preview").remove();
+				});
+                 
+            });
+        </script>
+            
+		<style>
+			#preview{
+				z-index: 9999;
+				position:absolute;
+				border:0px solid #ccc;
+				background:#333;
+				padding:1px;
+				display:none;
+				color:#fff;
+			}
+		</style>
+    </head>
+     
+    <body>
+        <span>수국1</span>
+        <span>단풍</span>
+        <span>국화1</span>
+        <hr>
+    </body>
+</html>

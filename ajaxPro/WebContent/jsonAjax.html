@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jsonAjax</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$("button").click(function(){
+					$.ajax({
+						url :"./data/result.json",
+						dataType :"json",
+						success:function(data){
+							var str = "";
+							$.each(data, function(i){
+								str += data[i].name+"<br>";
+								str += data[i].age+"<br>";
+							});
+							$("body").append(str);
+							/* console.log(data[0].name);	
+							console.log(data[0].age);	 */
+							/*출력을 body태그에 이름나이 
+							순으로 출력해주세요*/
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>클릭</button>
+	</body>
+</html>

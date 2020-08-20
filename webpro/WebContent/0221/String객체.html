@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>String객체</title>
+		<script src="../js/string.js"></script>
+		<link href="../css/date.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="box">
+			<h2>charAt()메서드</h2>
+			<p>
+				charAt(index) :index위치에 있는 문자를 리턴한다 
+			</p>
+			<button onclick="proc1();">charAt()실행</button>
+		</div>
+		<div class="box">
+			<h2>indexOf()메서드</h2>
+			<p>
+				indexOf() : 부분 문자열의 위치를 검색한다 
+				indexOf(pram1, pram2) : param1 - 문자열 
+				                        param2 - 검색시작 인덱스  
+			</p>
+			<button onclick="proc2();">indexOf()실행</button>
+		</div>
+		<div class="box">
+			<h2>concat()메서드</h2>
+			<p>
+				concat(s1, s2) : s1문자열과 s2문자열을 연결한다 , +연산과 동일  
+			</p>
+			<button onclick="proc3();">concat()실행</button>
+		</div>
+		
+		<div class="box">
+			<h2>trim()메서드</h2>
+			<p>
+				trim()  : 앞 뒤 공백을 제거한다 
+			</p>
+			<button onclick="proc4();">trim()실행</button>
+		</div>
+		<div class="box">
+			<h2>toLowerCase(), toUpperCase()</h2>
+			<p>
+				toLowerCase(): 소문자로 변경
+				toUpperCase(): 대문자로 변경 
+			</p>
+			<button onclick="proc5();">실행</button>
+		</div>
+		<div class="box">
+			<h2>substring()메서드</h2>
+			<p>
+				substring(from , to): 두 위치 사이의 부분 문자열을 추출한다 
+				to를 생략하면 뒤쪽 모든 문자열을 출력한다 
+				to 미만까지 출력한다 
+				
+			</p>
+			<button onclick="proc6();">실행</button>
+		</div>
+		<div class="box">
+			<h2>slice()메소드</h2>
+			<p>
+				slice(start, end) : start위치부터 end위치까지 부분 문자열을 추출한다
+				substring()과의 차이점은 slice()는 음수값을 
+				파라미터로 적용하여 문자열을 뒤에서 부터  출력할 수 있다 
+				substring()은 음수 사용 불가능 
+			</p>
+			<button onclick="proc7();">실행</button>
+		</div>
+		<div class="box">
+			<h2>split()메서드</h2>
+			<p>
+				split() : 구분자를 기준으로 문자열을 분리한다 
+			</p>
+			<button onclick="proc8();">실행</button>
+		</div>
+				
+		<div id="result"></div>
+	</body>
+</html>
+
+
+
+

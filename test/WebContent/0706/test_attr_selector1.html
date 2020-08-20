@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+      //title 속성을 가진 p요소의 배경색 변경
+      $('p[title]').css('background', 'yellow');
+      //type 속성이 password 인 요소의 테두리 변경
+      $('input[type=password]').css('border','2px solid red');
+      
+      $("input[name~=man]").val("aaa");
+      //~= : 특정값을 단어로 시작하는 문서 객체
+      //^= : 특정값을 단어로 시작
+  })
+</script>
+</head>
+<body>
+  <p> 일반 문단입니다 </p>
+  <p title="툴팁으로 보입니다"> 타이틀을 가지고 있는 문단입니다 </p>
+  <input type="text"> 회원번호 </input>
+  <input type="password"> 비밀번호 </input>
+	 <input name="man-news" type="text"/> 
+	 <input name="milk man" type="text"/> 
+	 <input name="letterman2" type="text"/> 
+	 <input name="newmilk" type="text"/>
+
+</body>
+</html>

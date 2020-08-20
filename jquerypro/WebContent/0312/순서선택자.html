@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>순서 선택자</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				var txt = $("li:eq(0)").text();
+				
+				//$("li:eq(0)").text();
+				//$("li").eq(0).text();
+				
+				console.log(txt);
+				
+				$("div").css("width","100px").css("height","100px").css("border","1px solid red");
+				
+				//odd : 홀수번째 (index 0부터 시작되기 때문에 짝수번째로 보임)
+				//$("div:odd").css("background","yellow");
+				//$("div:odd").eq(2).css("background","red");
+				
+				
+				//even :짝수번째(index 0부터 시작되기 때문에 홀수번째로 보임)
+				//$("div:even").css("background","green");
+				//$("div:even").eq(0).css("background","red");
+			//	$("div").filter(":even").eq(0).css("background","black");
+			
+			
+			/*
+				eq(index)메서드는 해당하는 index번호를 선택하는 객체 
+				eq(0) 은 first와 동일
+				
+				end() 메서드는 선택을 한단계 앞으로 돌리는 역할을 한다 
+				기존 선택에 새로운 필터링을 할 수 있도록 한다 
+				
+			*/
+				$("div:even").eq(0).css("background","red")
+					.end().eq(1).css("background", "blue")
+					.end().eq(2).css("background", "#efeeff");
+			
+				//p태그 요소중 class가 intro가 아닌것을 선택한 객체 
+				$("p").not(".intro").css("background","yellow");
+			
+			});
+		
+		</script>
+		<style>
+			div{
+				float:left;
+				margin:10px;
+			}
+		
+		</style>
+		
+		
+	</head>
+	<body>
+		<ul>
+			<li>첫번째</li>
+			<li>두번째</li>
+			<li>세번째</li>
+			<li>네번째</li>
+			<li>다섯번째</li>
+		</ul>
+		
+		<hr>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div class="orange">6</div>
+		<div>7</div>
+		<hr>
+		<p class="intro">클래스 이름이 intro</p>
+		<p>My name is 이혁진</p>
+		
+	</body>
+</html>
+
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>attr_selector(선택자)</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				$("p[title]").css("background","yellow");
+				$("input[type=password]").css("border","2px solid red");
+				$("input[type=button]").css("background","green");
+			});
+		</script>
+	</head>
+	<body>
+		<p>일반 문단입니다.</p>
+		<p title="툴팁으로 보입니다">타이틀을 가지는 문단입니다.</p>
+		<input type="text">회원번호
+		<input type="password">비밀번호
+		
+		<hr>
+		<input type="button" value="클릭">
+		
+		
+	</body>
+</html>
+
+
+
+

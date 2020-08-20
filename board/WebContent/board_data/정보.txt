@@ -1,0 +1,55 @@
+﻿<<<<  리스트 출력하기와 글쓰기 삭제및 수정하기 완료 수행  >>>>>
+BootStrap의 accordion 과  Modal 이용 
+
+
+html(ajax)- servlet(Controller)  -> 
+       service -> dao ->  jdbc - db실행 
+
+db실행 -> dao -> service  ->
+          servlet(Controller) ->->->forward->->->  view페이지(jsp, json결과를 만들어) -> 
+         html의 ajax출력
+
+html에서 ajax를 이용하여 servlet으로 요청하고
+다시 html은 servlet 으로부터 결과를 응답 받는다 
+이때 servlet은 응답을 jsp페이지에 위임한 경우 임
+
+데이터베이스 모델링
+
+사용자 생성
+
+project/project
+
+SQL> conn /as sysdba
+SQL> create user project identified by project;
+SQL> grant connect, resource to project;
+
+create table jquery_board (
+board_no			number			not null	primary key,
+board_title			varchar2(100)	not null,
+board_writer		varchar2(10)	not null,
+password		    varchar2(10)	not null,
+board_content		varchar2(2000),
+board_cnt			number			not null,
+board_wip			char(15)		not null,
+board_date			date			not null
+);
+
+시퀀스 생성
+create sequence board_no_seq;
+
+페이지별 리스트 출력 
+select A.* from (
+    select rownum as rnum, B.*  from (
+         select * from jquery_board order by board_no desc) B
+     where rownum <= 5) A 
+ where A.rnum >=3;
+
+String sql = "select A.* from " 
+                 + "(select rownum as rnum, B.*  from "
+                 + "(select * from jquery_board order by board_no desc) B "
+                 + " where rownum <= ?) A "
+                 + " where A.rnum >= ? ";
+                 
+
+insert 생성
+insert into jquery_board values (board_no_seq.nextval, '제목1', '이름1', 'test1@test.com', '1234', '내용1', 0, '000.000.000.000', sysdate);

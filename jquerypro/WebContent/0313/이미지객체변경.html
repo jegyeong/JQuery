@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>이미지 객체 변경</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				//$("button").css("display","none");
+				$("button").hide();
+				
+				
+				$("img").css({"width":"100px","height":"100px"});
+				
+				$("img").mouseover(function(){
+					$(this).attr("src",$(this).attr("src2"));
+				});
+				
+				$("img").attr("temp", function(){
+					return $(this).attr("src");
+				});
+				
+				$("img").mouseout(function(){
+					$(this).attr("src", $(this).attr("temp"));
+				});
+				
+				//$("img").on("dblclick", function(){})
+				$("img").dblclick(function(){
+					$(this).hide();
+					
+					if($("img:visible").length == 0){
+						$("button").show();
+					}
+					
+				});
+				
+				$("button").on("click",function(){
+					$("img").show();
+					$(this).hide();
+				});
+				
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<img src="../img/spring1.jpg" src2="../img/Koala.jpg">
+		<img src="../img/spring2.jpg" src2="../img/Koala.jpg">
+		<img src="../img/spring3.jpg" src2="../img/Koala.jpg">
+		<img src="../img/spring4.jpg" src2="../img/Koala.jpg">
+		
+		<button>클릭(보이기)</button>
+	</body>
+</html>
+
+

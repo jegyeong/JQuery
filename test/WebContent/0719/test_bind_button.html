@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  $('button').not($('#unBut')).bind('click',function(){
+		  $('#result').append("<button>새로운 버튼</button>") ;
+	  })
+	  
+	  $('#unBut').bind('click', function(){
+		  $('button').not($('#unBut')).unbind();
+	  })
+	  
+	  
+  })
+</script>
+
+<style>
+  div{
+    border : 1px solid blue;
+    padding : 10px;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <button>추가</button>
+    <button>추가</button>
+    <button>추가</button>
+  </div>
+  <br>
+  <button id='unBut'>해제</button>
+  <br>
+  <br>
+  <hr color ='red'>
+  <div id="result"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+<% String str = new String(request.getParameter("name").getBytes("8859_1"), "UTF-8"); %>

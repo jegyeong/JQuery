@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+.siblings, .siblings * { 
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+</style>
+
+<script>
+$(function(){
+	$('button#contents').click(function(){
+		// element node,  nodeType= 1.
+		//attribute node,  nodeType = 2.
+		//text node,  nodeType=3.
+	
+		//$( ".container1" )
+		 //     .contents().wrap( "<p></p>" ) //-->태그가 있거나 없거나 감싸기
+		         
+		         
+		         
+		$( ".container1" )
+		   .contents() //-->태그가 있거나 없거나 감싸기
+		      //filter가 업스면 태그없는 문자나 태그있는  전체를  p태그를 감싸고 
+		      //자식중 br태그를 찾아서 지운다, p태그로 감싸졌기  때문에 
+		      //자식중 br를 찿ㅇㄹ 수 엇다.
+		   .filter(function() {
+		       return this.nodeType === 3;
+		   })    // text만 p태그로 감싸고 br태그를 지운다 
+		   .wrap( "<p></p>" )
+		   .end()
+		   .filter( "br" )
+		  .remove();  
+		
+	})
+	
+	$('button#children').click(function(){
+		// element node,  nodeType= 1.
+		//attribute node,  nodeType = 2.
+		//text node,  nodeType=3.
+	
+		//$( ".container2" )
+		 //   .children().wrap( "<p></p>" );    
+		
+		 $( ".container2" )
+		    .children()          //---태그가 잇는것만 감싸기
+		    .filter(function() {
+		      return this.nodeType === 1;
+		    }) 
+		    .wrap( "<p></p>" )
+		    .end()
+		    .filter( "br" )
+		    .remove();  
+		
+	})
+	
+})
+</script>
+<style>
+  p{
+  
+    margin : 5px;
+    padding : 5px;
+    background : yellow;
+  }
+</style>
+</head>
+<body>
+<div class="container1">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  <br><br>
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+  laboris nisi ut aliquip ex ea commodo consequat.
+  <br><br>
+  Duis aute irure dolor in reprehenderit in voluptate velit
+  esse cillum dolore eu fugiat nulla pariatur.
+</div>
+
+<button id="contents" type="button">실행</button>
+
+<div class="container2">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  <br><br>
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+  laboris nisi ut aliquip ex ea commodo consequat.
+  <br><br>
+  Duis aute irure dolor in reprehenderit in voluptate velit
+  esse cillum dolore eu fugiat nulla pariatur.
+</div>
+
+<button id="children" type="button">실행</button>
+<hr>
+<br>
+<br>
+<div  id="d5"  class="descendants siblings" style="width:500px;">div (grandparent)
+    <ul>ul (direct parent)  
+      <li>li (child)
+        <span>span (grandchild)</span>
+      </li>
+      <li>li (child)
+        <span>span (grandchild)</span>
+      </li>
+    </ul>   
+  </div>
+</body>
+</html>

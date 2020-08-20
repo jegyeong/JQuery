@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <script src="../js/jquery-3.2.1.min.js"></script>
+ <style>
+ 	button, img{
+ 	display:block;
+ 	}
+ </style>
+<script>
+  $(function(){
+	  $("p").click(function(){
+		  
+		  imgsrc = $('<img/>', {   
+		  		'src' : '../images/' + $(this).text()+".jpg",  
+				'width' : '100px',
+		 		'height' : '100px',
+		 		"id":"img"+$(this).text(),
+		 		"click":function(){
+		 			$(this).before($("<button/>",{
+		 				"text":"삭제",
+		 				"click":function(){
+		 					//$(this).prev().remove();
+		 					//alert($(this).prev().attr("id"));
+		 					$("#"+$(this).next().attr("id")).remove();
+		 				}
+		 			}));
+		 		}
+	  	  });
+		  
+		  $(this).after(imgsrc);
+		  
+	  });
+  });
+</script>
+
+<style>
+  *{
+     font-size  : 1.1em;
+  }
+  img{
+     width : 80px;
+     height : 80px;
+     display : block;
+     float : left;
+     margin: 2px;
+   }
+   
+  #box{
+    clear : both;
+    
+  }
+  span {
+     color : blue ;
+  }
+  span.a {
+     color : red ;
+  }
+</style>
+</head>
+<body>
+	<p>Hydrangeas</p>
+	<p>Tulips</p>
+	<p>Penguins</p>
+    <!--  <img src="../images/Hydrangeas.jpg" >
+     <img src="../images/Tulips.jpg" >
+     <img src="../images/Penguins.jpg" > -->
+
+
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+      // $("p").wrap("<div></div>");
+       $("p").wrapAll("<div></div>");
+    });
+    
+    $("#btn2").click(function(){
+        $("p").unwrap();
+    });
+
+});
+</script>
+
+
+<style>
+   div{ background-color: yellow;}
+   span { color : red;  }
+   pre{
+     font-size : 1.3em;
+   }
+</style>
+
+
+</head>
+<body>
+
+<h2>수행내용</h2>
+선택자.wrap(html) : 선택자 각각을 html로 감싼다 <br>
+선택자.wrapAll(html)  : 선택자를 한꺼번에 html로 감싼다<br>
+unwrap()  :  wrap를 해제 힌다 <br>
+<pre>	
+  $("#btn1").click(function(){
+       //$("p").wrap("&lt;div&gt;&lt;/div&gt;");
+       <span>$("p").wrapAll("&lt;div&gt;&lt;/div&gt;");</span> 
+    });
+    
+    $("#btn2").click(function(){
+        <span>  $("p").unwrap(); </span> 
+    });
+</pre>
+
+<br>
+<hr color='blue'>
+
+	<p>This is a paragraph.</p>
+	<p>This is another paragraph.</p>
+	
+	<button id="btn1">Wrap a div element around each p element</button>
+	<button id="btn2">Unwrap</button>
+<br>
+<br>
+
+ 
+</body>
+</html>

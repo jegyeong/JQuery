@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  /////////////////////////////////////////////////
+	  //dom객체 
+	  var domele =  document.getElementsByTagName('h1')[0];
+	  //dom객체변수는 스크립트의 문법에 의한다
+	  domele.style.color = 'red';
+	  
+	  //css()는 jQuery의 메소드 이기 때문에 사용 할 수 없다 
+	  //domele.css('color', 'red');  -->>오류 
+	  
+	  //dom 객체로 jQuery메소드 를 사용하기 위해서는 
+	  //dom객체를 $()로 감싸준다 
+	  $(domele).css('color', 'blue');
+	  ////////////////////////////////////////////////////
+	  
+	  //jQuery객체
+	   // var jq =  $('h2');
+	   //jq.css('color', 'red');
+	   //메소드 체이닝
+	   $('h2').css('color', 'orange');
+	  
+  })
+</script>
+<style>
+ * {
+   font-size : 1.1em;
+   text-align : center;
+ }
+ span{
+   color : red;
+ }
+</style>
+
+</head>
+<body>
+<h2>수행내용</h2>
+ <span>  dom객체 </span> <br>
+	  var domele =  document.getElementsByTagName('h1')[0];<br>
+	  dom객체변수는 스크립트의 문법에 의한다<br>
+	 <span> domele.style.color = 'red'; </span><br>
+	  
+	  css()는 jQuery의 메소드 이기 때문에 사용 할 수 없다 <br>
+	  domele.css('color', 'red');  -->>오류 <br>
+	  
+	  dom 객체로 jQuery메소드 를 사용하기 위해서는 <br>
+	  dom객체를 $()로 감싸준다 <br>
+	  $(domele).css('color', 'blue');<br>
+	  <br>
+	  <span> jQuery객체</span><br>
+	  var jq =  $('h2');<br>
+	  jq.css('color', 'red');
+	   메소드 체이닝<br>
+	  <span> $('h2').css('color', 'orange');</span><br>
+<hr color='blue'>  
+<p>
+  <h1> &lt;h1&gt; 무궁화 꽃이 피었습니다  &lt;/h1&gt; </h1>
+  <h2> &lt;h2&gt; 무궁화 꽃이 피었습니다  &lt;/h2&gt; </h2>
+</body>
+</html>
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML요소</title>
+		<style>
+			img{
+				cursor:pointer;
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				document.getElementById("box1").innerHTML = "김준우";
+			}
+			function changeImg(){
+				document.getElementById("img").src = "../img/Penguins.jpg";				
+			}
+			
+			function swOnOff(){
+				var ele = document.getElementById("swImg");
+				//alert(ele.src);
+				if(ele.src.indexOf("sw_off") != -1){
+					ele.src = "../img/sw_on.png";
+				}else{
+					ele.src = "../img/sw_off.png";
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1">이혁진</div>
+		<div id="box2">
+			<img src="../img/mountain.jpg" id="img" width="150">
+			<button onclick="changeImg();">눌러보세요</button>
+		</div>
+		<div id="box3">
+			<img src="../img/sw_off.png" width="150" id="swImg" onclick="swOnOff();">
+		</div>
+	</body>
+</html>
+
+

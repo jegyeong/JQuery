@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>요소 속성 선택자</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(function(){
+				$("input[type=button]").click(function(){
+					$("input[name~=man]").val("man을 포함(~=)"); 
+					//특정값을 단어로 시작하는 문서 객체
+					$("input[name^=man]").val("man을 포함(^=)"); 
+					//특정값을 단어로 시작하는 문서 객체 (반드시 처음에 와야함)
+					$("input[name$=man]").val("man을 포함($=)");
+					//특정값으로 끝나는 문서 객체 
+					$("input[name*=man]").css("border","2px solid orange");
+					
+				});
+			});
+		
+		</script>
+	</head>
+	<body>
+		<input type="text" name="man-news" ><br>
+		<input type="text" name="milk man"><br>
+		<input type="text" name="letterman"><br>
+		<input type="text" name="newmilk"><br>
+		
+		<input type="button" value="버튼">
+		
+	</body>
+</html>
+
+
+
+
+
+

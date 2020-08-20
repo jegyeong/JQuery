@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+		//첫번째 자식 하나만
+		$('li:first').css('background','yellow');
+		//첫번째 자식의 모든 요소와 일치
+		$('li:first-child').css('border','3px solid red');
+			
+		$('.dsc').css({'color':'green','background':'white','border':'1px solid white'});
+ 
+  })
+</script>
+<style>
+	ol li{
+		width : 400px;
+	}
+</style>
+
+</head>
+<body>
+<h2>수행내용</h2>
+자식필터 <br>
+<span class='dsc'>첫번째 자식 하나만</span><br>
+ $('li:first').css('background','yellow');<br><br>
+<span class='dsc'>첫번째 자식의 모든 요소와 일치</span><br>
+$('li:first-child').css('border','3px solid red');<br><br>
+
+<hr color='blue'>
+
+<h1>여자에게 인기있는 남자들</h1>
+<ol>
+  <li>능력있는 남자</li>
+  <li>돈 많은 남자</li>
+  <li>잘생긴 남자</li>
+  <li>프로그래머</li>
+</ol>
+
+<h1>남자에게 인기있는 여자들</h1>
+<ol>
+  <li>예쁜여자</li>
+  <li>귀여운 여자</li>
+  <li>섹시한 여자</li>
+  <li>마음이 착한 여자</li>
+</ol>
+ 
+</body>
+</html>
+
+

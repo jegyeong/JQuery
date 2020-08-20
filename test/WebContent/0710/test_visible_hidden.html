@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+  $(function(){
+	  
+	  result = "";
+	    
+	 /* 
+	   result  += " *:hidden 내용 \n\n";
+	  $('*:hidden').each(function(i, v){
+		   result += i + "번째 태그 "  + v.tagName +  "\n";
+      }) */
+      //////////////////////////////////////
+     /*
+       result  += " body :hidden 내용 \n\n";
+       $('body :hidden').each(function(i, v){
+		   result += i + "번째 태그 "  + v.tagName +" " +   $(this).text() +  "\n";
+      })
+       */
+      ///////////////////////////////////////// 
+       result  += " *:visible 내용 \n\n";
+        $('*:visible').each(function(i, v){
+    	   // result += i + "번째 태그 "  + v.tagName + "\n";
+    	    if(v.tagName == "P") 
+    	    	 result += i + "번째 태그 "  + v.tagName +  " 내용 : " +  $(v).text() + "\n";
+    	    else 
+    	    	result += i  + "번째 태그 "  + v.tagName + "\n";
+       }) 
+      alert(result);
+       result  = " body :visible 내용 \n\n";
+       $('body :visible').each(function(i, v){
+		    result += i + "번째 태그 "  + v.tagName +   $(this).text() +  "\n";
+       })  
+      //alert(result);
+	  
+  })
+</script>  
+<style>
+ span  {
+   color : blue;
+ }
+</style>
+</head>
+<body>
+
+
+  <p> 보이는 문단</p>
+  <p style="visibility:hidden;">visible 속성을 갖는 숨겨진 문단, 자리는 차지한다</p>
+  <p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+  <p style="opacity:0;"> visible속성 투명한 문단:투명도(0.0~1.0)</p>
+  
+ <hr color='blue'>
+<h2>수행내용</h2>
+Visibility 필터 : 보임 상태에 따라 엘리먼트를 선택한다  <br>
+<span>:visible : 보이는 속성 </span><br>
+visibility:hidden<br>
+opacity:0<br>
+<span>:hidden  : 안보이는 속성 </span><br>
+display:none<br> 
+ 
+</body>
+</html>

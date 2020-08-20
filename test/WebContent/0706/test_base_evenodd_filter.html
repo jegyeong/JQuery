@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	 $('tr:even').css('background', 'lightgray');
+	 $('tr:odd').css('background', 'lightblue');
+
+	 $('#t2 tr:even').css('background', '#ffddef');
+	 $('#t2 tr:odd').css('background', '#aa9998');
+	 $('#t2 tr:first').css('background', 'black').css('color', 'white');
+  })
+</script>
+
+<style>
+  td {
+     width : 300px;
+     height : 40px;
+     text-align : center;
+  }
+  th {
+     height : 40px;
+  }
+</style>
+</head>
+<body>
+
+ <table  border=1>
+     <tr>
+       <td>One</td>
+       <td>78만원</td>
+     </tr>
+      <tr>
+       <td>two</td>
+       <td>70만원</td>
+     </tr>
+      <tr>
+       <td>three</td>
+       <td>32만원</td>
+     </tr>
+      <tr>
+       <td>four</td>
+       <td>63만원</td>
+     </tr>
+      <tr>
+       <td>five</td>
+       <td>90만원</td>
+     </tr>
+      <tr>
+       <td>six</td>
+       <td>45만원</td>
+     </tr>
+      <tr>
+       <td>seven</td>
+       <td>34만원</td>
+     </tr>
+      <tr>
+       <td>eight</td>
+       <td>56만원</td>
+     </tr>
+      <tr>
+       <td>nine</td>
+       <td>87만원</td>
+     </tr>
+      <tr>
+       <td>ten</td>
+       <td>65만원</td>
+     </tr>
+  </table>
+  <p>
+  
+  <table id="t2">
+    <tr>
+      <th>이름</th>
+      <th>주소</th>
+    </tr>
+  
+    <tr>
+       <td>홍길동</td>
+       <td>대전</td>
+    </tr>
+    
+    <tr>
+       <td>개나리</td>
+       <td>서울</td>
+    </tr>
+    
+    <tr>
+       <td>진달래</td>
+       <td>부산</td>
+    </tr>
+    
+    <tr>
+       <td>무궁화</td>
+       <td>광주</td>
+    </tr>
+    
+    <tr>
+       <td>삼천리</td>
+       <td>대구</td>
+    </tr>
+  
+  </table>
+  
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

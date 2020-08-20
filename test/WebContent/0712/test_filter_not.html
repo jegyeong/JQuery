@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	   //p요소중 class가 intro가 아닌거를 선택 
+	   $('p').not('.intro').css('background', 'yellow');
+  })
+</script>
+<style>
+  strong{
+    font-size : 1.2em;
+  }
+  span{
+     color: red;
+     font-size : 1.1em;
+  }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+filter메소드의 not()메소드 : 선택한 요소중 ~아닌거<br>
+ <strong> p요소중 class가 intro가 아닌거를 선택 </strong><br>
+ <span> $('p').not('.intro')</span>.css('background', 'yellow');<br>
+
+<hr color='blue'>
+
+	<h1>NOT 메소드에 대해서 ...</h1>
+	<p class="intro">클래스 이름이 intro가 아닌 p엘리먼트의 배경색을 변경</p>
+
+	<p>My name is 홍길동.</p>
+	<p class="intro">My name is 개나리.</p>
+	<p class="intro">My name is 진달래.</p>
+	<p>My name is 무궁화</p>
+</body>
+</html>

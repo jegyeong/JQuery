@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form요소_select</title>
+		<style>
+			table select {
+				width : 180px;
+				height: 240px;
+				box-sizing : border-box;
+			}
+			input[type=button]{
+				width:50px;
+			}
+			.box table{
+				margin : 0 auto;
+				border-spacing:10px;
+				border: 0 none;
+				box-sizing: border-box;
+			}
+			
+		</style>
+		<script>
+			function addPro(){
+				var f = document.ff;
+				var number = f.txt.value;
+				
+				/*
+				<select name="lList">
+					
+				</select>
+				*/
+				
+				var opt = document.createElement("option");
+				opt.value = number;
+				opt.text = number;
+				//<option value="111">111</option>
+				
+				f.lList.appendChild(opt);
+				
+				/*
+				<select name="lList">
+					<option value="111">111</option>
+				</select>
+				*/
+			}
+			
+			function toRight(){
+				var f = document.ff;
+				
+				//selectedIndex는 select박스에서 선택한 옵션에 대한 index번호를 가져옴
+				var index = f.lList.selectedIndex;
+								
+				//클릭한 옵션의 value값을 가져옴 
+				//<option value="111">111</option>
+				var lvalue = f.lList.options[index].value;
+				
+				var opt = document.createElement("option");
+				opt.value = lvalue;
+				opt.text = lvalue;
+				
+				f.rList.appendChild(opt);
+				
+				f.lList.removeChild(f.lList.options[index]);				
+				
+			}
+		
+		
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<form name="ff">
+				<table>
+					<tr>
+						<td colspan="3">
+							<h1>Select예제</h1>
+							<h2>데이터를 교환하는 프로그램</h2>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<select name="lList" size="15">
+								<!-- <option></option> -->
+							
+							</select>
+						</td>
+						<td>
+							<input type="button" onclick="toRight();" value=">"><br>
+							<input type="button" onclick="toRightAll();" value=">>"><br>
+							<input type="button" onclick="toLeft();" value="<"><br>
+							<input type="button" onclick="toLeftAll();" value="<<"><br>
+						</td>
+						<td>
+							<select name="rList" size="15"></select>
+						
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<!-- <input type="text" name="txt" onkeyup="addPro();"> -->
+							<input type="text" name="txt">
+							<button type="button" onclick="addPro();">추가하기</button>
+						</td>
+					</tr>
+				</table>
+				
+				
+				
+				
+				
+				
+			
+			</form>
+		
+		</div>
+	</body>
+</html>

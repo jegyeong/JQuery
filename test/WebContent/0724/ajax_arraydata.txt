@@ -1,0 +1,119 @@
+﻿//jQuery 로 ajax 처리시 data 형식 중 배열(array)값을 넘기려면 다음과 같이 
+//ajax 처리 전 세팅값을 바꿔 주어야 한다.
+
+//---------------------------------------------
+//jQuery.ajaxSettings.traditional = true;
+/-----------------------------------------
+
+var arr = ['a', 'b', 'c'];
+ 
+jQuery.ajaxSettings.traditional = true;
+ 
+$.ajax({
+    method      : 'POST',
+    url         : 'test.do',
+    data        : {
+        'test' : arr
+    },
+    error       : function(request, status, error) {
+        alert("code: "+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
+    },
+    success     : function(msg) {
+        alert(msg);         
+    }
+ 
+});
+
+
+※ 서버단 에서는 ArrayList 혹은 String[] 로 받으면 됨.
+@RequestMapping(value = "/test.do", method = {RequestMethod.GET, RequestMethod.POST})    
+    public ModelAndView test(
+           HttpServletRequest request,
+           String[] main//배열 받기 traditional: true
+           ) {
+           
+}
+
+
+
+-------------------------------------------------------
+
+
+var userId = $("#userId").val();
+ 
+    // name이 같은 체크박스의 값들을 배열에 담는다.
+ var checkboxValues = [];
+  $("input[name='hobby']:checked").each(function(i) {
+        checkboxValues.push($(this).val());
+  });
+     
+    // 사용자 ID(문자열)와 체크박스 값들(배열)을 name/value 형태로 담는다.
+    var allData = { "userId": userId, "checkArray": checkboxValues };
+     
+$.ajax({
+        url:"goUrl.do",
+        type:'GET',
+        data: allData,
+     ..........
+     
+
+
+Spring Controller단에서 데이터를 받을 땐,
+
+   배열은 배열로, 스트링은 스트링으로 받으면 된다.
+
+@RequestParam(value="checkArray[]") List<string> arrayParams, @RequestParam(value="userId") String userId
+
+   만약 @RequestParam HashMap param으로 받을 경우, 배열은 첫번째 값만 넘어간다. 그러니 배열은 반드시 List로.
+
+----------------------------------------------------------------------
+
+dim_libel = ["aaaa","bbb"]
+
+jQuery.ajaxSettings.traditional = true;
+
+$.ajax({
+   url : "test.do",
+   type : "GET",
+   data : { dim_libel : dim_libel},
+   success : function(data) { ..... }
+
+  });
+
+@RequestMapping(value="test.do", method={RequestMethod.GET})	
+
+public @ResponseBody List<HashMap<String, Object>> getTest
+       (@RequestParam(value="dim_libel", required=false) String[] dim_libel ) {
+
+log.debug(dim_libel);
+
+} 
+
+////////////////////////////////////////
+@RequestMapping(value = "/{somepath}/multi", method = RequestMethod.POST)
+@ResponseBody
+ResponseEntity insertMulti( @PathVariable(value = "somepath") String somepath,
+                            @RequestBody List<SomeBean> dataList ) {
+
+
+
+프론트의 javascript 에서는 jquery 를 이용해서 다음과 같이 전송한다.
+myJsonDataArray 는 위에서 사용하는 SomeBean 의 필드와 값을 가지고 있는 Json object 의 array 이다.
+6
+7
+JSON.stringify 메소드는 json 객체를 String 객체로 변환시켜 줍니다.
+JSON.parse 메소드는 string 객체를 json 객체로 변환시켜줍니다
+
+$.ajax({
+       type: "POST",
+       url: "somepath/multi",
+       data: JSON.stringify( myJsonDataArray ),
+       dataType: "json",
+       contentType : 'application/json'
+});
+///////////////////////////////////////////////////////////////
+
+
+
+
+

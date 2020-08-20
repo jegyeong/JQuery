@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>navigator객체</title>
+		<script>
+			/*
+				Navigator객체
+				브라우저 공급자 및 버전 정보등을 포함한 브라우저에 대한 정보를 
+				저장하는 객체
+				
+				navigator.appName : 현재 사용중인 브라우저 이름 
+				navigator.appVersion : 현재 사용중인 브라우저 버전 정보 
+				navigator.userAgent : userAgent프로퍼티로 알수 있는 추가정보 
+				navigator.platform : 현재 브라우저가 실행되고 있는 운영체제 
+				navigator.language : 현재 브라우저의 기본 언어 
+			*/
+			for(var key in navigator){
+				value = navigator[key];
+				document.write(key +":"+value+"<br>");
+			}
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

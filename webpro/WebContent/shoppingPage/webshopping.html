@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<meta charset="UTF-8">
+<title>Web Shopping</title>
+<style>
+	header,nav,aside,section,footer,article
+	{ box-sizing:border-box; padding:20px;}
+	header{
+		width:100%;
+		height:100px;
+		margin-bottom:10px;
+		/* text-align:center; */
+	  background:#F5F5F5;  
+	}
+	nav{
+		width:100%;
+		border-top:3px dotted olive;
+		border-bottom:1px solid olive;
+		margin-bottom:10px;
+		padding:15px 0;
+		/*  background:#F5F5F5;   */
+	}
+	nav{text-align:center;}
+	nav ul {list-style:none; padding:0; margin:0;}
+	nav ul li{display:inline-block; margin:5px 30px;}
+	nav ul li a{padding:10px; font-weight:bold; font-size:16px; text-decoration:none; letter-spacing: 0.5em;}
+	nav ul li a:visited{color:blue;}
+	nav ul li a:hover{background:red; color:white;}
+	
+	aside#left{
+		width:15%;
+		height:500px;
+		background:#6d7996;
+		padding:20px 0;
+		float:left;
+	}
+	aside#left h2{padding-left:20px; color:white;}
+	aside#left ul{background:#525D76; list-style:none; padding:0;}
+	aside#left ul li{border-bottom:1px solid rgba(0,0,0,0.3);}
+	aside#left ul li a{color:white; font-weight:bold; text-decoration:none; padding:10px 20px; display:block; }
+	aside#left ul li a:visited{color:yellow;}
+	aside#left ul li a:hover{background:rgba(0,0,0,0.3); color:white;}
+	
+	aside{
+	   word-wrap  : break-word;
+	   
+	}
+	aside#right{
+		width:15%;
+		height:500px;
+		background:#e2e0d7;
+		
+		float:left;
+	}
+	
+	aside#right div{height:200px;}
+	aside#right input[type=text],
+	aside#right input[type=password]	
+	{
+	    box-sizing : border-box;
+	}
+	section{
+		width:calc(70% - 20px);
+		height:500px;
+		
+		float:left;
+		margin:0 10px 10px;
+		padding:0;
+		
+	}
+	section iframe{
+		border:0 none;
+		width:100%;
+		height:100%;
+		overflow:hidden;	
+	}
+	section h2{width:0; height:0; position:absolute; top:-9999px; left:-9999px; overflow:hidden;}
+	
+	footer{
+		width:100%;
+		height:60px;
+		background:rgb(10%,10%,10%);
+		color:white;
+		clear:both;
+		text-align:center;
+	}
+	article{
+		height:47%;
+		border:2px dotted green;
+		margin-bottom:20px;
+		background:rgba(70%, 60%, 20%,0.2);
+	}
+	
+	img{width:100%; height:70px; }
+	h1{margin:0;}
+	h1 a {text-decoration:none; color:black;}
+	h1 a:hover{text-decoration:underline;}
+	h1 img{width:100px; vertical-align:middle; background:#F5F5F5;  }
+	h2, h3{margin-top:0;}
+	input, label{
+	   box-sizing : border-box;
+	}
+	#id, #pass{
+	  width : calc(100% - 5px);
+	}
+</style>
+</head>
+<body>
+<header>
+	<h1><img src="./images/shopping.jpg" alt="">&nbsp;<a href="shopmain.html" target="ifr">Web Shopping</a>&nbsp;
+<!-- 	<img src="../images/쇼핑백.jpg" alt=""> --></h1>
+</header>
+<nav>
+	<ul>
+		<li><a href="shopmain.html" target="ifr">HOME</a></li>
+		<li><a href="#">ABOUT US</a></li>
+		<li><a href="#">NEWS</a></li>
+		<li><a href="#">MY ACCOUNT</a></li>
+		<li><a href="#">CONTACTS</a></li>
+	</ul>
+</nav>
+<aside id="left">
+	<h2>카테고리</h2>
+	<ul>
+		<li><a href="컴퓨터.html" target="ifr">컴퓨터</a></li>
+		<li><a href="의류.html" target="ifr">의류</a></li>
+		<li><a href="음악.html" target="ifr">음악</a></li>
+		<li><a href="영화.html" target="ifr">영화</a></li>
+		<li><a href="스포츠레저.html" target="ifr">스포츠/레저</a></li>
+		<li><a href="가구인테리어.html" target="ifr">가구/인테리어</a></li>
+		<li><a href="식품.html" target="ifr">식품</a></li>
+	</ul>
+</aside>
+<section>
+	<h2>상세보기</h2>
+	<iframe src="컴퓨터.html" name="ifr"></iframe>
+</section>
+<aside id="right">
+	<div>
+		<h2>Shopping Cart</h2>
+		현재 쇼핑카트에 물품이 없습니다.<br><br>
+		<a href="shopcart.html" target="ifr">쇼핑카트 보기</a>
+	</div>
+	<br>
+	<div>
+		<h2>Log In</h2>
+		<form>
+			<label for="id">아이디</label><br>
+			<input type="text" name="id" id="id"><br>
+			<label for="pass">패스워드</label><br>
+			<input type="password" name="pass" id="pass"><br><br>
+			<input type="submit" value="로그인">
+			<input type="reset" value="초기화">
+		</form>
+		<br>
+		<a href="register.html" target="ifr">회원가입</a>
+		<a href="#">비밀번호 분실</a>
+	</div>
+</aside>
+<footer>Copyright (c)2019 Hong</footer>
+</body>
+</html>

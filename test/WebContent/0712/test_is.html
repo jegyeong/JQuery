@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  //p태그를 클릭시 부모를 비교 
+	  $('p').click(function(){
+		  if( $(this).parent().is('div') ){
+			  
+			  $(this).parent().css('border', '2px solid blue');
+			  
+			  $(this).clone().appendTo($(this).parent());
+		  }else {
+			  alert("작업대상이 아닙니다");
+		  }
+		  
+	  })
+  })
+</script>  
+</head>
+<body>
+    <div>  
+        <p>누르세요 div>p</p>
+    </div>
+    
+    <p>누르세요 body>p</p>
+    
+    <div>  
+        <p>누르세요 div>p</p>
+    </div>
+    
+ </body>
+</html>
+
+
+

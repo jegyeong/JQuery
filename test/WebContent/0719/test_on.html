@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	 //on - bind의미- - on('이벤트타입',function(){ } )
+	 
+	 //기존의 h1엘리먼트에만 이벤트가 적용
+	 $('h1').delegate('click', function(){
+		 $(this).css('background', 'orange');
+		 $('<h1>새로운 엘리먼트</h1>').appendTo('body')
+	 })
+	 
+	 /////////////////////////////////
+	  //on - delegate의 의미 - 새로 만들어지는 h1태그에도 이벤트가 적용   
+	 //on('이벤트타입', '선택자', function(){ })
+	 //delegate('선택자','이벤트타입', function(){ })
+	 /*$(document).on('click', 'h1', function(){
+		 $(this).css('background', 'orange');
+		 $('<h1>새로운 엘리먼트</h1>').appendTo('body')
+	 })*/
+	  
+  })
+</script>
+
+</head>
+<body>
+ <h1> 제목입니다 </h1>	
+ <h1>클릭하세요 </h1>
+ 
+</body>
+</html>

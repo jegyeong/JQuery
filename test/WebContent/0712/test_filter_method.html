@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	//p엘리먼트중 class가 intro인거 
+	//$('p.intro').css()
+	$('p').filter('.intro').css('background', 'yellow');
+	
+	//class가 pp인거중 jQuery를 포함하는거 
+	//$('p.pp:contains').css()
+	$('p.pp').filter(":contains('jQuery')").css('border', '1px solid red');
+	
+	//홀수번째 p앨리먼트 중 Html이 포함되어 있는거 
+	//$('p:odd').filter(":contains('Html')").css('border', '2px dotted blue');
+    $('p').filter(':odd').filter(":contains('Html')").css('border', '5px solid blue')
+	
+	$('p').first().css('font-size', '25px');
+  })
+</script>
+<style>
+  strong{
+    font-size : 1.2em;
+  }
+  span{
+     color: red;
+     font-size : 1.1em;
+  }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+filter 메소드 : 선택해 놓은 집합에서 일부를  선택하거나 제외하여 범위를 더 좁힌다 <br>
+<strong>p엘리먼트중 class가 intro인거</strong><br>
+   $('p.intro').css()<br>
+     <span>$('p').filter('.intro')</span>.css('background', 'yellow'); <br>
+
+<strong>class가 pp인거중 jQuery를 포함하는거 </strong><br>
+  <span>$('p.pp').filter(":contains('jQuery')")</span>.css('border', '1px solid red');<br>
+
+<strong>홀수번째 p앨리먼트 중 Html이 포함되어 있는거</strong> <br>
+  <span>$('p:odd').filter(":contains('Html')")</span>.css('border', '2px dotted blue');
+
+
+<hr color='blue'>
+
+	<h1>** 환영합니다 **</h1>
+	<p class="pp">내이름은 jQuery 입니다 .</p>
+	<p class="intro">나는 자바 스크립트와 살고 있습니다 .</p>
+	<p class="intro">나는 자바 스크립트를 사랑합니다 .</p>
+	<p class="pp">내 친구는 Html, Ajax 입니다 .</p>
+
+</body>
+</html>

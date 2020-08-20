@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src= "../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  $('#btnview').click(function() { 
+	  	 var user =  "이름 : " +  $('#user').val() + "\n";
+	  	 var gend = "성별 : "  +  $('#gend').val() + "\n";
+	  	 var work = "직업 : "  +  $('#work').val() + "\n";
+	  	 var text = "소개 \n: " + $('#intro').val() ;
+	  	
+	  	 
+	  	 alert(user + gend + work + text);
+	  	 
+	  	alert( $('#work :selected').val());
+	  	  alert($(':radio:checked').val());
+		  
+	  })
+	
+	  //이름변경 -val('홍길동')
+	  $('#btnchange').click(function(e){ //e :event 객체 
+		  //버튼의  원래기능인 자동 submit 기능을 막아준다 
+		   e.preventDefault();
+		   $('#user').val('홍길동');
+	  })
+  })
+</script>
+</head>
+<body>
+ <h2>수행내용</h2>
+ val()메소드를 이용하여 입력되거나 선택한 값을 가져오기 <br>
+ radio의 선택한 값 : $(':radio:checked').val() <br>
+ option의 선택한 값 : $('#work :selected').val() <br>
+ 
+ <hr color='blue'> 
+ 
+ <form>
+ 	<label for="user">이름</label>
+	<input type="text" id="user" value="korea"><br>
+	
+	 <label >성별</label> 
+ 	 <input type="radio" id="gend" name="gend" value="남자" checked >남자
+ 	 <input type="radio" id="gend" name="gend" value="여자"  >여자<br>
+ 	 
+	 <label for="intro">소개</label> <br>
+	 <textarea id="intro" cols="40" rows="4"></textarea> <br>
+	 
+ 	<label for="work">직업</label>
+ 	<select id="work">
+  		 <option selected value="programmer">프로그래머</option>
+   		 <option value="progammer">프로게이머</option>
+   		 <option value="whitehand">백수</option>
+ 	</select><br>
+ 	
+	<button  type="button"  id="btnview">전송</button>
+	<button  id="btnchange">이름변경 </button>
+ </form>
+</body>
+</html>

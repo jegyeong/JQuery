@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){  
+	  $('button').hide();//.css('display', 'none');
+	  
+	  //$('button').hide();
+	  //getter - attr(), text(), html(), val(), prop()
+	 //attr()를 이용해서 src의 속성값을 가져온다 
+	/*
+	 a =  $('img').attr('src');
+	  $('img').attr('b' , a);
+	  
+	  c=  $('img').attr('src2')
+	  $('img').attr('src', c )
+	*/
+	//원래이미지를 저장 temp변수 - 일괄적으로 한꺼번에 
+	$('img').attr('temp', function(){
+		  return  $(this).attr('src');
+	})
+	//mouseover - 이미지를 변경s
+	$('img').mouseover(function(){
+		//각각 설정시 --해당 이미지 한개를 대상으로 ---------------------------
+		//temp = $(this).attr('src'); //-temp변수 로 사용 
+		// $(this).attr('temp', $(this).attr('src') ); //temp라는 속성으로 설정
+		//----------------------------------------------------------
+		//temp를 일괄적으로 설정시 -이미 temp속성설정은 끝나있다---------------
+		$(this).attr('src', $(this).attr('src2'))
+	})
+	
+	//mouseout  - 원래이미지로 되돌아옴 
+	$('img').mouseout(function(){
+		$(this).attr('src', $(this).attr('temp'));
+		//$(this).attr('src',temp);
+	})
+	//dblclick - img사라진다 
+	$('img').dblclick(function(){
+		$(this).hide();
+		
+		//만약 보여지는 이미지가 없으면 버튼이 나타난다 
+		if( $('img:visible').length == 0){
+			$('button').show();
+		}
+		
+	})
+	//버튼을 틀릭하면 
+	$('button').click(function(){
+		
+		//이미지가 나타난다 
+		$('img').show();
+		
+		//버튼은 사라진다 
+		$(this).hide();
+		
+	})
+	  
+	  
+  })
+</script>
+<style>
+  img {
+     width : 100px;
+     height : 100px;
+  }
+</style>
+</head>
+<body>
+  <img src="../images/셔틀콕.jpg" src2="../images/수지.jpg">
+  <img src="../images/수국1.jpg" src2="../images/Tulips.jpg">
+  <img src="../images/풍차.jpg"  src2="../images/Koala.jpg">
+  <img src="../images/단풍.jpg"  src2="../images/Penguins.jpg">
+  
+  <button>보이기</button>
+</body>
+</html>
+
+
+
+
+
+
+
+

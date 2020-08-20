@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>location객체</title>
+		<script>
+			window.onload = function(){
+			//	alert("onload");
+			}
+			function proc2(){
+				var param =decodeURI(location.search);
+				//?name=이혁진&tel=111-8888-8888
+					param =param.substring(1);
+				//name=이혁진&tel=111-8888-8888
+				
+				param = param.split("&"); //param은 배열형태 
+				
+				for(var i in param){
+					obj = param[i].split("=");
+					document.write(obj[0]+":"+obj[1]+"<br>");
+				}
+				
+				console.log(param);
+					
+				/*파라미터를 아래의 출력형태로 body id="result1"안에 출력하세요
+				 name : 이혁진 
+				 tel : 010-8888-8788 
+				*/
+				
+			}
+			function proc1(){
+				res = "protocol :"+ location.protocol + "<br>";
+				res += "host"+ location.host +"<br>";
+				res += "hostname" + location.hostname +"<br>";
+				res += "port" + location.port +"<br>";
+				res += "pathname"+ location.pathname +"<br>";
+				res += "href"+location.href +"<br>";
+				
+				document.getElementById("result").innerHTML =res;
+				
+			}
+			function go(){
+				alert("go");
+			}
+			function goPost(){
+				/*<form name="myform" action="result.html" method="post"></form>*/
+				
+				//document.getElementsByTagName("form")[0]
+				
+				document.myform.action = "result.html";
+				document.myform.method = "post";
+				document.myform.submit();
+				
+			}
+			function goPage(page){
+				location.href = page;
+			}
+			function goReplace(page){
+				//페이지 뒤로가기가 클릭되지 않음 
+				location.replace(page);
+			}
+			function goReload(){
+				//F5 새로고침 기능과 동일 
+				location.reload();				
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<h2>location객체</h2>
+			<p>
+				- URL 정보를 얻어오는 객체 <br>
+				- href : 전체 url <br>
+				- port : port정보 <br>
+				- host : hostname과 port<br>
+				- hostname : hostname<br>
+				- pathname :경로<br>
+			</p>
+			<button onclick="proc1();">실행</button>
+		</div>
+		<div id="result"></div>
+		
+		<form name="myform">
+			이름: <input type="text" name="name" id="name"><br>
+			전화번호 : <input type="text" name="tel" id="tel"><br>
+			<!-- <input type="submit" value="전송"> -->
+			<!-- submit타입일 경우, onclick에 해당하는 함수 실행 후, action url로 이동 -->
+			<input type="submit" value="전송" onclick="go();">
+			<input type="submit" value="post전송" onclick="goPost();">			
+		</form>
+		
+		<button onclick="location.href='result.html';">페이지 이동</button>
+		<button onclick="goPage('result.html');">페이지이동2</button>
+		<button onclick="goReplace('result.html');">페이지 재이동</button>
+		<button onclick="goReload();">페이지 리로드</button>
+		
+	</body>
+</html>
+
+
+
+
+
+

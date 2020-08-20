@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+
+pre{font-size:1.3em; border: 5px double gray; border-left:0 none; border-right:0 none; padding:20px; margin-bottom:20px; background:#f6f6f6; word-break: break-all; white-space: pre-wrap;}
+.box{ border:0 none; background:#efefef; margin-right:10px; height:auto; margin-top:20px; padding:10px;	}
+.box div{border:2px dashed orange;background:white; height:auto;margin-top:20px;padding:15px; 	}
+.box code {padding:15px;color: blue;white-space: pre;background:rgba(197, 209, 222, 0.58);display: block;font-size:1.2em;line-height:1.5em;margin-bottom:20px;border-radius: 21px;}
+.box button,
+.box input[type="button"],
+.box input[type="submit"],
+.box input[type="reset"] {color:white; font-weight:bold;background:blue;padding:5px 15px 8px;border:0 none;border-radius:50px; }
+.box textarea{margin-top:20px;display:block;width:100%;height:200px; }
+.box table{border-spacing: 10px;border: 15px solid saddlebrown; }
+.box table td{ width:25px; height:25px; text-align:center; }

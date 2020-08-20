@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Date객체</title>
+		<script src="../js/date.js"></script>
+		<link rel="stylesheet" href="../css/date.css">
+	</head>
+	<body>
+		<div class="box">
+			<h2>Date객체 생성</h2>
+			<p>
+				var now = new Date(); //오늘날짜 가져옴 
+				var now = new Date(1000);// 1970년 1월 1일 기준으로 날짜 세팅
+				밀리세컨드로 추가한다 
+			</p>
+			<button onclick="proc1()">실행</button>
+		</div>
+		<div class="box">
+			<h2>요일구하기</h2>
+			<p>
+				getDay() 요일 리턴 
+				0(일요일)~6(토요일) 까지 숫자값을 리턴한다
+			</p>
+			<button onclick="proc2()">실행</button>
+		</div>
+		<div class="box">
+			<h2>경과시간 구하기</h2>
+			<p>
+				getTime() :밀리초값을 구한다 
+				
+				1초 = 밀리초 /1000
+				
+			</p>
+			<button onclick="proc3();">실행</button>
+		</div>
+		<div calss="box">
+			<h2>Date객체의 메소드</h2>
+			<p>
+			getDate() : 1~31 일을 가져온다 
+			getMonth() : 0~11 달을 가져온다 
+			getFullYear() : 년도를 가져온다 2020
+			getHours() : 0~23 시간을 가져온다
+			getMinutes() : 0~59 분을 가져온다 
+			getSeconds() :0~59 초를 가져온다 
+			getMilliseconds() : 0~999 밀리초를 가져온다 
+			getTime() : 경과시간  
+			
+			
+			</p>
+			<button onclick="proc5();">실행</button>
+		</div>
+		
+		<div class="box">
+			<h2>환불기간</h2>
+			<input type="date" id="pdate">
+			<button onclick="checkDate();">검사</button>
+			<!-- 7일 이전에 산 경우 : 환불이 불가능합니다.
+			     7일 이내에 산 경우 : 환불이 가능합니다.
+			 -->
+		</div>
+		
+		
+		<div id="result"></div>
+		
+		<br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br>
+		
+	</body>
+</html>
+
+
+

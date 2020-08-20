@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>mediaQuery3</title>
+		<!-- 
+			미디어쿼리 :
+			미디어쿼리를 사용하면 컨텐츠 별로 변경하지 않아도 웹 페이지에 접속하는 
+			기기에 맞게 스타일이 조정된다 
+		
+			반응형 웹 :
+			브라우저 , 기기 마다 사용자에 따라 화면이 변경됨 
+			기술을 일컷는 말 
+			
+			뷰포트(viewport)
+			 width : device-width (뷰포트의 너비, 해당 기기의 넓이 만큼)
+			 inital-scale : 뷰포트의 초기 배율 
+			 (기본값은 1, 1보다 작은 값은 축소된 페이를 표시, 
+			 1보다 큰 값은 확대된 페이지를 표시)
+			
+			
+		
+		 -->
+		<style>
+			*{
+				box-sizing:border-box;
+			}
+			
+			.topnav{
+				background-color:#333;
+				overflow:hidden;
+			}
+			
+			.topnav a{
+			
+				display:block;
+				padding: 20px;
+				color:yellow;
+				text-align:center;
+				float:left;
+				text-decoration:none;
+			}
+		
+			.hidden{
+				background-color:yellow;
+			}
+		
+		
+		
+		
+		
+			@media screen and (max-width:600px){
+				.topnav a{
+					float:none;
+					width:100%;
+				}
+				
+				.hidden{
+					display:none;
+				}
+				
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div class="topnav">
+			<a href="#">링크1</a>
+			<a href="#">링크2</a>
+			<a href="#">링크3</a>
+		</div>
+		
+		<div class="hidden">
+			<p>여기는 사라집니다</p>		
+		</div>
+		
+	</body>
+</html>
+
+
+
+
+
+
+

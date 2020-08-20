@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BOM과 DOM</title>
+		<style>
+			#result{
+				width:200px;
+				height:200px;
+				background-color:yellow;
+			}
+		</style>
+		<script>
+			function winopen(){
+				//window.open("http://www.naver.com");
+				
+				var myWin = window.open("", "", "width=200, height=200");
+				myWin.document.write("<p>This is myWin.</p>");
+				
+				setTimeout(function(){myWin.close();}, 3000 );
+				
+			}
+			
+			function setIntervalFunc(){
+				/*3초마다 노란색, 빨간색이 번갈아서 변경될수 있도록*/
+				
+				setInterval(
+				function(){
+					//document.getElementById("result").innerHTML += "str";
+					(document.getElementById("result").style.backgroundColor=="red")
+					?document.getElementById("result").style.backgroundColor="yellow"
+					:
+					document.getElementById("result").style.backgroundColor="red";
+					
+					/*
+					삼항연산자
+					(조건)?참일때실행 :거짓일때 실행;
+					*/
+				}
+				,3000);
+				
+			}
+			
+			
+			
+		
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<h2>window객체</h2>
+			<p>
+			- 브라우저 모델 객체(BOM)에서 최상위 객체로서 웹 브라우저 윈도우를 나타낸다<br>
+			- open() / close() <br>
+			- setInterval() / clearInterval() / setTimeout() <br>
+			- alert() / confirm() / prompt() <br>
+			- focus()
+			- 속성 : opener <br>
+			
+			</p>
+			<button onclick="winopen();">새로운 창 열기</button>
+		</div>
+		
+		<div class="box">
+			<h2>window객체</h2>
+			<p>
+				-setTimeout(function, millisec) 
+				: 정해진 시간 후에 function을 1번만 실행한다
+				-setInterval(function, millisec)
+				: 정해진 시간 간격으로 매번 function을 수행
+				-clearInterval(변수) 
+				: setInterval에 의해서 실행된 기능을 중지
+			</p>
+			<button onclick="setIntervalFunc();">setInterval실행</button>
+			<button onclick="clearIntervalFunc();">clearInterval실행</button>
+		</div>
+		<div id="result"></div>
+		
+	</body>
+</html>
+
+
+
+

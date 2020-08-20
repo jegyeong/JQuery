@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>쇼핑카트</title>
+<style>
+	body{margin:0; background:#efefef; padding:30px;}
+	label{
+		display:inline-block;
+		width:150px;
+	}
+	table{
+		border-collapse: collapse;
+	}
+	
+	table td, table th{padding:5px 20px;}
+	table td:nth-child(4) input{width:100px;}
+</style>
+</head>
+<body>
+<h2>Shopping Cart</h2>
+<form>
+	<table border="1">
+		<tr>
+			<th>품목</th>
+			<th>가격</th>
+			<th>수량</th>
+			<th>합계</th>
+		</tr>
+		<tr>
+			<td>컴퓨터 세트</td>
+			<td>2,000,000원</td>
+			<td><input type="text" value="0"></td>
+			<td><input type="text" value="0"></td>
+		</tr>
+		<tr>
+			<td>티셔츠</td>
+			<td>50,000원</td>
+			<td><input type="text" value="0"></td>
+			<td><input type="text" value="0"></td>
+		</tr>
+		<tr>
+			<td>음악파일</td>
+			<td>1,000원</td>
+			<td><input type="text" value="0"></td>
+			<td><input type="text" value="0"></td>
+		</tr>
+		<tr>
+			<td>영화파일</td>
+			<td>5,000원</td>
+			<td><input type="text" value="0"></td>
+			<td><input type="text" value="0"></td>
+		</tr>
+	</table>
+	<br>
+	<button type="button">계산</button>
+	<input type="submit" value="구매">
+	<input type="reset" value="초기화">
+</form>
+<br><br>
+<a href="shopmain.html" target="ifr">Back to Home</a>
+</body>
+</html>

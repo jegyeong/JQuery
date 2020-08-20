@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>onChange이벤트</title>
+		<script>
+			function sub(){
+				var color = document.getElementsByName("eng")[0].value;
+				document.body.style.backgroundColor = color;
+				//alert(txt);
+				//doc.value = doc.value.toUpperCase(); //대문자로 변경 
+				//doc.value = doc.value.toLowerCase(); //소문자로 변경
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="eng" onchange="sub();">
+		<p>입력필드를 벗어나면 onchange이벤트가 실행된다</p>
+		
+		<!--  onchange를 이용해서 
+			input type="text" 안에 
+			컬러값을 넣고 (red, yellow....) 해당 하는 컬러값에 따라 
+			body의 배경색을 변경하세요
+		
+		 -->
+		
+		
+	</body>
+</html>
+
+
+
+

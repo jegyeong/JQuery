@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	 $('button').click(function(){
+		$('img').animate({'left': '+=200px'},300).delay(500)
+		        .animate({'opacity' : '-=0.8'},300).delay(500)
+		        .animate({'left': '-=200px'},300).delay(500)
+		        .animate({'opacity' : '+=0.8'},300)
+	 }) 
+  })
+</script>
+<style>
+  img{
+     position : relative;
+  }
+</style>
+</head>
+<body>
+   <br>
+   <button>start</button><br>
+   <br>
+   <hr>
+   <img src="../images/대나무숲.jpg">
+   <hr>
+   
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>width_height</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			border: 5px solid blue;
+			background-color:lightblue;
+			margin:20px;
+			padding: 20px;
+		}
+		</style>
+		<script>
+			$(document).ready(function(){
+				//$("button").eq(0).click(function(){});
+				//$("#btn1").on("click", function(){});
+				$("#btn1").click(function(){
+					var txt = "";
+					
+					txt += "width of div" + $("#div1").width()+"<br>";
+					txt += "innerwidth of div" + $("#div1").innerWidth()+"<br>";
+					txt += "outerwidth of div" + $("#div1").outerWidth()+"<br>";
+					
+					
+					$("#div1").html(txt);
+				});
+				
+				$("#btn2").click(function(){
+					var txt = "";
+					txt += "height of div"+ $("#div1").height() +"<br>";
+					txt += "innerHeight of div" + $("#div1").innerHeight()+"<br>";
+					txt += "outerHeight of div" + $("#div1").outerHeight()+"<br>";
+					
+					$("#div1").html(txt);					
+				});
+				
+				$("#btn3").on("click", function(){
+					var txt = "";
+					
+					txt += "document width/height" +
+							$(document).width() +"," + 
+							$(document).height()
+							
+					$("#div1").html(txt);		
+				});
+				
+				//$("p").eq(0).css("width","300px").css("height","300px");
+				$("p").eq(0).width(300).height(300);
+				$("p").eq(0).css("margin","10px").css("padding","10px");
+				
+				$("p").click(function(){
+					
+					var txt = $(this).outerWidth();
+					$(this).html(txt);
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<br>
+		<button id="btn1">div버튼 width</button>
+		<button id="btn2">div버튼 height</button>
+		<button id="btn3">div버튼 document width/height</button>
+		
+		
+		<!--
+			첫번째 p태그를 jquery를 이용하여 
+			1) width 300, height 300으로 세팅 
+			2) margin 10 , padding 10 으로 세팅 
+			
+			3) 해당 하는 p태그를 클릭하면 outerwidth()값을 가져와서 해당 p태그에 넣어주세요
+		
+		-->
+		<p>outerwidth()</p>
+		<p>outerHeight()</p>
+		
+		<br><br><br><br><br><br><br><br><br><br><br><br>
+	</body>
+</html>
+
+
+
+
+
+
+
+

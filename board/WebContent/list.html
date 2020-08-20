@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>board_list</title>
+	<link rel="stylesheet" href="bootstrap/plugins/fontawesome-free/css/all.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- Tempusdominus Bbootstrap 4 -->
+	<link rel="stylesheet" href="bootstrap/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+	<!-- iCheck -->
+	<link rel="stylesheet" href="bootstrap/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+	<!-- JQVMap -->
+	<link rel="stylesheet" href="bootstrap/plugins/jqvmap/jqvmap.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="bootstrap/dist/css/adminlte.min.css">
+	<!-- overlayScrollbars -->
+	<link rel="stylesheet" href="bootstrap/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+	<!-- Daterange picker -->
+	<link rel="stylesheet" href="bootstrap/plugins/daterangepicker/daterangepicker.css">
+	<!-- summernote -->
+	<link rel="stylesheet" href="bootstrap/plugins/summernote/summernote-bs4.css">
+	<style>
+	#content{
+		width:800px;
+		margin:20px auto 0;
+	}
+	</style>	 
+		  
+	<!-- jQuery -->
+	<script src="bootstrap/plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="bootstrap/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- DataTables -->
+	<script src="bootstrap/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="bootstrap/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="bootstrap/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="bootstrap/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="bootstrap/dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="bootstrap/dist/js/demo.js"></script>
+	<script>
+	
+		function update(boardNo){
+			//alert(boardNo);
+			location.href = "write.html?board_no="+boardNo;
+		}
+
+		$(function(){
+			$.ajax({
+				url :"BoardList"//,
+				/* type:"get",
+				data:"cpage=1" */
+			})
+			.done(function(data){
+				data = JSON.parse(data.trim());
+				/*content에 <,>부분 replace */
+				var str = "";
+				str += "<tr>";
+				str += "<td>번호</td>";
+				str += "<td>제목</td>";
+				str += "<td>내용</td>";
+				str += "<td>날짜</td>";
+				str += "<td>수정/삭제</td>";
+				str += "</tr>";
+				
+				
+				$.each(data, function(i, data){
+					str += "<tr>";
+					str += "<td>"+data.board_no+"</td>";
+					str += "<td>"+data.board_title+"</td>";
+					str += "<td>"+data.board_content+"</td>";
+					str += "<td>"+data.board_date+"</td>";
+					str += "<td><button class='btn btn-block bg-gradient-primary btn-sm' onclick='update("+data.board_no+");'>수정</button><button class='btn btn-block bg-gradient-danger btn-sm' onclick='delete("+data.board_no+");'>삭제</button></td>";
+					str += "</tr>";
+				})
+				
+				$("<table/>",{
+					"html" : str
+				}).appendTo("#content");
+				
+				$("table").attr({
+			        "class" : "table table-bordered table-hover",
+			        "width":"600px"
+			 	});  	
+			});	  
+			
+		});
+		
+	
+	</script>
+	</head>
+<body>
+	<div id="content">
+	
+	</div>
+</body>
+</html>

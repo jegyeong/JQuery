@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+  <button style="size:25pt;" id="ajax_btn">fetch POST클릭</button>
+  <br>
+    <strong>jsonObj.jsp를 실행. </strong>console를 확인하세요
+  <br>
+  <hr>
+  <br>
+  <button style="size:25pt;" id="ajax_btn2">fetch POST2클릭</button>
+  <br>
+    <strong>jsonObj2.jsp  실행 </strong> 결과 : <span id="p2"></span>
+  <br>
+  <hr>
+  <br>
+  <button style="size:25pt;" id="ajax_btn3">fetch POST3클릭</button>
+  <br>
+   <strong>jsonObj3.jsp 실행</strong> 결과:  <span id="p3"></span>
+  <br>
+  <hr>
+  <br>
+  <form id="ff">
+    이름 : <input type="text" name="name"><br>
+    번호 :  <input type="text" name="no"><br>
+   <input type="button" value="실행" id="run">
+  </form>
+  <strong>jsonForm.jsp 실행 </strong>결과:  <span id="p4"></span>
+<script>
+const button = document.getElementById('ajax_btn');
+button.onclick = e => {
+	const ddata = { name: 'Nikhil' };
+	//const headers = new Headers();
+	fetch('jsonObj.jsp', {
+		method: 'POST',
+		headers: {
+			  "Content-Type": "application/x-www-form-urlencoded"
+		},
+		// body: "name=Nikhil"
+		 body :  JSON.stringify(ddata)
+	}).then((res) => {    //.then(function(res) { })
+		if (res.status === 200 || res.status === 201) {
+			res.json().then(json => console.log(json));
+		} else {
+			console.log(res.statusText);
+		}
+	}).catch(err => console.log(err));
+}
+
+const button2 = document.getElementById('ajax_btn2');
+ 
+button2.onclick = e => {
+ fetch("jsonObj2.jsp", {
+	  method: "POST",
+	  headers: {
+	    "Content-Type": "application/x-www-form-urlencoded"
+	  },
+	  body: "firstName=Nikhil&favColor=blue&password=easytoguess"
+	}).then((res) => {  //.then(function(res) {
+		console.log('Request succeeded with JSON response', res);
+	  if (res.ok) {
+	     //alert("Perfect! Your settings are saved.");//실행되는데 
+	     //res.json().then(json =>alert(json.name));
+	      res.json().then(json =>$('#p2').text(json.name));
+	  } else   {
+	    alert("Oops! You are not authorized.");
+	  }
+	})
+}
+ 
+
+//--catch 수행 ------------------------------------------
+/* 
+button2.onclick = e => {
+ fetch("jsonObj2.jsp", {
+	  method: "POST",
+	  headers: {
+	    "Content-Type": "application/x-www-form-urlencoded"
+	  },
+	  body: "firstName=Nikhil&favColor=blue&password=easytoguess"
+	}).then((res) => {  
+		console.log('Request succeeded with JSON response', res);
+	    if(!res.ok){
+	    	throw Error(res.statusText);
+	    }
+		//alert("Perfect! Your settings are saved.");//실행되는데 
+	    //res.json().then(json =>alert(json.name));
+	    res.json().then(json =>$('#p2').text(json.name));
+	  
+	}).catch(function(error) {
+	   alert("Error submitting form!" + error);
+	   console.log("Error submitting form!" + error);
+	});
+ 
+} */
+//----------------------------------------------------------
+
+//const button3 = document.getElementById('ajax_btn3');
+//button3.onclick = e => {
+$('#ajax_btn3')[0].onclick = e =>{	
+//$('#ajax_btn3').on('click', function() { 
+	const url ="jsonObj3.jsp";
+	fetch(url, {
+	    method: 'post',
+	    headers: {
+	      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+	    },
+	    body: 'foo=bar&lorem=ipsum'
+	  })
+	  .then(function (data) {
+		    console.log('Request succeeded with JSON response', data);
+		   data.json().then(json =>$('#p3').text(json.name));
+		 
+	  })
+	  .catch(function (error) {
+	    console.log('Request failed', error);
+	  });
+//})
+}
+
+$('#run').click(function(){
+	const url ="jsonForm.jsp";
+	
+	fetch(url, {
+	    method: 'post',
+	    headers: {
+	      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+	    },
+	  
+	    body: $('#ff').serialize(),
+	    //body : new FormData(document.getElementById('ff')),///
+	    //// FormData : 현재 Gecko와 Blink 모두 지원하지 않음
+	  })
+	  .then(function (data) {
+		    console.log('Request succeeded with JSON response', data);
+		   data.json().then(json =>$('#p4').text(json.name));
+		 
+	  })
+	  .catch(function (error) {
+	    console.log('Request failed', error);
+	  });
+	
+
+})
+
+
+
+</script>
+
+</body>
+</html>

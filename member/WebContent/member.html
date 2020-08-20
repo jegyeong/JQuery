@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>EBS-회원가입</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+		<style>
+			body{font-family: 'Noto Sans KR', sans-serif;}
+			#info{ width:60%; margin:0 auto;}
+			.table th{width:180px; bgcolor:#FAFAFA;}
+			h1 a{width:150px; text-indent:-300px; background: url(https://sso.ebs.co.kr/idp/images/icon_set.png) no-repeat -245px -170px;}
+			#submitDiv{text-align:center; margin-top:30px;}
+		</style>
+		<script>
+			$(function(){
+				$("#form").submit(function(){
+					// action="result_ebs.jsp" method=get
+					
+					//return false;
+				});				
+			});
+		
+			function goPopup(){
+				// 주소검색을 수행할 팝업 페이지를 호출합니다.
+				// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+				var pop = window.open("./popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+				
+				// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+			    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+			}
+			
+			function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+				// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+				$("#address1").val(roadAddrPart1);
+				$("#address2").val(addrDetail);
+				
+				//document.form.zipNo.value = zipNo;
+				$("#zipNo").val(zipNo);
+				
+		}
+
+		</script>
+	</head>
+	<body>
+		<!-- <h1><a>ebs</a></h1> -->
+		<div id="info">
+		<h3>정보입력 및 본인확인</h3>
+			<form id="form" action="result_ebs.jsp">
+				<table class="table">
+					<tr>
+						<th  bgcolor="#FAFAFA"><label for="id">아이디</label></th>
+						<td><input type="text" id="id" name="id"> 
+							<input type="button" class="btn btn-warning" onclick="alert('이미 존재하는 id입니다 ');" value="중복확인"><br>
+						</td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA"><label for = "pw">비밀번호</label></th>
+						<td><input type="password" id="pw" name="pw"></td>
+					</tr>	
+					<tr>
+						<th bgcolor="#FAFAFA"><label for = "pw_re">비밀번호 확인</label></th>
+						<td><input type="password" id="pw_re" name="pw_re"></td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA"><label for = "_name">이름</label></th>
+						<td><input type="text" id="_name" name="_name"></td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA">성별</th>
+						<td><input type="radio" name="gender" value="남성">남성
+						<input type="radio" name="gender" value="여성">여성
+						<input type="checkbox" name="agree" value="선택정보(성별)수집 및 이용 동의" checked="checked">선택정보(성별)수집 및 이용 동의</td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA">생년월일</th>
+						<td>
+							<select name="year" id="year" class="year">
+							<option value="1990">1990</option>
+							<option value="1991">1991</option>
+							<option value="1992">1992</option>
+							<option value="1993">1993</option>
+							<option value="1994">1994</option>
+							<option value="1995">1995</option>
+							<option value="1996">1996</option>
+							<option value="1997">1997</option>
+							<option value="1998">1998</option>
+							<option value="1999">1999</option>
+							<option value="2000">2000</option>
+							</select>
+							년
+							<select name="month" id="month" class="month">
+							<option value="january">01</option>
+							<option value="feburary">02</option>
+							<option value="march">03</option>
+							<option value="april">04</option>
+							<option value="may">05</option>
+							<option value="june">06</option>
+							<option value="july">07</option>
+							<option value="august">08</option>
+							<option value="september">09</option>
+							<option value="october">10</option>
+							<option value="november">11</option>
+							<option value="december">12</option>
+							</select>
+							월
+							<select name="day" id="day" class="day">
+							<option value="january">01</option>
+							<option value="feburary">02</option>
+							<option value="feburary">03</option>
+							<option value="feburary">04</option>
+							<option value="feburary">05</option>
+							<option value="feburary">06</option>
+							<option value="feburary">07</option>
+							<option value="feburary">08</option>
+							<option value="feburary">09</option>
+							<option value="feburary">10</option>
+							<option value="feburary">11</option>
+							<option value="feburary">12</option>
+							<option value="feburary">13</option>
+							<option value="feburary">14</option>
+							<option value="feburary">15</option>
+							<option value="feburary">16</option>
+							<option value="feburary">17</option>
+							<option value="feburary">18</option>
+							<option value="feburary">19</option>
+							<option value="feburary">20</option>
+							<option value="feburary">21</option>
+							<option value="feburary">22</option>
+							<option value="feburary">23</option>
+							<option value="feburary">24</option>
+							<option value="feburary">25</option>
+							<option value="feburary">26</option>
+							<option value="feburary">27</option>
+							<option value="feburary">28</option>
+							<option value="feburary">29</option>
+							<option value="feburary">30</option>
+							<option value="feburary">31</option>
+							</select>
+							일
+						</td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA"><label for = "email1">이메일</label></th>
+						<td><input type = "text" id = "email1" name = "email1" class = "email1">
+							@ <input type = "text" id = "email2" name = "email2" class = "email2">
+							<br><span id = "text">아이디나 비밀번호를 찾기위해 사용되오니 정확한 정보로 입력하시기 바랍니다.</span>
+						</td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA"><label for = "address">주소</label></th>
+						<td>
+							우편번호:&nbsp;&nbsp;&nbsp;<input type = "text" id = "zipNo" name = "zipNo" class = "address_num">&nbsp;&nbsp;
+							
+							<button type="button" class="btn btn-info" onclick="goPopup();">번호검색</button><br>
+							
+							주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;소:&nbsp;&nbsp;&nbsp;<input type = "text" id = "address1" name = "roadAddrPart1" style=" width: 400px"><br>
+							상세주소:&nbsp;&nbsp;&nbsp;<input type = "text" id = "address2" name = "roadAddrPart2" style=" width: 400px">
+							
+						</td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA"><label for = "tel">휴대폰</label></th>
+						<td>
+							<input type = "text" id = "tel" name = "tel" class = "tel" size = "50" maxlength = "11">
+							<input type = "checkbox" id = "tel_agree" name = "tel_agree" class = "tel_agree">선택정보(휴대폰) 수집 및 이용 동의
+							<br><span id = "text">아이디나 비밀번호를 찾기위해 사용되오니 정확한 정보로 입력하시기 바랍니다.</span>
+						</td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA">인증방법</th>
+						<td>
+							<input type="radio" name = "check" value = "휴대폰"checked>휴대폰 
+							<input type="radio" name = "check" value = "이메일">이메일
+							<input type="button" onclick="alert('인증메세지가 발송되었습니다.');" value="인증")>
+							<br><span id = "text">휴대폰 인증을 위한 인증번호 발송은 1일 최대 3회까지 가능합니다.</span>
+						</td>
+					</tr>
+					<tr>
+						<th bgcolor="#FAFAFA"><label for = "checknum">인증번호</label></th>
+						<td><input type="text" name="checknum" id="checknum" class="checknum">
+							<input type="button" onclick="alert('인증되었습니다.')"value="확인">
+						</td>
+					</tr>
+				
+				</table>
+				<span id="text2">※교사 회원님을 위한 교사인증은 가입 후 회원정보수정에서 인증하실 수 있습니다.</span>
+				<div id="submitDiv"><input class="btn btn-primary" type="submit" value="확인"></div>
+			</form>
+		</div>
+	</body>
+</html>

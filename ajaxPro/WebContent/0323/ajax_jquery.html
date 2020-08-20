@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax_jquery</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- 
+			ajax jquery를 이용해서 
+			json 타입의 데이터를 가져온다 
+			
+			1)데이터 형식 
+			data 폴더안에 
+			name.json 파일을 만들고 
+			json 타입으로 3명의 이름과 나이를 작성한다 
+			
+			2)html파일
+			ajax_jquery에서 json 형식으로 기입한 
+			이름과 나이를 가져온 후 body태그에 붙인다
+			
+			3)최종출력 형식
+			이름 : 박기완 , 나이 : 27
+			이름 : 김준우 , 나이 : 26
+			이름 : 이혁진 , 나이 : 27
+			
+		 -->
+		 <script>
+		 	$(function(){
+		 		$.ajax({
+		 			//url:"../data/name1.json",  //없는 페이지
+		 			url:"../data/name.json",
+		 			dataType : "json",
+		 			success : function(data){
+		 				console.log(data);
+		 				var result = "";
+		 				$.each(data, function(idx){
+		 					result += "이름 : "+data[idx].name+", "; 
+		 					result += "나이 : "+data[idx].age+"<br>";
+		 				});
+		 				$("body").append(result);
+		 			},
+		 			error: function(xhr){
+		 				console.log("오류발생"+xhr.status);
+		 				if(xhr.status == 404){
+		 					location.href = "error.html";
+		 				}
+		 			}
+		 		});
+		 	})
+		 </script>
+	</head>
+	<body>
+	
+	</body>
+</html>

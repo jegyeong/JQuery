@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>전체 슬라이드 메뉴</title>
+  <link href="css/common.css" rel="stylesheet" type="text/css" />
+  <link href="css/layout.css" rel="stylesheet" type="text/css" />
+  
+<!--슬라이드메뉴-->
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/gnb.js"></script>
+<script type="text/javascript">
+		//<![CDATA[
+		$(document).ready(function () {
+/* 
+			$('.intro_slide').bxSlider({
+				auto: true,
+				controls: false,
+				autoControls: true
+			});
+
+			$('.visual_banner_slide').bxSlider({
+				auto: true,
+				controls:false,
+				autoControls: true,
+				mode: 'fade',
+				speed: 1000 //속도
+			});
+
+			$('.banner_left').bxSlider({
+				slideWidth: 230,
+				minSlides: 3,
+				maxSlides: 4,
+				moveSlides: 1,
+				auto: true,
+				controls: true,
+				autoControls: true,
+				pager: false
+			});
+
+			$("#banner_zone .bx-start").click(function () {
+				$(this).css("display", "none");
+				$(".bx-stop").css("display", "block");
+			});
+
+			$("#banner_zone .bx-stop").click(function () {
+				$(this).css("display", "none");
+				$(".bx-start").css("display", "block");
+			});
+
+			$(".family_site dt a").click(function () {
+				$(".family_site dd").css("display", "block");
+			});
+
+			$(".family_close").click(function () {
+				$(".family_site dd").css("display", "none");
+			});
+
+			$(".calendar_dd>li>a").click(function () {
+				$(".calendar_dd>li").removeClass("on");
+				$(this).addClass("on");
+			});
+			
+			$(".visual_wrap>ul>li").mouseenter(function () {
+				$(".visual_wrap>ul>li").removeClass("on");
+				$(this).addClass("on");
+				$(this).find(".main_v_dt").attr("src", $(this).find(".main_v_dt").attr("src").replace(".png", "_on.png"));
+			});
+
+			$(".visual_wrap>ul>li").mouseleave(function () {
+				$(".visual_wrap>ul>li").removeClass("on");
+				$(this).find(".main_v_dt").attr("src", $(this).find(".main_v_dt").attr("src").replace("_on.png", ".png"));
+			});
+
+			$(".calendar_dd>li>a").mouseenter(function () {
+				$(".calendar_dd>li").removeClass("on");
+				$(this).parent().addClass("on");
+				$(".calendar_info").css("display", "none");
+				$(this).next(".calendar_info").css("display", "block");
+			});
+
+			$(".notice>ul>li").mouseenter(function () {
+				$(".notice>ul>li").removeClass("on");
+				$(this).addClass("on");
+			});
+
+			$(".notice>ul>li").mouseleave(function () {
+				$(".notice>ul>li").removeClass("on");
+			});
+
+			$(".links>ul>li").mouseenter(function () {
+				$(".links>ul>li").removeClass("on");
+				$(this).addClass("on");
+			});
+
+			$(".links>ul>li").mouseleave(function () {
+				$(".links>ul>li").removeClass("on");
+			});
+ */
+
+
+			/* var dep02_ww = $(window).width();
+
+			if (dep02_ww < 1340) {
+				$(".dep02").css("width", 1340 + "px");
+			} else {
+				$(".dep02").css("width", dep02_ww);
+			}
+ */
+
+			/* $(window).resize(function () {
+				var dep02_ww = $(window).width();
+
+				if (dep02_ww < 1340) {
+					$(".dep02").css("width", 1340 + "px");
+				} else {
+					$(".dep02").css("min-width", dep02_ww);
+				}
+			}); */
+
+			// 상단 메뉴
+			/* $(".gnb1dp").mouseenter(function () {
+				$(this).find("ul").show();
+				$(this).addClass("ov");
+			}).mouseleave(function () {
+				$(this).find("ul").hide();
+				$(this).removeClass("ov");
+			});
+ */
+
+
+		});
+
+		//슬라이드
+		/* function slideSwitch() {
+			var $active = $('#slideshow IMG.active');
+
+			if ($active.length == 0) $active = $('#slideshow IMG:last');
+
+			var $next = $active.next().length ? $active.next()
+					: $('#slideshow IMG:first');
+
+			$active.addClass('last-active');
+
+			$next.css({ opacity: 0.0 })
+					.addClass('active')
+					.animate({ opacity: 1.0 }, 1000, function () {
+						$active.removeClass('active last-active');
+					});
+		}
+
+		$(function () {
+			setInterval("slideSwitch()", 5000);
+		}); */
+		//]]>
+	</script>
+	<!--//슬라이드메뉴-->
+
+ </head>
+ <body>
+	<!--wrap-->
+	<div id="wrap">
+		<!--top_wrap-->
+		<div class="top_wrap">
+			
+
+
+ 
+			<!--드롭다운메뉴-->
+			<div id="gnb">
+				<div class="gnb_wrap">					
+					<ul id="gnb_menu">
+						<li id="menu01">
+						<a href="" class="dep01">대메뉴1</a> 
+						<!--대분류넣는곳-->
+							<div id="dep02_01" class="dep02">
+								<div class="sub_nav">
+									<!-- <div class="sub_rt_nav">
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴1-1</a></li>
+											<li><a href="">중메뉴1-2</a></li>
+											<li><a href="">중메뉴1-3</a></li>
+										</ul>
+										<ul class="dep02_nav">	
+											<li><a href="#">중메뉴2-1</a></li>
+										</ul>
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴3-1</a></li>	
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-1-1</a></li>
+													<li><a href="">소메뉴3-1-2</a></li>
+													<li><a href="">소메뉴3-1-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-2</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-2-1</a></li>
+													<li><a href="">소메뉴3-2-2</a></li>
+													<li><a href="">소메뉴3-2-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-3</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-3-1</a></li>
+													<li><a href="">소메뉴3-3-2</a></li>
+													<li><a href="">소메뉴3-3-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-4</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-4-1</a></li>
+													<li><a href="">소메뉴3-4-2</a></li>
+												</ul>
+										</ul>
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴4-1</a></li>		
+											<li><a href="">중메뉴4-2</a></li>
+											<li><a href="">중메뉴4-3</a></li>
+											<li><a href="">중메뉴4-4</a></li>
+											<li><a href="">중메뉴4-5</a></li>
+											<li><a href="">중메뉴4-6</a></li>
+											<li><a href="">중메뉴4-7</a></li>
+										</ul>
+									</div> -->
+								</div>
+							</div>
+						</li>
+
+						<li id="menu02"><a href="#" class="dep01">대메뉴2</a> <!--대분류넣는곳-->
+							<div id="dep02_02" class="dep02">
+								<div class="sub_nav">
+									<div class="sub_rt_nav">
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴1-1</a></li>
+											<li><a href="">중메뉴1-2</a></li>
+											<li><a href="">중메뉴1-3</a></li>
+										</ul>
+										<ul class="dep02_nav">	
+											<li><a href="#">중메뉴2-1</a></li>
+										</ul>
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴3-1</a></li>	
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-1-1</a></li>
+													<li><a href="">소메뉴3-1-2</a></li>
+													<li><a href="">소메뉴3-1-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-2</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-2-1</a></li>
+													<li><a href="">소메뉴3-2-2</a></li>
+													<li><a href="">소메뉴3-2-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-3</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-3-1</a></li>
+													<li><a href="">소메뉴3-3-2</a></li>
+													<li><a href="">소메뉴3-3-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-4</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-4-1</a></li>
+													<li><a href="">소메뉴3-4-2</a></li>
+												</ul>
+										</ul>
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴4-1</a></li>		
+											<li><a href="">중메뉴4-2</a></li>
+											<li><a href="">중메뉴4-3</a></li>
+											<li><a href="">중메뉴4-4</a></li>
+											<li><a href="">중메뉴4-5</a></li>
+											<li><a href="">중메뉴4-6</a></li>
+											<li><a href="">중메뉴4-7</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+									
+						<li id="menu03"><a href="" class="dep01">대메뉴3</a> <!--대분류넣는곳-->
+							<div id="dep02_03" class="dep02">
+								<div class="sub_nav">
+									<div class="sub_rt_nav">
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴1-1</a></li>
+											<li><a href="">중메뉴1-2</a></li>
+											<li><a href="">중메뉴1-3</a></li>
+										</ul>
+										<ul class="dep02_nav">	
+											<li><a href="#">중메뉴2-1</a></li>
+										</ul>
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴3-1</a></li>	
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-1-1</a></li>
+													<li><a href="">소메뉴3-1-2</a></li>
+													<li><a href="">소메뉴3-1-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-2</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-2-1</a></li>
+													<li><a href="">소메뉴3-2-2</a></li>
+													<li><a href="">소메뉴3-2-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-3</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-3-1</a></li>
+													<li><a href="">소메뉴3-3-2</a></li>
+													<li><a href="">소메뉴3-3-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-4</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-4-1</a></li>
+													<li><a href="">소메뉴3-4-2</a></li>
+												</ul>
+										</ul>
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴4-1</a></li>		
+											<li><a href="">중메뉴4-2</a></li>
+											<li><a href="">중메뉴4-3</a></li>
+											<li><a href="">중메뉴4-4</a></li>
+											<li><a href="">중메뉴4-5</a></li>
+											<li><a href="">중메뉴4-6</a></li>
+											<li><a href="">중메뉴4-7</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+									
+						<li id="menu04"><a href="" class="dep01">대메뉴4</a> <!--대분류넣는곳-->
+							<div id="dep02_04" class="dep02">
+								<div class="sub_nav">
+									<div class="sub_rt_nav">
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴1-1</a></li>
+											<li><a href="">중메뉴1-2</a></li>
+											<li><a href="">중메뉴1-3</a></li>
+										</ul>
+										<ul class="dep02_nav">	
+											<li><a href="#">중메뉴2-1</a></li>
+										</ul>
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴3-1</a></li>	
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-1-1</a></li>
+													<li><a href="">소메뉴3-1-2</a></li>
+													<li><a href="">소메뉴3-1-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-2</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-2-1</a></li>
+													<li><a href="">소메뉴3-2-2</a></li>
+													<li><a href="">소메뉴3-2-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-3</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-3-1</a></li>
+													<li><a href="">소메뉴3-3-2</a></li>
+													<li><a href="">소메뉴3-3-3</a></li>
+												</ul>
+											<li><a href="">중메뉴3-4</a></li>
+												<ul class="dep03">			
+													<li><a href="">소메뉴3-4-1</a></li>
+													<li><a href="">소메뉴3-4-2</a></li>
+												</ul>
+										</ul>
+										<ul class="dep02_nav">
+											<li><a href="">중메뉴4-1</a></li>		
+											<li><a href="">중메뉴4-2</a></li>
+											<li><a href="">중메뉴4-3</a></li>
+											<li><a href="">중메뉴4-4</a></li>
+											<li><a href="">중메뉴4-5</a></li>
+											<li><a href="">중메뉴4-6</a></li>
+											<li><a href="">중메뉴4-7</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+			<!--//드롭다운메뉴-->
+		</div>
+		<!--//top_wrap-->
+
+	</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	 $('#area').keyup(function() {
+		 
+		   //area에 입력된 글자수를 얻는다  -  val, 
+		   var leng = $('#area').val().length;
+		   
+		   //남은글자수 = 50(전체글자수) - 입력된 글자수 
+		   var  remain  = 50 - leng;
+		    
+		  
+		   //남은 글자수가 0이면 area에  readonly속성으로 입력이 안되도록 한다 	
+		   if(remain <=0){
+			   //readonly - prop()
+			   $(this).prop('disabled', true);
+			   //alert("입력 종료");
+		   }
+		   
+		   //남은글자수를  span에 출력 - text, html, 
+		   $('span').text(remain);
+		   
+		 
+	 })
+	 
+	 
+	  
+	   
+	   
+  })
+</script>
+</head>
+<body>
+ 
+ <h2>하고 싶은 말을 남겨주세요(50글자)</h2>
+ <br>
+ <textarea id="area"  rows=10 cols=40></textarea>
+ <br>
+ <p>남은 글자 <span></span> </p>
+</body>
+</html>

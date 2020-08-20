@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  
+	 // $('td:first-child').css('background', "#9a9595");
+	 // $('td:nth-child(2)').css('background', '#c3bcbc');
+	 // $('td:nth-child(3n)').css('background', '#e1dfdf');
+	  
+	  $('td:nth-child(3n-2)').css('background', '#9a9595');
+	  $('td:nth-child(3n-1)').css('background', '#c3bcbc');
+	  $('td:nth-child(3n)').css('background', '#e1dfdf');
+	  
+	  //$('tr:first-child td').css({ 'background':'black', 'color':'white'  });
+	  $('#t2  tr:first-child').css({ 'background':'black', 'color':'white'  });
+	  
+	  //실행안됨. td에 이미 백그라운드가 설정되었기 때문에 tr에는 백그라운드가 안보임 
+	  //레이어상 table위에 tr, tr위에 td . 
+	  $('#t2  tr:first-child').css({ 'color':'white'  });
+      $('#t2 tr:first-child td').css('background', 'black');
+  })
+</script>
+<style>
+  
+  td {
+    width : 300px;
+    height : 50px;
+    text-align : center;
+  }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+
+
+
+<hr color='blue'>
+<br>
+  <table border=1>
+    <tr>
+      <td>이름</td>
+      <td>주소</td>
+      <td>전화번호</td>
+    </tr>
+     <tr>
+      <td>홍길동</td>
+      <td>대전</td>
+      <td>010-1111-2222</td>
+    </tr>
+     <tr>
+      <td>개나리</td>
+      <td>서울</td>
+      <td>010-3333-4444</td>
+    </tr>
+     <tr>
+      <td>진달래</td>
+      <td>부산</td>
+      <td>010-5555-6666</td>
+    </tr>
+  
+  </table>
+  <p></p>
+  
+  <table id="t2" border=1>
+    <tr>
+      <td>이름</td>
+      <td>주소</td>
+      <td>전화번호</td>
+    </tr>
+     <tr>
+      <td>홍길동</td>
+      <td>대전</td>
+      <td>010-1111-2222</td>
+    </tr>
+     <tr>
+      <td>개나리</td>
+      <td>서울</td>
+      <td>010-3333-4444</td>
+    </tr>
+     <tr>
+      <td>진달래</td>
+      <td>부산</td>
+      <td>010-5555-6666</td>
+    </tr>
+  
+  </table>
+  
+  
+</body>
+</html>
+
+
+
+

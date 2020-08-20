@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  $('button').on('click', function(){
+		  
+		setInterval(function(){  
+			 $('p').animate({'left':'+=200px'}, 500).delay(500);
+			  $('p').queue(function(){
+				  $(this).css('color', 'red').delay(500);
+				  $(this).dequeue();
+			  })
+			  
+			  $('p').animate({'font-size': '+=20px'}, 500).delay(500)
+			        .animate({'left': '-=200px'},500).delay(500);
+			  
+			  $('p').queue(function(){
+				  $(this).css('color', 'black').delay(500);
+				  $(this).dequeue();
+			  })
+			  $('p').animate({'font-size': '-=20px'}, 500)
+		}, 3000) ; 
+		 
+	  })
+  })
+</script>
+<style>
+ p{
+  position : relative;
+  font-size : 20px;
+ }
+</style>
+</head>
+<body>
+ <button id="start">실행</button>
+ <p>무궁화 꽃이 피었습니다</p>
+</body>
+</html>

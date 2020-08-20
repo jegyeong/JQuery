@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>대검찰청 사이트 입니다.</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<style>
+			body{
+				margin:0;
+				padding:0;
+				text-decoration:none;
+			}
+			#topnotice{
+				float:right;
+			}
+			#topnotice li{
+				display:inline-block;
+				width:80px;
+				text-align:center;
+				font-size:0.5em;
+			}
+			
+			#menu{
+			
+			}
+			
+			#menu li{
+				display:inline-block;
+				width:100px;
+			}
+			#submenu{
+				width:100%;
+				height:100px;
+				background:#ef2341;
+			}
+		</style>
+		
+		<script>
+			$(function(){
+				$("#topnotice li:eq(2)").css("width","150px");
+				$("#big, #small").css("cursor","pointer");
+				
+				
+				$("#submenu").css("display","none");
+				$("#menu").mouseover(function(){
+					$("#submenu").slideDown("slow");
+				});
+				$("#menu").mouseout(function(){
+					$("#submenu").slideUp(9000); //밀리세컨드로 전달(9초동안 실행된다)
+				});
+			});
+		
+			/*1. submenu 닫힘형태로 변경
+			  2. li태그에 mouse가 오버되면 submenu를 열림형태로 변경 
+			  3. li태그를 벗어나면 (mouseout) submenu를 닫힘형태로 변경 
+			*/
+			
+			$(function(){
+				var count = 0;
+				$("#big").click(function(){
+					//5번 클릭하면 더이상 커지지 않도록
+					count++;
+					if(count <= 5){
+						$("body").css("zoom","+=5%");
+					}
+				});
+				
+				$("#small").click(function(){
+					$("body").css("zoom","-=5%");
+				})
+				
+			});
+			
+			
+			
+		</script>
+		
+		
+	</head>
+	<body>
+		<div id="topnotice">
+			<ul>
+				<li>국가상징안내</li>
+				<li>역사관체험관</li>
+				<li>글자크기 조정 <span id="big">+(확대)</span><span id="small">-(축소)</span></li>
+				<li>KOREAN</li>
+			</ul>
+			
+		</div>
+		<div style="clear:right;">
+			<ul id="menu"> 
+				<li><a href="">참여민원</a></li>
+				<li>검찰활동</li>
+				<li>정보자료</li>
+				<li>알림소식</li>
+				<li>정보공개</li>
+				<li>검찰소개</li>
+			</ul>
+			<div id="submenu">
+				메뉴 내용입니다. 
+			</div>
+		</div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+	</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Array객체</title>
+		<script>
+			var str = [];
+			var str2 = new Array();		
+			
+			str = ["정주환","김철희","홍종욱","정영수","홍종욱"];
+			
+			function proc1(){				
+				//str 배열을 출력해보세요.
+				console.log(str);
+				document.write(str);
+				
+				for(var i=0; i<str.length; i++){
+					console.log(str[i]);					
+				}
+				
+				for(var i in str){
+					console.log(str[i]);
+				}
+				
+				
+			}
+			function proc2(){
+				//indexOf()
+				
+				var idx = str.indexOf("이혁진");
+				console.log(idx);
+				
+				if(str.indexOf("이혁진") != -1){   // < 0
+					//이혁진 이라는 텍스트가 str 배열에 존재한다는 뜻
+					
+				}
+				
+			}
+			
+			function proc3(){
+				
+				//배열의 맨 뒤에서 부터 검색한다 
+				var index = str.lastIndexOf("홍종욱"); 
+				
+				//배열의 맨 앞에서 부터 검색한다 (index값은 고정)
+				var index2 = str.indexOf("홍종욱");
+				console.log(index);
+				console.log(index2);
+				
+			}
+			function proc3_1(){
+				/*prompt를 이용하여 str배열에 있는 이름을 검색한 후에 
+				  이름에 해당하는 index값을 출력하세요.
+				  cf) 만약 배열에 없는 이름이라면 "없는 이름입니다." 라고 출력
+				*/
+				
+				//str.indexOf(name, index); 
+				//index는 해당 index번호부터 검색하겠다
+				//없으면 -1 리턴 , 있으면 name이 있는 index값 리턴 
+				  
+				  //name은 검색할 키워드 ,index는 검색할 부분의 index 이후값
+				  //키워드가 index 이후에 있는 여부를 검사할때 사용 
+				
+				var name = prompt("이름입력");
+				var idx = 0;
+				var result = "";
+				
+				while(true){
+					idx = str.indexOf(name, idx);
+					if(idx == -1){
+						break;
+					}
+					result += index+"번째<br>";					
+					idx++;					
+				}
+				  
+				
+				document.write(result);
+				  
+				  
+				
+			}
+			function proc4(){
+				/*
+				배열에 추가 / 제거 
+				push("대상"); //배열 맨 뒤에 추가 
+				pop(); //배열 맨 뒤의 값을 제거 
+				
+				unshift("대상"); // 배열 맨 앞에 추가
+				shift(); //배열 맨 앞의 값을 제거 
+				
+				*/
+				
+				str.push("이제경");	
+				str.unshift("전다희");
+				document.write(str);
+				document.write("<hr>");
+				
+				str.pop();
+				document.write(str);
+				document.write("<hr>");
+				
+				str.shift();
+				document.write(str);
+				
+			}
+			
+			function proc5(){
+				var str = [1,2,3,4,5,6,7, 8, 9, 10];				
+				str.reverse();				
+				document.write(str);				
+			}
+			function proc6(){
+				var str = [34, 150, 10, 1, 100, 30];
+				str.sort(function(a,b){return a-b}); //음수(그대로), 양수(두수를 바꿈)
+				document.write(str);
+			}
+			function proc7(){
+				/*
+				slice(start, end) :start위치부터 end-1위치까지 추출한다 
+				기존 배열은 변경되지 않고 그대로 있다 
+				!!!!!사용할때 대입해서 사용
+				*/
+				var str = new Array("임수진","박혜진","김태유","박정민");
+				
+				str = str.slice(1,3);
+				document.write(str);
+				
+			}
+			
+			function proc8(){
+				/*
+				 splice(넣을index위치, 삭제될 item개수, 넣을item);
+				 예시) str.splice(2,0,"item");
+				     2번째에 item이 들어가고 0개가 삭제 된다
+				*/
+				var str = ["이제경","전다희","김우경","남아름"];
+				
+				str.splice(2, 1, "홍길동");
+				document.write(str);
+				
+				document.write("<hr>");
+				
+				str.splice(1, 1, "1", "2");
+				document.write(str);
+			}
+			function proc9(){
+				/*배열 합치기*/
+				var str1 = [1,2];
+				var str2 = [3,4];
+				
+				document.write(str1.concat(str2));
+				
+			}
+			function proc10(){
+				var arr = [1,2,3,4,5];
+				
+				document.write("arr배열:"+arr.toString()+"<br>");
+				document.write("arr배열(/구분자)"+arr.join("*")+"<br>");
+				
+			}
+			
+			proc10();
+			//proc9();
+			//proc1();
+			//proc2();
+			//proc3();
+			//proc3_1();
+			//proc4();
+			//proc5();
+			//proc6();
+			//proc7();
+			//proc8();
+			
+			/*
+			Book객체를 생성 하고 , 
+			속성 :책이름(bookTitle), 가격(price), 작가(author)			
+			Book 객체를 호출하여 3개의 Book객체를 만든다
+			
+			["HTML5",50000, "황기태"]
+			["CSS3",20000, "이재문"]
+			["JAVASCRIPT",30000, "한원선"]
+			
+			버튼을 2개를 생성 한후 
+			첫번째버튼을 누르면 가격(price) 오름차순으로 정렬한 후 출력
+			두번째버튼을 누르면 작가(author) 오름차순으로 정렬한 후 출력 
+			
+			셀렉트 박스, 버튼 생성한 후 
+			
+			
+			*/
+			
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

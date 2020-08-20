@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+  $(function(){
+	  $('button').on('click', function(){
+		 $.ajax({
+			url : '/jquerypro/MemberServlet',
+			//type : 'get',
+			//data :   ,
+			dataType : 'json',
+			success : function(res){
+			result = "<table border=1><tr><td>아이디</td><td>이름</td>";
+			result += "<td>메일</td><td>전화번호</td></tr>";
+			   $.each(res, function(i){
+				 result += "<tr><td>" + res[i].id + "</td>" ;
+				 result += "<td>" + res[i].name + "</td>" ;
+				 result += "<td>" + res[i].mail + "</td>" ;
+				 result += "<td>" + res[i].hp + "</td></tr>" ;
+					
+			   })
+			   result += "</table>"
+			   $('#result').html(result);
+			},
+			error : function(xhr){
+				alert("status : " + xhr.status);
+			}
+		 }) 
+	  })
+	  /////////////////////////////////////
+	  
+  })
+</script>
+
+</head>
+<body>
+   <button>멤버리스트</button>
+   <hr>
+   <div id="result"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

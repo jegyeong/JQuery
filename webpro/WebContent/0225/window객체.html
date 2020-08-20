@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>window객체(open, close)</title>
+		<script>
+			function proc1(){
+				var win = window.open("winsub.html","_blank","width=500,height=500");
+				win.moveTo(100, 100);
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="proc1();">창열기</button>
+	</body>
+</html>

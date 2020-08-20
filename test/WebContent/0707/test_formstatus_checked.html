@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	  
+	 //$('input[type=button]').click(function(){
+	 $('input:button').click(function(){ 	 
+		 result = "";
+		 $(':checkbox:checked').each(function(i){  //체크된 갯수만큼 만 수행
+			// alert('i=' + i);
+			 if(i >0) result += "," ;
+			  result +=    $(this).val() ;
+		 })
+		 alert(result);
+		 
+		 $('span').text(result);
+	 }) 
+  
+  })
+</script>
+</head>
+<body>
+<h2>수행내용</h2>
+폼상태필터 <br>
+:checked 
+
+<hr color='blue'>
+<br>
+
+ <form>
+	취 미 :
+	<input type="checkbox" name="hobby" value="여행" checked >여행
+	<input type="checkbox" name="hobby" value="장기">장기
+	<input type="checkbox" name="hobby" value="바둑">바둑
+	<input type="checkbox" name="hobby" value="독서" >독서
+	<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+	<input type="button" value="전송">
+	<br><br>
+	
+	<div>선택 결과 : <span></span></div>
+	
+</form>
+</body>
+</html>
+
+
+
+

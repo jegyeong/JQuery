@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax_xml</title>
+		<script>
+		//jquery 미사용버전 
+		
+		
+		/*
+		readyState 		
+		0(uninitailzed) - request가 초기화 되지 않음 
+		1(loading) - 서버와의 연결이 성사 됨 
+		2(loaded) -서버가 request를 받음
+		3(interactive) - request를 처리하는 중 
+		4(complete) - request에 대한 처리가 끝났으며 응답을 줄 준비가 완료됨 
+		
+		status
+		200 - ok 요청이 성공적으로 되었습니다. 
+		202 - Accepted  요청을 수신하였지만 그에 응할 수 없다 
+		404 - Not found 서버는 요청받은 리소스를 찾을 수 없습니다. (페이지가 존재하지 않음)
+		500 - internal server error 서버는 아직 처리 방법을 알수 없다 (서버가준비 안됐다)
+		
+		
+		
+		*/
+		
+		
+		
+		function loadDoc(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function(){
+				
+			
+			xhttp.open("GET","../data/cd_catalog.xml", true);
+			xhttp.send();
+		}
+		function dataLoad(xml){
+			
+			var xmlDoc = xml.responseXML;
+			var x = xmlDoc.getElementsByTagName("CD");
+			
+			var result = "";
+			for(var i=0; i<x.length; i++){
+				result += x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+				result += "<br>";
+				console.log(result);
+			}
+			document.getElementById("content").innerHTML = result;
+			
+		}
+		
+		</script>
+	</head>
+	<body>
+		<button onclick="loadDoc();">버튼클릭</button>
+		<div id="content"></div>
+	</body>
+</html>
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  //p요소중 짝수가 아닌거
+	  //$('p:odd')
+	  $('p').not(':even').css('background', 'yellow');
+	  
+	  //클래스가 intro, outtro가 아닌것 선택 
+	  $('p').not('.intro, .outtro').css('border' ,'2px solid hotpink');
+  })
+</script>
+<style>
+  strong{
+    font-size : 1.2em;
+  }
+  span{
+     color: red;
+     font-size : 1.1em;
+  }
+</style>
+</head>
+<body>
+<h2>수행내용</h2>
+  <strong> p요소중 짝수가 아닌거</strong> <br>
+     $('p:odd') <br>
+	<span> $('p').not(':even')</span>.css('background', 'yellow'); <br>
+	  
+	<strong>클래스가 intro, outtro가 아닌것 선택 </strong> <br>
+	 <span>('p').not('.intro, .outtro')</span>.css('border' ,'2px solid hotpink'); <br>
+
+<hr color ='blue'>
+
+	<p>My name is 홍길동(index 0).</p>
+	<p class="intro">My name is 개나리 (index 1).</p>
+	<p>My name is 진달래 (index 2).</p>
+	<p class="outtro">My name is 무궁화 (index 3).</p>
+	<p>My name is 삼천리(index 4).</p>
+	<p>My name is 금수강산(index 5).</p>
+</body>
+</html>
+
+

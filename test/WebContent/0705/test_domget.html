@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+  $(function(){
+	  var jq=    $('h1');
+	  jq.css('color', 'blue');
+	 
+	//var dom =    document.getElementsByTagName('h1')[0];
+	//dom.style.color = 'red';
+	
+	/*
+	 var jq=    $('h1');
+	 var dom = jq.get(0);  // dom객체를 리턴 
+	 //dom.css('color', 'blue'); //오류 ---dom객체변수로 css()jquery메소드를 사용 할 수 없다 
+	 dom.style.color = 'red';
+	 
+	 //dom객체를 $()의 인수로 하면 css()메소드를 사용 할 수 있다.
+	 $(dom).css('color', 'blue');
+	 */  
+  })
+</script>
+
+</head>
+<body>
+<h2>수행내용</h2>
+get(0): jQuery객체로부터  지정(0)번째 객체를 얻는다 <br>
+get()메소드가 리턴하는 객체는 dom객체이다<br> 
+dom객체는 jQuery메소드를 사용 할 수 없다<br>
+<br>
+dom객체가 jQuery메소드를 사용하기 위해서는 <br>
+스크립트 문법으로 수행 하던지 또는<br>
+dom객체를  jQuery 의  $()로 감싸주면 가능하다 <br>
+<p>
+var jq=  $('h1');<br>
+var dom = jq.get(0);  // dom객체를 리턴 <br>
+dom.style.color = 'red';<br>
+$(dom).css('color', 'blue');<br>
+<br>
+<hr color='blue'>
+
+  <h1>홍길동</h1>
+  <h1>개나리</h1>
+  <h1>진달래</h1>
+  <h1>무궁화</h1>
+  <h1>삼천리</h1>
+  
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){  
+	  
+	  $('h2').hover(function(){ 
+		  //$(this).css('background', 'lime');
+		  $(this).addClass('backcolor');
+	  }, function() { 
+		  //$(this).css('background', 'white'); 
+		  $(this).removeClass('backcolor');
+	  })
+	  
+  })
+</script>
+
+<style>
+  .backcolor{
+     background : lime; 
+  }
+</style>
+</head>
+<body>
+
+ <h2>아메리카노</h2>
+ <h2>카페라떼</h2>
+ <h2>카푸치노</h2>
+ <h2>카페모카</h2>
+ <h2>카라멜마키아또</h2>
+ <h2>길마당커피</h2>
+</body>
+</html>

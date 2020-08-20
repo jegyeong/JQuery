@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+$(function() {
+	
+ $('#change').click(function() {
+	 
+	 
+
+	 var myHeaders = new Headers();
+	
+	 var myInit = { method: 'GET',
+	               headers: myHeaders,
+	               mode: 'cors',
+	               cache: 'default' };
+	
+	 fetch('flower-1.jpg',myInit)
+		 .then(function(response) {
+		  return response.blob();
+		})
+		.then(function(myBlob) {
+		  var objectURL = URL.createObjectURL(myBlob);
+		  document.querySelector('img').src = objectURL;
+		 
+		 // $('img').attr('src',objectURL );
+		 
+	 }); 
+ })
+ 
+})
+</script>
+</head>
+<body>
+  <img src="../images/chopa.jpg">
+  <input id="change" type="button" value="클릭">
+</body>
+</html>

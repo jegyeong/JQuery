@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax_xml_jquery</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		
+		<script>
+		//jquery 사용버전 
+		$(function(){
+			$("button").click(function(){
+				$.ajax({
+					url : "../data/cd_catalog.xml",
+					datatype : "xml",
+					success: function(xml){
+						
+						var artist = "";
+						//첫번째 CD의 요소만 가져옴
+						//$($(xml).find("CD")[0]).find("ARTIST").text() 
+						
+						var str = "";
+						str +="<table border='1'>";
+						$.each($(xml).find("CD"), function(i){
+							str +="<tr>";
+							str += "<td>";
+							artist = $(this).find("ARTIST").text();
+							title =  $(this).find("TITLE").text();
+							str += artist;							
+							str += "</td>";
+							str +="</tr>";
+						});
+						str +="</table>";
+						
+						
+						$("#content").html(str); 
+						
+					},
+					error: function(xhr, status, errorThrown){
+						console.log(xhr+"/"+status+"/"+errorThrown);
+					}
+					
+				});
+			});
+			
+			
+		});
+		
+		/* 
+		function loadDoc(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function(){
+				
+				//jquery ajax의 success 와 done에 해당한다 
+				if(this.readyState == 4 && this.status == 200){ 
+					console.log("xml이 로딩 되었습니다.");
+					dataLoad(this);
+				}else{
+				//jquery ajax의 fail과 error에 해당한다 
+					console.log("xml이 로딩 되지 않았습니다."+this.readyState +","+this.status);
+				}
+			}
+			
+			xhttp.open("GET","../data/cd_catalog.xml", true);
+			xhttp.send();
+		}
+		function dataLoad(xml){
+			
+			var xmlDoc = xml.responseXML;
+			var x = xmlDoc.getElementsByTagName("CD");
+			
+			var result = "";
+			for(var i=0; i<x.length; i++){
+				result += x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+				result += "<br>";
+				console.log(result);
+			}
+			document.getElementById("content").innerHTML = result;
+			
+		} */
+		
+		</script>
+	</head>
+	<body>
+		<button>버튼클릭</button>
+		<div id="content"></div>
+	</body>
+</html>
+
+

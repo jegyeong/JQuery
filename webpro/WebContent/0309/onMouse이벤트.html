@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>onMouse이벤트</title>
+		<script>
+			function over(elem){
+				console.log("over");
+				elem.style.border = "2px solid red";
+			}
+			function out(elem){
+				console.log("out");
+				elem.style.border = "";
+			}
+		</script>
+	</head>
+	<body>
+		<div style="background-color:yellow; width:200px; height:200px;" 
+			onmouseover="over(this);"
+			onmouseout = "out(this);">
+			마우스를 이 요소 위에 이동하세요.
+		</div>
+	</body>
+</html>
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>이미지 확대</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+
+		<style>
+		.thumbnail{
+			width:200px;
+		}
+		
+		#preview{
+			z-index:9999;
+			position:absolute;
+			border:1px solid #ccc;
+			display:none;
+		}
+		</style>
+		<script>
+			$(function(){
+				//$(".thumbnail").mouseover();
+				$(document).on("mouseover",".thumbnail", function(event){
+					$("body").append("<p id='preview'><img src='"+$(this).attr("src")+"' /></p>");
+					
+					/* $("#preview").css("top", (event.pageY -30)+"px")
+								.css("left",(event.pageX -30)+"px").fadeIn(5000);
+					 */
+				});
+				
+				$(document).on("mousemove",".thumbnail", function(event){
+					$("#preview").css("top", (event.pageY +10)+"px")
+					.css("left",(event.pageX + 30)+"px").fadeIn("slow");
+				});
+				
+				$(document).on("mouseout",".thumbnail", function(){
+					$("#preview").remove();
+				});
+				
+				
+				
+			});
+		</script>
+		
+		
+	</head>
+	<body>
+		<img src="../img/spring1.jpg" class="thumbnail">
+		
+	</body>
+</html>

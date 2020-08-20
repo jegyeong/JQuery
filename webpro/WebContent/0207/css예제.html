@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css예제</title>
+		<style>
+			/*
+			 s1 s2 : s1요소에 포함된 s2요소를 선택한다 (후손관계)
+			 		 우선순위가 높다 
+			 		 
+			 s1>s2 : s1요소의 직계 자식 요소인 s2를 선택한다(자손관계)
+			*/
+			body em{
+				color:red;
+			}
+			body>h1{
+				color:blue;
+			}
+			
+			/*
+			link : 방문하지 않는 링크의 스타일
+			visited :방문한 링크의 스타일
+			hover:마우스를 올렸을때 링크의 스타일 
+			*/
+			a{text-decoration:none;}
+			a:link{color:red;}
+			a:visited{color:green;}
+			a:hover{color:white;background-color:yellow;}
+			
+			div.pTag{
+				/*color:#ff00ff;*/
+				color:rgb(73, 199, 227);
+				/*R(red)G(green)B(blue)
+				  00~ff까지 색상을 표현 (16진수표현)
+				*/ 
+				text-align:right;/*텍스트 정렬*/
+				font-weight:bold;				
+				
+			}
+			#p1{
+				color:#611dad;
+			}
+			#p2{
+				color:#40a84a;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<h1><em>h1</em>태그입니다.</h1>
+		
+		<a href="http://ddit.or.kr">대덕인재개발원</a>
+		
+		
+		<!--id는 중복으로 사용하지 않는다 
+			class는 중복사용이 가능하다 
+		  -->
+		<p id="p1" class="pTag">여기는 p태그입니다. 하품은 금지</p>
+		<p id="p2" class="pTag">여기는 p태그 두번째입니다.</p>
+		
+		<div class="pTag">여기는 div태그 입니다.</div>
+		<br><br><br><br><br><br><br><br>
+	</body>
+</html>
+
+
+
+
+

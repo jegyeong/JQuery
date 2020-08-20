@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>before_after메서드</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		/*버튼이 눌렸을 경우,p태그의 내용을 alert로 가져오기*/
+		$(function(){
+			$("button").not("#btn1").not("#btn2").not("#btn3").click(function(){
+				console.log($("p").eq(0).html() + $("p").eq(1).html() );
+			//	console.log($("p").eq(0).html().end().eq(1).html() );
+				
+				//둘다 p태그 뒤에 붙는다 
+				$("p").append("<div>append로 붙인 태그입니다</div>"); //p태그 안쪽으로 해서 뒤에 붙는다 
+				$("p").after("<div>after로 붙인 태그입니다.</div>"); //감싸고 있는 p태그 밖으로 해서 뒤에 붙는다 
+				
+				//둘다 p태그 앞에 붙는다 
+				$("p").before("<div>before로 붙인 태그입니다.</div>"); //감싸고 있는 p태그 밖으로 해서 앞에 붙는다
+				$("p").prepend("<div>prepend로 붙인 태그입니다</div>");//p태그 안쪽으로 해서 앞에 붙는다 
+			});
+			
+			$("#btn1").click(function(){
+				//$("body").append($("p").clone());
+				$("p").clone().appendTo("body");
+			});
+			
+			$("#btn2").click(function(){
+			var img = 	$("<img/>",{
+						"src"	:	"../img/coffee.jpg",
+						"width"	: 	"100px",
+						"height":	"100px"
+						});
+			
+				$("body").append(img);
+			
+					
+			});
+			
+			
+			$("#btn3").click(function(){
+				console.log($("#img").text());
+				console.log($("#img").attr("title"));
+				
+				var img = 	$("<img/>",{
+					"src"	:	"../img/"+ $("#img").text() +".jpg",
+					"width"	: 	"100px",
+					"height":	"100px"
+					});
+				
+				//$("#btn3").after(img);
+				$(this).after(img);
+			});	
+			
+			
+			$("#clickImg").mouseover(function(){
+				var txt = $(this).attr("title");
+				
+				//alert(txt);
+				//장미 이미지를 해당 하는 객체(#clickImg) 앞에 붙여보세요.
+				var img = 	$("<img/>",{
+					"src"	:	"../img/"+ txt +".jpg",
+					"width"	: 	"100px",
+					"height":	"100px"
+					});
+				
+				$(this).before(img);
+				
+			});
+			
+			
+			
+			
+			
+		});
+	
+	</script>
+	</head>
+	<body>
+		<button>버튼입니다.</button>
+		<p>이것은 p태그입니다.1</p>
+		<p>이것은 p태그입니다.2</p>
+		
+		
+		<button id="btn1">버튼1(복제)</button>
+		<button id="btn2">이미지 생성버튼</button>
+		
+		
+		<p title="코알라123" id="img">코알라</p>
+		<button id="btn3">이미지 생성</button>
+		
+		
+		<span id="clickImg" title="장미">장미</span>
+		
+		
+		
+		
+		
+	</body>
+</html>

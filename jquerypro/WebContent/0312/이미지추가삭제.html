@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>이미지 추가삭제</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script>
+		/*
+		1. p태그를 4~5개 만들고 p태그안에 이미지명을 작성한다 
+		2. p태그를 클릭하면 이미지명에 대한 이미지를 생성하여 
+		*/
+		$(function(){
+			$("p").click(function(){
+				var img = 	$("<img/>",{
+					"src"	:	"../img/"+$(this).text()+".jpg",
+					"width"	: 	"100px",
+					"height":	"100px",
+					"id" : "img" +$(this).text(),
+					"click":function(){
+						$(this).after($("<button/>",{
+								"text": "삭제",
+								"click":function(){
+									//$(this).prev().remove();
+									$("#"+$(this).prev().attr("id")).remove();
+								}								
+							}));
+						}
+					});
+				
+				$(this).after(img);
+				
+			});
+		});
+		
+		/*
+		3. p태그 뒤에 붙인다 		
+		4. 이미지를 클릭하면 , p태그 뒤에 button을 생성하여 붙인다
+			- button명은 "삭제"
+		
+		5. button을 클릭하면 해당 이미지만 삭제된다 
+			- prev() 메서드 : 해당 하는 태그 바로 앞에 있는 태그를 가져오는것
+			- next() 메서드 : 해당 하는 태그 바로 뒤에 있는 태그를 가져오는것 
+			- $(this).next().remove();
+		
+		 -> 3. p태그 안에 붙인다
+		    4.이미지를 클릭하면 , p태그 뒤에 button을 생성하여 붙인다
+			- button명은 "삭제"
+			5. button을 클릭하면 해당 p태그를 삭제한다 (텍스트, 이미지, 버튼 모두 )
+		
+		*/
+		
+		
+		</script>
+		
+		
+	</head>
+	<body>
+		<p>coffee</p>
+		<p>Koala</p>
+		<p>mountain</p>
+		<p></p>
+		<p></p>
+		
+	</body>
+</html>
+
+
+
+
+

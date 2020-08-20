@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>가위바위보</title>
+		<script type="text/javascript">
+			let view =()=>{
+			  document.write("<table style='border: solid 1px black;'>");
+			  for(let row=0;row<4;row++){
+			    document.write('<tr>');
+			    if(row==0){
+			      document.write("<td colspan='2' style=' text-align: center;'>");
+			      document.write("<button onclick='game()'>게임시작");
+			      document.write('</button>');
+			      document.write('</td>');
+			    }else if(row==1){
+			      document.write("<td style=' text-align: center;' >");
+			      document.write('<p> 사람');
+			      document.write('</p>');
+			      document.write("</td>");
+			      document.write("<td style=' text-align: center;'>");
+			      document.write('<p> 컴퓨터');
+			      document.write('</p>');
+			      document.write('</td>');
+			    }else if(row==2){
+			      document.write('<td>');
+			      document.write("<img src='../img/가위_좌.png'>");
+			      document.write("<img src='../img/바위_좌.png' style='display: none;'>");
+			      document.write("<img src='../img/보_좌.png' style='display: none;'>");
+			      document.write('</td>');
+			      document.write('<td>');
+			      document.write("<img src='../img/가위_우.png'>");
+			      document.write("<img src='../img/바위_우.png' style='display: none;'>");
+			      document.write("<img src='../img/보_우.png' style='display: none;'>");
+			      document.write('</td>');
+			    }else if(row==3){
+			      document.write("<td colspan='2' style=' text-align: center;'>");
+			      document.write("<p id='result'>결과가 나오는 곳입니다.</p>")
+			      document.write('</td>');
+			    }
+			
+			    document.write('</tr>')
+			  }
+			  document.write('</table>')
+			}
+			
+			
+			let game = () =>{
+			  let user = prompt("가위바위보!","가위바위보!")
+			  // let user='가위';
+			  let result ="";
+			  let com ="";
+			
+			  let ran = Math.random()*3;
+			  
+			  let img = document.getElementsByTagName('img');
+			  for(let n=0;n<6;n++){
+			    img[n].style.display='none';
+			  }
+			  if(ran<1){
+			    com="가위";
+			    img[3].style.display='inline';
+			
+			  }else if(ran<2){
+			    com="바위"
+			    img[4].style.display='inline';
+			  }else{
+			    com="보"
+			    img[5].style.display='inline';
+			  }
+			
+			  if(user=='가위'){
+			    img[0].style.display='inline';
+			  }else if(user=='바위'){
+			    img[1].style.display='inline';
+			  }else{
+			    img[2].style.display='inline';
+			  }
+			
+			  if(user==com){
+			    result="비겼습니다."
+			
+			  }else if(user=='가위'){
+			    if(com=='바위'){
+			      result="com이 이겼습니다"
+			    }else{
+			      result="user가 이겼습니다"
+			    }
+			  }else if(user=='바위'){
+			    if(com=='보'){
+			      result="com이 이겼습니다"
+			    }else{
+			      result="user가 이겼습니다"
+			    }
+			  }else{
+			    if(com=='가위'){
+			      result="com이 이겼습니다"
+			    }else{
+			      result="user가 이겼습니다"
+			    }
+			  }
+			  
+			  this.result=result;
+			  this.com=com;
+			
+			  // console.log('user: '+user);
+			  // console.log('com : '+com);
+			  // console.log(result);
+			  document.getElementById('result').innerHTML=result;
+			  
+			
+			}
+		</script>
+	</head>
+	<body onload="view()">
+		
+	</body>
+</html>

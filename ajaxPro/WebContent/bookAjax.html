@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>bookAjax</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$.ajax({
+					url : "./data/book.json", //데이터 서버 호출
+					dataType : "json", //받을 데이터의 타입설정
+					success:function(data){
+						//데이터를 가져와서 가공
+						$.each(data, function(i){
+							$("<img/>",{
+								"src" : data[i].thumbnail,
+								"alt" :data[i].name
+							}).appendTo("body"); 
+							$("<div/>",{
+								"html":data[i].name +"<br>" +data[i].author+" | "+data[i].publisher +"<br>" +data[i].price
+							}).appendTo("body"); 						
+							 
+							$("body").append("<hr>");
+						});
+						
+						//style적용
+						$("img, div").css("float","left");
+						$("hr").css("clear","both");						
+						
+						$("img").css("border","2px solid gray");
+						$("div").css("padding","20px");
+						
+					},
+					error:function(e){
+						alert("에러!");
+					}
+					
+				});
+			});
+		</script>	
+	</head>
+	<body>
+	
+	</body>
+</html>

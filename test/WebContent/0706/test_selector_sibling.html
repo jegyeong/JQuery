@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	//h3 다음의 모든 형제의 배경색을 변경, 길이지정, 가운데정렬
+	$('h3 ~ p').css({'background': 'yellow', 'width': '200px', 'text-align': 'center'});
+	
+	//h3 다음의 첫번째 형제의 글자를 굵게 => font-weight : bold
+	$('h3 + p').css('font-weight', 'bold').css('font-size', '20px');
+
+  })
+</script>
+<style>
+	span {
+		color : blue;
+	}
+	span.code {
+		color : green;
+	}
+</style>
+
+</head>
+<body>
+<h2>수행내용</h2>
+엘리먼트 선택자를 이용 형제선택<br/>
+<br/>
+<span>h3 다음의 모든 형제</span>의 배경색을 변경, 길이지정, 가운데정렬<br/>
+<span class="code">$('h3 ~ p').css('background', 'yellow').css('text-align', 'center').css('width', '250px');</span><br/>
+<br/>
+<span>h3 다음의 첫번째 형제</span>의 글자를 굵게 : font-weight  :  bold<br/>
+<span class="code">$('h3 + p').css('font-weight', 'bold');</span><br/>
+
+
+<hr color='blue'>
+ <p>형제 선택자 에 대하여</p>
+ <h3> 텔레토비 가족을 소개 합니다</h3>
+ <p> 보라돌이</p>
+ <p> 뚜비</p>
+ <p> 나나 </p>
+ <p>뽀~ </p>
+</body>
+</html>

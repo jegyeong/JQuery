@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>remove_empty메서드</title>
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<style>
+			div{
+				width:300px;
+				height:300px;
+				background:yellow;
+			}
+		</style>
+		<script>
+			$(function(){
+				$("#emptyBtn").click(function(){
+					$("div").empty();//div는 지우지 않고 안에 자식들만 지운다 (태그, 텍스트포함)				
+				});
+				
+				$("#removeBtn").click(function(){
+					$("div").remove();	//div 자체와 안에 자식들을 모두 지운다 				
+				});
+				
+				//pp클래스에 이벤트를 줌 
+				$("p.pp").click(function(){
+					$(this).css("font-size", "+=2px");					
+				});
+				
+				
+				$("#ppRemove").click(function(){
+					//삭제하면서 붙였을 경우, remove는 이벤트도 삭제된다
+					$("body").append($("#p2").remove());				
+				});
+				
+				$("#ppDetach").click(function(){
+					//삭제하면서 붙였을 경우, detach는 이벤트는 유지된다 
+					$("body").append($("#p1").detach());
+				});
+					
+			});
+		
+		</script>
+	</head>
+	<body>
+		<div>
+			this is a text
+			<p>this is p Tag</p>
+		</div>
+		<button id="emptyBtn">empty()</button>
+		<button id="removeBtn">remove()</button>
+		
+		<hr>
+		
+		<p class="pp" id="p1">지금은 3교시 .. 언제 끝나나....1</p>
+		<p class="pp" id="p2">지금은 3교시 .. 언제 끝나나....2</p>
+		
+		<button id="ppRemove">삭제버튼(remove)</button>
+		<button id="ppDetach">삭제버튼(detach)</button>
+		
+		
+	</body>
+</html>
+
+
+

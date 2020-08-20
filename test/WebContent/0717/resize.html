@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+    <style>
+      p {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+        border: 1px solid #bcbcbc;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $( document ).ready( function() {
+        var jbWidth = $( 'p' ).width();
+        $( 'p' ).append( jbWidth );
+        
+        
+        $( window ).resize( function() {
+			if($(document).width() ==600){
+				alert(1);
+			}
+          jbWidth = $( 'p' ).width();
+          $( 'p' ).empty().append( jbWidth );
+        } );
+      } );
+    </script>
+  </head>
+  <body>
+    <p></p>
+  </body>
+</html>

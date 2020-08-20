@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<style>
+  p{
+     position : relative;
+  }
+</style>
+<script>
+  $(function(){
+	  $('button').click(function() { 
+//	 	animate를 이용해서 왼쪽으로 상대좌표 +=200 , 1초동안 이동
+		// 오른쪽으로 이동 - 왼쪽좌표 변경 - animate
+		$('p').animate({'left': '+=200'}, 1000);
+		
+		// 	글자색 빨강색으로 변경 –  queue를 이용 / dequeue
+		$('p').queue(function(){
+			$(this).css('col or', 'red');
+			$(this).dequeue();
+		})
+		// 	잠시 멈췄다가 delay - 글자크기변경 - animate
+		$('p').animate({'font-size': '2em'}, 500).delay(1000);
+		
+		// 	Animate 를 이용 다시 제자리로 오면 (왼쪽으로 -=100 ) - animate
+		$('p').animate({'left':'-=200px'}).delay(500);
+		
+		// 	검정색으로 변경  - queue 를 이용 / dequeue
+		$('p').queue(function(){
+			$(this).css('color', 'black');
+		})
+	  })
+  })
+</script>
+
+</head>
+<body>
+
+<button>실행</button>
+<br>
+<hr>
+<p>무궁화 꽃이 피었습니다</p>
+</body>
+</html>
+
+

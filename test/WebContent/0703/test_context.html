@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src= "../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  $('p').css('color', 'blue'); 
+	  $('p', document.forms[1]).css('font-size', '1.5em');
+	  $('div').click(function(){
+		  r = Math.floor(Math.random()*256);
+		  g = Math.floor(Math.random()*256);
+		  b = Math.floor(Math.random()*256);
+		  
+		  $('p', this).css('background', 'rgb('+ r +',' + g + ',' + b + ')' );
+	  })
+  })
+  
+  
+</script>
+<style>
+  *{
+    font-size : 1.1em;
+    text-align : center;
+  }
+  div {
+    border : 1px solid red;
+  }
+</style>
+</head>
+<body>
+<h1>수행내용</h1>
+$(선택자,[컨텍스트])<br>
+$('p').css('color', 'blue');   -->전체p태그를 선택<br>
+$('p', document.forms[1]).css('font-size', '1.5em'); --> 첫번째 form안에서p를 선택 <br>
+$('div').click(function(){<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $('p', this).css('background', 'lime');<br>
+ })<br>
+ div를 클릭했을때 div의 자식인 p를 선택 <br>
+ this는 부모인 div를 나타낸다 <br>
+  색상설정방법  <br>
+ 'background',  'red'<br>
+ 'background',  '#ffeedf'<br>
+ 'background',  'rgb(230,156,200)'<br>
+ 'background',  'rgb(60%,55%,94%)'<br>
+
+
+<hr color= 'blue'>
+ <form>
+   <div>
+      <p>무궁화 꽃이 피었습니다1</p>
+   </div>
+ </form>
+ 
+ <form>
+   <p>무궁화 꽃이 피었습니다2</p>
+ </form>
+ 
+ 
+ <form>
+   <div id="d1">
+      <p>무궁화 꽃이 피었습니다3</p> 
+   </div>
+ </form>
+ 
+</body>
+</html>
+
+
+

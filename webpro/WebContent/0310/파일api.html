@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>파일 api</title>
+		<style>
+			#imgview{
+				max-width:100%; 
+				margin-top:25px;
+				display:none;
+				}
+			div .box{
+				width:300px;
+				height:auto;
+				padding:10px;
+				background:#f6f6f6;
+			}
+		</style>
+		<script>
+			function readFile(){
+				var vfile =document.getElementById("file").files[0];
+				
+				console.log(vfile);
+				
+				var str = "";
+				
+					str += "파일명:"+ vfile.name +"<br>";
+					str += "파일크기:"+ vfile.size +"<br>";
+					str += "파일종류:"+ vfile.type +"<br>";
+					str += "변경날짜:"+ vfile.lastModifiedDate +"<br>";
+				
+					document.getElementById("info").innerHTML = str;
+				
+					
+					/*파일 읽기 
+					 - 그림파일일 경우에는 DataURL 형식으로 가져온다
+					 - 그림파일이 아닐 경우(텍스트 등)에는 Text형식으로 가져온다 
+					*/
+					var reader = new FileReader();
+					
+					if(vfile.name.match("jpg|gif|png")){
+						reader.readAsDataURL(vfile);
+					}else{
+						reader.readAsText(vfile);
+					}
+					
+					
+					reader.onload = function(){
+						document.getElementById("content").value = reader.result;
+						
+						if(reader.result.match("image")){
+							vimg = document.getElementById("imgview");
+							vimg.src = reader.result;
+							vimg.style.display= "block";							
+						}else{
+							vimg.style.display="none";							
+						}
+						
+					}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<p>FILE 객체
+			파일의 기본적인 정보를 얻는다 
+			파일명(name), 파일크기(size), 파일종류(type), 변경날짜(lastModifyDate)
+			
+			FileReader객체 
+			파일의 내용을 읽을 수 있는 기능을 제공한다 
+			
+			FileReader객체 메소드 
+			readAsText(file객체, 인코딩) :파일을 읽어서 텍스트로 변환한다 
+										인코딩을 안쓰면 기본적으로 UTF-8
+										
+			readAsDataURL(file객체) : 파일을 읽어서 dataUrl형식의 문자열로 반환한다 
+			
+			FileReader객체 속성
+			result :읽어온 파일의 내용이 저장되어 있다 
+			error : 오류가 발생했을 경우 오류정보가 저장되어 있다 												
+										
+		</p>
+		<div class="box">
+			<input type="file" id="file">
+			<input type="button" value="읽기" onclick="readFile();">
+		</div>
+		<div class="box">
+			<h2>결과출력(FileReader객체)</h2>
+			이미지 파일인 경우에는 DataURL 형식으로, 아닌경우는 Text형식으로  가져온다 
+			<textarea id="content" rows="10" cols="50"></textarea>
+		</div>
+		<div class="box">
+			<h2>파일정보(File객체)</h2>
+			<div id="info"></div>
+			이미지 파일을 읽은 경우에 이미지가 표시된다 
+			이미지 파일이 아닌경우 이미지 표시되지 않는다 
+			<img id="imgview" src="../img/autumn.jpg">
+		</div>
+		
+		
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+

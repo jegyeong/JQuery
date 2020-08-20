@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM (document object model)</title>
+		<script>
+		window.onload = function(){
+			//alert(document.body); //object 객체 형 
+			alert(document.documentElement); //html 요소를 가짐 object형
+		}
+		
+		function add(){
+			var arr = ["Hello","Good Morning","Happy","안녕!","좋은아침","행복한 날"];
+			var idx = Math.floor(Math.random() *arr.length);
+			
+			var txtNode = document.createElement("p");
+			var node = document.createTextNode(arr[idx]);
+			
+			txtNode.appendChild(node);
+			
+			document.getElementById("result").appendChild(txtNode);
+			
+		}
+		function remove(){
+			var parent = document.getElementById("result");
+			var child = parent.lastChild;
+			
+			parent.removeChild(child);
+			
+		}
+		function proc1(){
+			var arr = ["Hello","Good Morning","happy"];
+			var idx =Math.floor(Math.random()* arr.length);
+			
+			var ptag = document.createElement("p");
+			var node = document.createTextNode(arr[idx]);
+			
+			ptag.appendChild(node); //p태그안에 텍스트를 넣은것 
+			
+			
+			//<button onclick="this.parentNode.remove();">삭제</button>
+			var btn = document.createElement("button");
+			btn.onclick = function(){
+				this.parentNode.remove();
+			}
+			btn.innerHTML  = "삭제"; //버튼명
+			
+			
+			
+			
+			ptag.appendChild(btn);
+			
+			document.getElementById("result2").appendChild(ptag);		
+			
+		}
+		</script>
+	</head>
+	<body>
+		<!-- 
+			html요소의 선택
+			document.getElementById(아이디) 
+							: 해당 아이디의 요소를 선택함
+			document.getElementsByTagName(태그이름)
+							: 해당 태그 이름의 요소를 모두 선택함 
+			document.getElementsByClassName(클래스이름)
+							: 해당 클래스에 속한 요소를 모두 선택함 
+			document.getElementByName(name속성값)
+							: 해당 name 속성을 가지는 요소를 모두 선택함
+			
+			
+			HTML요소의 생성 
+			document.createElement(html요소) 
+						:지정된 HTML 요소를 생성함 
+						
+			document.write(텍스트);
+						: HTML 출력 스트림을 통해 텍스트를 출력함 
+						
+		    HTML 핸들러 추가 
+		    document.getElementById(아이디).onclick 
+						    	= function(){
+						    		실행할 코드 
+						    	}
+			마우스 클릭 이벤트와 연결된 이벤트 핸들러 코드를 추가함 
+		
+		 -->
+		<div id="result">
+			<p>
+				- createElement() : 추가 
+				- createTextNode() : 안에 텍스트 추가 
+				- appendChild() : 태그안에 추가로 붙임 
+				(텍스트가 이미 존재하면 그 후로 붙임)
+			</p>
+			<button onclick="add();">추가</button>
+			<button onclick="remove();">삭제</button>
+			<!-- appendChild() 는 여기에 붙게 됨  -->
+		</div>
+		
+		<div id="result2">
+			<button onclick="proc1();">추가/삭제</button>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+

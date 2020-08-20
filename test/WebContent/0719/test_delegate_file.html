@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	 //추가버튼 클릭하면 파일 첨부 항목이 추가된다 
+	 //bind
+	 
+	/* $('.add').bind('click', function(){
+		$('div').append('파일 : <input type="file"><br>');
+		//bind일경우 새로 만들어지는 버튼은 이벤트 적용이 안됨
+		//$('div').append('파일 : <input type="file"><button class="add">추가</button><br>');
+	}) */ 
+  /////////////////////////////////////////
+ //delegate - 추가 버튼을 클릭 하면 파일첨부와 버튼이 추가 
+ count = 0;
+ 
+ 
+ //$('div').delegate('.add','click', function(){
+ 
+ 
+ $('.add').bind('click', function() {	  
+	count++;
+	file = "";
+	file += "<span id='" + count + "'>";
+	file += "파일 :<input type='file'>";
+	/* file +="<button class='add'>추가</button>"; */
+	file += "<button class='del " + count + "'>삭제</button><br></span>";
+    $('div').append(file);
+    console.log("aaa1");
+ })                 
+ 
+ 
+ 
+ 
+   //삭제버튼 클릭하면- (delegate)   해당 줄의 파일첨부가 사라진다 
+   //해당 줄을  구분   - id나 class를 이용  
+  $(document).delegate('.del', 'click', function(){
+	
+	  //현재 버튼의 class속성값을 가져온다 
+	 vclass = $(this).attr('class');
+	  //console.log(vclass);
+     
+	  vc = vclass.split(" ");
+     
+	 //가져온 값으로 span의 id를 선택자로 해서 span을 삭제한다 
+	 $('#' + vc[1]).remove();
+	//$('span[id='+vc[1]+']').remove();
+
+   })
+
+	 
+  })
+</script>
+</head>
+<body>
+   <div>
+      이름 <input type="text"><br>
+      파일 <input type="file"> <<br></<br>
+     <button class="add">추가</button><br>
+   
+   </div>
+</body>
+</html>

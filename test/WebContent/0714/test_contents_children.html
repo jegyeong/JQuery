@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	 
+	
+	  var str ="Contents : 태그가 있거나 없거나 자식의 내용(text(), html())을 가져온다\n";
+	  $('div').contents().each(function(i){
+		
+		  str += $(this).html() + "\n";
+		
+		  //tagName을 비교(대문자로비교) -
+		  //tagName이 없는것은  undefined로 반환 , 
+		  // undefined비교시 typeof를 이용
+		  
+		  /* if(typeof this.tagName == 'undefined'){
+			  if($(this).text().trim().length > 0){ //엔터친부분ㅇ르 제외시킴
+			      str += i + "번째 자식: 문자열 ==>> " + $(this).text() + "\n";
+			  }
+		 }else  {
+			 str += i + "번째 자식 : tagName(" +   this.tagName  +  ")===>>" + $(this).html()+ "\n"
+    	 } */
+  	  })
+  	 alert(str);
+  	  
+  
+  	  var str ="Children  : 태그가 있는  자식의 내용(text(), html())을 가져온다\n";
+	  $('div').children().each(function(i){
+		 //tagName을 비교(대문자로비교) -
+		 //tagName이 없는것은  undefined로 반환 , 
+		 // undefined비교시 typeof를 이용
+		 
+		// if(typeof this.tagName == 'undefined'){
+		//	 str += i + "번째 자식: 문자열 ==>> " + $(this).text() + "\n";
+		 //}else {
+			 str += i + "번째 자식 : tagName(" +   this.tagName  +  ")===>>" + $(this).html()+ "\n"
+    	// }
+  	  })
+  	//alert(str);
+  })
+</script>	
+
+</head>
+<body>
+<div>A
+  <p>P A</p>
+  <span>스판
+        <span>안쪽스판</span>
+  </span>
+</div>
+
+</body>
+</html>

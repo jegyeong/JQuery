@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="js/jquery-3.2.1.min.js"></script>
+
+<script>
+  $(function(){
+	  
+	  $('button').click(function(){
+		
+		 var d  = $(this).parent();//클릭
+		 
+		 alert( "Index: " + $( "div" ).index( d ) );
+	  })
+	  $('input[type=button]').click(function(){
+		  $('#re').html("123123");
+	  })
+  })
+</script>
+</head>
+<body>
+  <div>1 <button>1</button></div>
+  <div>2<button>2</button></div>
+  <div>3<button>3</button></div>
+  <div>4<button>4</button></div>
+  
+  <div id="re">sdfdsf</div><input type="button" value="html">
+</body>
+</html>

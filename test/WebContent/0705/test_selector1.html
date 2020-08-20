@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	//h2의 자식 a 태그의 스타일 에 테두리 설정 - solid
+	 $('h2>a').css('border', '2px solid green');
+	//h2의 후손 a태그의 스타일 배경색 을 노란색으로 변경 
+     $('h2 a').css('background', 'yellow');
+  })
+</script>
+
+</head>
+<body>
+<h2>수행내용 </h2>
+자식 엘리먼트와 후손엘리먼트를 선택한다 <br>
+h2의 자식 a 태그 : $('h2>a') :테두리<br>
+h2의 후손 a태그 :  $('h2 a')  : 배경색<br>
+
+<hr color='blue'>
+ <h2> 문단 안에 <a>링크</a> 태그가 있다
+  두번째  <span><a>링크</a></span> 은 손자이다 
+ </h2>
+ 
+</body>
+</html>

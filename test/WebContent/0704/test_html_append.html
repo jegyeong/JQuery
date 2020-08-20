@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  //버튼을 클릭하면 
+	  $('button').click(function(){
+		 var elem =  $('<p>안녕하세요~~ 새로운 태그입니다</p>') ;
+		 elem.appendTo('body');
+	  })
+	
+	  
+  })
+</script>
+<style>
+  span {
+     color : red;
+  }
+  span#code{
+    color : blue;
+  }
+</style>
+</head>
+<body>
+ <h2>수행내용</h2>
+ html문장을  $()함수의 인수로  전달하여 <br>
+ <span> 실행중에 새로운 html</span>을 만들 수 있다 <br>
+ dom트리의 원하는 부분에 새로운 내용을 추가 할 수 있다 <br>
+ 추가 할때는 appendTo또는 append메소드를 이용한다 <br>
+ 추가 button 을 클릭하면 함수를 호출해서 수행 한다 <br>
+ <br>
+ <span id="code">
+ $('button').click(function(){<br>
+	&nbsp;&nbsp;&nbsp;var elem = $('&lt;p&gt;안녕하세요!!! 새로운 태그입니다&lt;/p&gt;');<br>
+	&nbsp;&nbsp;&nbsp;elem.appendTo('body');<br>
+ })<br>
+</span>	
+ <hr color='blue'> 
+   <p>Hello~~~ </p>
+  <button>추가 </button>
+</body>
+</html>
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	  
+	  //delegate : 기존에 있었던 엘리먼트뿐만 아니라 
+	    //실행시 동적으로 만들어진 엘리먼트에도 독같은 이벤트를 부여
+	 //$(부모).delegate('선택자', 이벤트, 함수)
+	
+	 
+	 $('div').delegate('.add', 'click', function(){		 
+		 $('#result').append('<button class="add">새로운버튼</button>');
+	 })
+	 
+	
+	  $('.clear').bind('click', function(){
+		 // $('div').unbind('click');
+		  $('div').undelegate('click');
+	  })
+	 
+	  
+  })
+</script>
+
+<style>
+  div{
+    border : 1px solid blue;
+    padding : 10px;
+  }
+</style>
+
+</head>
+<body>
+
+  <h1> 제목입니다 </h1>	
+
+  <div>
+    <button class="add">추가</button>
+  </div>
+  <br>
+  
+  <button class='clear'>해제</button>
+  <br>
+  <br>
+  
+  <hr color ='red'>
+  <div id="result"></div>
+
+  
+</body>
+</html>
+
+
+

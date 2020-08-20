@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>버튼선택</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				/* $("button").click(function(){
+					/*var elem = $("<p>새로운 p태그입니다.</p>");
+					elem.appendTo("body");
+				
+					
+					$("<div/>",{
+						"text" : "클릭하세요.",
+						"click" :function(){
+							$(this).css("color","red");
+						}
+						
+					}).appendTo("body");
+									
+				}); */
+				
+				
+				$("#box").hide();
+				
+				$("#btn2").click(function(){
+					$("#box").show();
+				});
+				
+				
+				/*새로운 버튼 하나를 만들고  <-html태그이용 
+				  버튼을 클릭했을 때, <-jquery이용 
+				  새로운 p태그를 생성한다 (appendTo이용) "p태그입니다."
+				 여러개 생성한 후에 
+				 p태그를 클릭하면 클릭한 객체만 안보이게 만들어주세요.
+				*/
+				
+				/*$("#btn3").click(function(){
+					$("<p/>",{
+						"text":"p태그입니다",
+						"click": function(){
+							$(this).hide();
+						}
+					}).appendTo("body");					
+				});*/
+				
+				$("#btn3").click(function(){
+					$("<p>p태그입니다.</p>").appendTo("body");
+				});
+				
+				/*처음로딩 했을때, body 태그안에 존재하는 p태그 제어*/
+				/* $("p").click(function(){
+					$(this).hide();
+				}); */
+				
+				/*동적으로 생성된 p태그를 제어*/
+				$("body").delegate("p","click", function(){
+					$(this).hide();
+				});
+				
+				
+				/*delegate(selector, eventType, handler)
+				
+					selector : 이벤트를 발생시킬 엘리먼트를 필러링할 선택자 
+					eventType : click, mouseover 등과 같은 자바스크립트의
+					이벤트 타입이름 
+					handler : 이벤트가 발생했을 때 실행 할 이벤트 핸들러 함수 
+				
+				
+					delegate 메서드는 아직 문서를 만들지 않은 DOM 엘리먼트를 대상으로
+					이벤트 핸들러가 실행되게 된다 
+					해당 메서드로 이벤트 핸들러 함수를 연결하면 이벤트가 발생했을 대 대상 엘리먼트의
+					자손 엘리먼트 가운데 셀렉터 표현식과 일치하는 엘리먼트로 이벤트를 전달한다 
+					(jquery 1.4.2버전부터 가능)
+					
+				
+				*/
+				
+				
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<button>버튼을 클릭하세요.</button>
+		<hr>
+		<button id="btn2">버튼을 클릭하세요2</button>
+		<div id="box">div태그입니다.</div>
+		
+		<button id="btn3">버튼클릭3</button>
+		
+	</body>
+</html>
+
+
+
+

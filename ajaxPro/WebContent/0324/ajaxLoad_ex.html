@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajaxLoad_ex</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$("#my-form").submit(function(){
+			//	$("button").click(function(){
+					var id = $("#id").val();
+					var pw = $("#pw").val();
+					var name = $("#name").val();
+					
+					var url = "jdbc_insert_test.jsp";
+					
+					//data.jsp 
+					//(id, pw 받아서 두 값 모두 null이 아니면
+					//	"로그인 성공"	
+					// 하나라도 null이 있으면 "로그인 실패"							
+					
+					//div에 로그인 성공/실패 텍스트를 가져오기 (브라우저에 작성)
+					
+					
+					var data = {"id":id, "pw":pw,"name":name};
+					var params = $.param(data);
+					
+					$("div").load(url, params);
+					
+					return false;
+				});
+				
+			});
+		
+		</script>
+	</head>
+	<body>
+		<form id="my-form">
+			id:<input type="text" id="id"><br>
+			pw:<input type="password" id="pw"><br>
+			name:<input type="text" id="name"><br>
+			
+			<!-- <button>로그인</button> -->
+			<input type="submit" value="로그인">
+		</form>
+		<div></div>
+	</body>
+</html>

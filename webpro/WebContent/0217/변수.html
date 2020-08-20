@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>변수</title>
+		<script>
+			
+			
+			document.write("<br>");
+			
+			var y = 1; /*수치형(number형) - 정수나 실수*/
+			var z = "문자열"; /* 문자열(string형) ""나 ''로 표시 */
+			document.write(y+z);
+			
+			document.write("<br>");
+			
+			var bool = false; /*boolean형 true, false*/
+			
+			document.write(bool);
+			document.write("<hr>");
+			//함수 
+			var x; //초기화 되지 않았을 경우 undefined라는 값이 들어있다
+			document.write("함수 밖:"+x); //전역변수
+			
+			var str = "전역변수";
+			function myFunc(x){
+				var str = "지역변수"; 
+				//함수내에서 var를 사용하면 지역변수
+				//var를 선언하지 않으면 전역변수 
+				str = "11";
+				
+				myFunc2();
+			}
+			
+			function myFunc2(){
+				alert(str);
+			}
+			
+			window.onload = function(){
+				
+				var str = document.getElementById("divBox").innerHTML;
+					str = str + "<br>추가된 내용입니다";
+				document.getElementById("divBox").innerHTML = str;
+				
+				//alert(str);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<button onclick="myFunc('스트링');">버튼클릭</button>
+		<div id="divBox">divBox안에 있는 내용</div>
+	</body>
+</html>
+
+
+
+

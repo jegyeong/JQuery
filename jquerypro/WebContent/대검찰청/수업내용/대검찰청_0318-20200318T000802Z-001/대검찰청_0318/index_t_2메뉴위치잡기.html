@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>대검찰청 - 대검찰청</title>
+<!-- use CDN jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- use Local jquery-->
+<!-- <script src="../js/jquery-3.4.1.min.js"></script> -->
+<style>
+	html{height:100%;margin:0; padding:0;}
+	body{width:100%;height:100%;margin:0; padding:0;}
+	div{border:1px solid black;}
+	#header{height:120px;min-width:1100px; position:relative; width:1100px; margin:0 auto;}
+	#header .logo {float:left;}
+	#header .util{float:right;}
+	.menu{float:left;margin-top:60px;margin-left:120px;position:absolute;}
+	.menu li{
+				display:inline-block;
+				width:100px;
+			}
+	#container{clear:both; width:100%;}
+	#relationBanner{height:50px;}
+	#footer{height:200px;}
+</style>
+</head>
+<body>
+	<div id="header">
+		<h1 class="logo"><a href=""><img src="./img/bg_logo.png"></a></h1>
+		<div class="util">
+			<span class="ls nation"><a href="#none" onclick="javascript:pop_window('http://www.mois.go.kr/frt/sub/popup/p_taegugki_banner/screen.do', 875, 725)" title="국가상징안내 새창열림">국가상징안내</a></span>
+			<span class="ls"><a href="/site/museum/main.do" target="_blank" title="역사관체험관 새창열림">역사관체험관</a></span>
+			<span class="ls font">
+				글자크기 조정
+				<a href="#" class="zoomIn">글자크기 더크게</a>
+				<a href="#" class="zoomOut">글자크기 더작게</a>
+			</span>
+			<!-- <span class="ls language">
+				<span>
+					<a href="#" class="now"><span class="blind">[현재사이트]</span>KOREAN</a>
+					<a href="/site/eng/main.do" target="_blank" title="대검찰청 영문사이트 새창열림">ENGLISH</a>
+					<a href="/site/chn/main.do" target="_blank" title="대검찰청 중문사이트 새창열림">CHINESE</a>
+					<a href="/site/jpn/main.do" target="_blank" title="대검찰청 일문사이트 새창열림">JAPANESE</a>
+				</span>
+			</span> -->
+		</div>
+		<div class="menu">
+			<ul> 
+				<li><a href="">참여민원</a></li>
+				<li>검찰활동</li>
+				<li>정보자료</li>
+				<li>알림소식</li>
+				<li>정보공개</li>
+				<li>검찰소개</li>
+			</ul>
+		</div>
+	</div>
+	<div id="container" class="main">
+		<div id="content">
+			<div class="mainTop"></div>
+			<div class="mainCont svc"></div>
+			<div class="mainCont noti"></div>
+			<div class="mainCont etc"></div>
+		</div>
+	</div>
+	<div id="relationBanner"></div>
+	<div id="footer"></div>
+</body>
+</html>

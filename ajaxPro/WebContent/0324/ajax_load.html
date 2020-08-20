@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax_load</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(function(){
+				$("button").on("click", function(){
+					$("p").load("test.txt #p1");
+				});
+			});
+		
+		
+		</script>
+	</head>
+	<body>
+		<button>버튼클릭</button>
+		<div></div>
+		<p>여기에 p태그를 넣어주세요</p>
+	</body>
+</html>
+
+
+
+
+

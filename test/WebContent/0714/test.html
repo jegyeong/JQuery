@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function(){
+	   $('img').css({'width':'150px', 'height':'100px',"border":"1px solid red"});
+
+		var cnt = $("img").length;
+		var n = cnt;
+		$("button").on("click", function(){
+			
+			if(n<=0)
+			{
+				n=5;
+			}
+			
+			$("img").each(function(index){
+				console.log((index+n)%cnt);
+
+				$("img").eq(index).attr("src","../images/수국"+(((index+n)%cnt ==0)?cnt:(index+n)%cnt)+".jpg");
+			
+			});
+			
+			n--;
+			
+		});
+	
+	});
+
+</script>
+ <style>
+   
+</style> 
+</head>
+<body>
+<div>
+  <img src="../images/수국1.jpg">
+  <img src="../images/수국2.jpg">
+  <img src="../images/수국3.jpg">
+  <img src="../images/수국4.jpg">
+  <img src="../images/수국5.jpg">
+</div>
+
+
+<button id="add">add클래스</button>
+
+
+</body>
+</html>

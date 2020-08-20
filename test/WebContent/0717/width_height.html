@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+/*
+width - padding �븞履� �겕湲�
+innerWidth - border �븞履� �겕湲�
+outerWidth - border �룷�븿 �겕湲�
+*/
+$(document).ready(function(){
+  $("button").eq(0).click(function(){
+    var txt = "";
+    txt += "Width of div: " + $("#div1").width() + "</br>";
+    txt += "Height of div: " + $("#div1").height() + "</br>";
+	txt += "Outer width of div: " + $("#div1").innerWidth() + "</br>";
+    txt += "Outer height of div: " + $("#div1").innerHeight()+ "</br>";
+    txt += "Outer width of div: " + $("#div1").outerWidth() + "</br>";
+    txt += "Outer height of div: " + $("#div1").outerHeight()+ "</br>";
+    
+	txt += "document width/height:" + $(document).width() +","+$(document).height() + "</br>";
+    txt += "Window width/height: " + $(window).width()+","+ $(window).height()+"</br>";
+	/* document (the HTML document) and window (the browser viewport):*/
+
+    $("#div1").html(txt);
+  });
+  
+  $("button").eq(1).click(function(){
+	$("#div1").width(500).height(500);
+  });
+  
+  $(window).resize(function(){
+  alert(1);
+  
+  });
+  
+
+$("p").eq(0).width(500).height(500);
+$("p").eq(0).css("margin","10px").css("padding","10px");
+	
+  $("p").eq(0).click(function(){
+	  $(this).html($(this).outerWidth());
+  });
+  
+  
+});
+</script>
+<style>
+#div1 {
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid blue;
+  background-color: lightblue;
+}
+</style>
+</head>
+<body>
+
+<div id="div1"></div>
+<br>
+
+<button id="btn1"> div �겕湲고솗�씤</button>
+<button id="btn2">div �겕湲곕�� �뒛�젮蹂댁옄</button>
+
+<p>outerWidth() - returns the width of an element (includes padding and border).</p>
+<p>outerHeight() - returns the height of an element (includes padding and border).</p>
+
+</body>
+</html>
+
+
+
+
+
+
+

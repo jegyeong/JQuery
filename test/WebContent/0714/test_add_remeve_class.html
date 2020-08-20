@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+<script>
+  $(function(){
+	 $('#add').click(function(){
+		 $('p').addClass('pclass') ;
+	 })
+	 
+	 $('#remove').click(function(){
+		 $('p').removeClass('pclass') ;
+	 })
+	 
+	 $('#toggle').click(function(){
+		 $('p').toggleClass('pclass'); 
+	 })
+	 
+	 $('#has').click(function(){
+		 if($('p').hasClass('pclass')){
+			 $('p').removeClass('pclass') ;
+		 }else {
+			 $('p').addClass('pclass') ; 
+		 }
+	 })
+	 
+	 
+  })
+</script>
+<style>
+  .pclass {
+     font-size : 1.5em;
+     color :  red ;
+  }
+</style>
+
+</head>
+<body>
+style에서 class에 대한 css를 작성 <br>
+
+
+ <p>무궁화 꽃이 피었습니다 </p>
+ 
+ <button id="add">Add클래스</button>
+ <button id="remove">Remove클래스</button>
+ <button id="toggle">Toggle클래스</button>
+ <button id="has">Has클래스</button>
+</body>
+</html>

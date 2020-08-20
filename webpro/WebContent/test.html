@@ -1,0 +1,27 @@
+<script>
+var num = 10; 
+
+function globalNum() {
+
+    var num = 20; 
+
+    document.write(num);
+
+    document.write(window.num);
+
+}
+
+globalNum();
+
+
+
+
+	$.ajax({
+		url :"request_ajax.jsp",
+		type:"post",
+		data:{name:"차은우"},
+		dataType:"json"
+	});
+</script>
+
+

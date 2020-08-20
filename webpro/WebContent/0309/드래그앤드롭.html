@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>드래그 앤 드롭 이벤트</title>
+		<style>
+			.box{
+				background:#efefef;
+				margin-right:10px;
+				height:auto;
+				padding:10px;
+			}
+			.box div{
+				border:2px dashed orange;
+				height:auto;
+				background:white;
+				padding:10px;
+				min-height:150px;
+			}
+			
+			img{
+				width:200px;
+				height:200px;
+				border-radius:200px;
+				margin-right:10px;
+			}
+		</style>
+		<script>
+			function dragstart(event){
+				console.log(event.target.id);
+				event.dataTransfer.setData("target_img", event.target.id);
+				// 만약, 첫번째 이미지를 드래그 했을 경우,
+				// target_img 키값에 img1 값을 저장한다 
+			}
+			function dropEvent(event){
+				imgid = event.dataTransfer.getData("target_img"); //img1 값을 가져옴
+				
+				if(event.target.tagName == "IMG"){
+					event.target.parentNode.appendChild(document.getElementById(imgid));
+				}else{
+					event.target.appendChild(document.getElementById(imgid));
+				}
+				
+			}
+			function dragOver(event){
+				event.preventDefault();				
+			}
+			
+			/*
+				drag & drop 
+				
+				draggable : 드래그 되는 요소를 true로 설정 
+				dragstart : datatransfer 객체에 setData()호출 하여 데이터를 설정한다 
+				            - 그래그 시작을 할때 해당 하는 객체를 key , value 값으로 설정한다 
+				dragover : 드래그 도중 마우스가 다른 요소 위에 있을 때 발생한다 
+				                      만약 , 타겟 요소에서  dragover 이벤트가 발생하면 드롭을 허용한다 
+				drop : 마우스 버튼을 놓았을때, 반드시 처리 할 내용 
+					   dataTransfer 객체에서 getData() 메서드를 이용하여 필요한 데이터를 꺼낸다 
+			
+			
+			*/
+		
+		</script>
+	</head>
+	<body ondrop="dropEvent(event);" ondragover="dragOver(event);">
+		<h1>드래그 앤 드롭</h1>
+		<div class="box" ondrop="dropEvent(event);" ondragover="dragOver(event);">
+			<h2>원하는 물건을 끌어서 옮겨주세요.</h2>
+			<div id="result" ondrop="dropEvent(event);" ondragover="dragOver(event);"></div>
+			<br><br>
+			<img id="img1" src="../img/가구1.jpg"  draggable="true" ondragstart="dragstart(event);">
+			<img id="img2" src="../img/가구2.jpg"  draggable="true" ondragstart="dragstart(event);">
+			<img id="img3" src="../img/가구3.jpg"  draggable="true" ondragstart="dragstart(event);">
+			<img id="img4" src="../img/식품2.jpg"  draggable="true" ondragstart="dragstart(event);">
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+

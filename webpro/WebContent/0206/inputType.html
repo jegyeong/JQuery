@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>inputType</title>
+		<style>
+		.id{ background-color:yellow;}
+		.border{ border:1px solid red;}
+		.imgBtn{ width:50px; height:50px;}
+		/**/
+		</style>
+	</head>
+	<body>
+	<!-- type 속성값 
+	
+		text : 텍스트를 입력할 수 있는 한줄짜리 필드 
+		password : 비밀번호를 입력할 수 있는 한줄짜리 필드
+		radio: 라디오 버튼 생성 (하나만 선택할 경우 name을 동일하게 설정)
+		checkbox : 체크박스생성 
+		file : 파일 이름을 입력하는 필드 생성 (선택가능)
+		reset : 초기화 버튼 (버튼을 누르면 모든 입력 필드가 초기화된다 
+		image : 이미지를 전송버튼으로 만든다 (submit기능과 동일)
+		submit : 제출 버튼 (서버측으로 데이터를 전송한다)
+		hidden : 사용자에게는 보이지 않지만 서버로 전송되는 데이터 	
+	
+	
+	 -->
+		<form action="result.html" method="post">
+		
+		
+		
+			<label for="id">아이디 : </label><input type="text" name="id" id="id" class="border"> <br>
+			<label for="pw">비밀번호 :</label> <input type="password" name="pw" id="pw" size="10" maxlength="10"><br>
+			<label for="pw_re">비밀번호 재확인 :</label><input type="password" id="pw_re" name="pw_re" size="10" maxlength="10"><br>
+			<label for="_name">이름:</label><input type="text"id="_name" name="_name"><br>
+			
+			<hr>
+			이메일:<input type="email" name="email" class="border"><br>
+			색상:<input type="color" name="color"><br>
+			전화번호:<input type="tel" name="tel"><br>
+			날짜:<input type="date" name="date"><br>
+			URL :<input type="url" name="url" class="border"><br>
+			<hr>
+			
+			<input type="radio" name="gender" value="male" checked="checked"> 남자 <br>
+			<input type="radio" name="gender" value="female"> 여자 <br>
+			
+			<hr>
+			<input type="file" name="file">
+			
+			
+			<hr>
+			<select name="month" id="month" class="month">
+				<option value="january">1월</option>
+				<option value="february">2월</option>
+				<option selected>3월</option>
+				<option>4월</option>
+				<option>5월</option>
+				<option>6월</option>			
+			</select>
+			
+			<textarea rows="5" cols="50" name="textBox"></textarea>
+			
+			<input type="hidden" name="hidden1" value="1000">
+			<input type="hidden" name="hidden2" value="1000">
+			
+			
+			<br><br><br><br><br><br><br><br><br>
+			
+			<input type="reset" value="취소">
+			<input type="image" src="../img/btn.png" class="imgBtn">
+			<input type="submit" value="확인">
+			
+			
+			<br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br>
+			
+		</form>
+	</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.js"></script>
+
+<script>
+  $(function(){
+	 //$('p').click(function(){ }) 
+	 count = 0;
+	 /*$('p').bind('click', function(){
+		  count ++;
+		  $(this).css('font-size', '+=2px');
+		  if(count >= 5) {
+			  //$('p').unbind('click');
+			  $('p').off('click');
+		  }
+		  
+	 })*/
+	 
+	 $("#btn1").click(function(){
+		
+		count ++;
+		$("body").css('zoom', '+=5%');
+		
+		if(count >= 5) {
+			  //$('p').unbind('click');
+			  $(this).off('click');
+		  }
+	 });
+	 
+	 $("#btn2").click(function(){
+		
+		count ++;
+		$("body").css('zoom', '-=5%');
+		
+		if(count >= 5) {
+			  //$('p').unbind('click');
+			  $(document).off('click');
+		  }
+	 });
+  })
+</script>
+
+<style>
+  p{
+     font-size:20px; 
+	 cursor:pointer;
+  }
+</style>
+</head>
+<body>
+sdfsdfsd
+ <p>클릭하시면 큰 글씨로 볼 수 있습니다. </p>  
+ fdsfsdfsdf
+ <button id="btn1">확대</button>
+ <button id="btn2">축소</button>
+</body>
+</html>

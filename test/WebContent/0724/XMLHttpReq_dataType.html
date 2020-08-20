@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.2.1.min.js"></script>
+
+<script>
+/* -----readyState-----------------------
+0 : open()메서드 수행전
+1 : 로딩중
+2 : 로딩완료
+3 : 서버처리중
+4 : 서버처리끝
+서버의 처리결과status
+200 : 성공
+403 : 접근거부
+404 : 파일/페이지 없음
+
+----------------------------*/
+  $(function(){
+	   $('#txt').click(function(){
+		   var xhttp = new XMLHttpRequest();
+			//요청 get-----------------------------------------------
+			xhttp.open("GET", "textData.jsp", true);
+			xhttp.send(); //get일때는 url에 쿼리스트링으로 send()에는 붙이지 않는다 
+			
+			//응답...........................................................................................................................................................
+		xhttp.onreadystatechange = function() {
+			   if (this.readyState == 4 && this.status == 200) {
+				    var datas =   this.responseText.split("&");  //text
+					  var code = "<ul>";
+			          $.each(datas, function(i){
+						    code += "<li>" + datas[i] + "</li>" ; 
+					  })
+					  code += "</ul>";
+					  $('#result').html(code);
+			   }else {
+				    alert(this.readyState  + "," + this.status);
+			   }
+			};
+			  
+	   })
+	   
+	    $('#jsonArr').click(function(){
+	    	var xhttp = new XMLHttpRequest();
+			//요청 get-----------------------------------------------
+			xhttp.open("GET", "jsonArr.jsp", true);
+			xhttp.send(); //get일때는 url에 쿼리스트링으로 send()에는 붙이지 않는다 
+			
+		
+		//JSON Text라는 것은 형태는 JSON의 형태이지만 자바스크립트에서 이걸 Object가 아닌 
+		 //그냥 텍스트로만 인식하고 있다는 것이다.
+		 //이걸 Object로 바꾸어야만 그안의 값을 불러다가 사용할 수 있다.
+
+		//가장 흔한 예가 Ajax를 사용할 경우이다. Ajax로 호출을 하고 결과값으로 받은
+		//responseText로 JSON을 받았을 경우에는 그냥 Text이기 때문에 Object로 변환해 주어야 한다.
+        //JSON.parse() ;     json 객체로 변환시켜줍니다
+
+
+		//응답
+			xhttp.onreadystatechange = function() {
+			   if (this.readyState == 4 && this.status == 200) {
+				    var datas =  JSON.parse(this.responseText); //json으로변환
+					  var code = "<ol>";
+			          $.each(datas, function(i){
+						    code += "<li>" + datas[i] + "</li>" ; 
+					  })
+					  code += "</ol>";
+					  $('#result').html(code);
+			   }else {
+				    alert(this.readyState  + "," + this.status);
+			   }
+			};
+	   })
+	    $('#jsonObj').click(function(){
+	    	var xhttp = new XMLHttpRequest();
+			//요청 get-----------------------------------------------
+			xhttp.open("GET", "jsonObj.jsp", true);
+			xhttp.send(); //get일때는 url에 쿼리스트링으로 send()에는 붙이지 않는다 
+			
+			//응답
+			xhttp.onreadystatechange = function() {
+			   if (this.readyState == 4 && this.status == 200) {
+				    var datas =  JSON.parse(this.responseText); //json으로변환
+				    var code ="이름 : "  + datas.name + "<br>";
+					code += "전화 : " + datas.tel + "<br>";
+					code += "주소 : " + datas.addr + "<br>";
+					     
+					  $('#result').html(code);
+			   }else {
+				    alert(this.readyState  + "," + this.status);
+			   }
+			};
+	   })
+	   
+	   $('#jsonMix').click(function(){
+		   var xhttp = new XMLHttpRequest();
+			//요청 get-----------------------------------------------
+			xhttp.open("GET", "jsonMix.jsp", true);
+			xhttp.send(); //get일때는 url에 쿼리스트링으로 send()에는 붙이지 않는다 
+			//응답
+			xhttp.onreadystatechange = function() {
+			   if (this.readyState == 4 && this.status == 200) {
+				    var datas =  JSON.parse(this.responseText); //json으로변환
+					  var code = "";
+			          $.each(datas, function(i){
+			        	  code += (i+1) + "번째 회원 <br>";
+						  code += "이름 : " + datas[i].name + "<br>";
+						  code += "주소 : " + datas[i].addr + "<br>";
+						  code += "전화 : " + datas[i].tel + "<br><br>";
+					  })
+					
+					  $('#result').html(code);
+			   }else {
+				    alert(this.readyState  + "," + this.status);
+			   }
+			};
+	   })
+  })
+  </script>
+</head>
+<body>
+<button id="txt">TextData</button> 
+ <button id="jsonArr">jsonArr</button> 
+ <button id="jsonObj">jsonObj</button> 
+ <button id="jsonMix">jsonMix</button> 
+ <hr>
+ <div id="result"></div>
+
+</body>
+</html>
